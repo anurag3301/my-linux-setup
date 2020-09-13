@@ -16,3 +16,7 @@
 
 # Kite:
       bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
+      
+# Skype:
+      sudo curl -o /etc/yum.repos.d/skype-stable.repo https://repo.skype.com/rpm/stable/skype-stable.repo
+      sudo dnf install skypeforlinux
