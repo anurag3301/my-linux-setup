@@ -33,3 +33,6 @@
       sudo snap install telegram-desktop
       
       https://desktop.telegram.org/
+      
+# PyGame:
+      sudo dnf install python3-pygame
