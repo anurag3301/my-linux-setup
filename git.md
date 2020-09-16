@@ -8,3 +8,5 @@
       git config --global core.autocrlf input           //For Mac/Linux
       git config --global core.autocrlf type            //For Windows
       
+      git config --global -e  
+      
