@@ -14,10 +14,13 @@
 # Change Theme
       Select any Theme from https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
       
-      Edit:    vim ~/.zshrc
+      Edit:      vim ~/.zshrc
+      Edit:      ZSH_THEME="ThemeName"
+      Default:   ZSH_THEME="robbyrussell"
       
-      Edit:    ZSH_THEME="ThemeName"
-      Default: ZSH_THEME="robbyrussell"
-
-
+# Install Autosuggestion
+      git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
       
+      Edit:      vim ~/.zshrc
+      Edit:      plugins=(git zsh-autosuggestions)
+      Default:   plugins=(git)
