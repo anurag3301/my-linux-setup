@@ -24,3 +24,11 @@
       Edit:      vim ~/.zshrc
       Edit:      plugins=(git zsh-autosuggestions)
       Default:   plugins=(git)
+
+# Aliasing
+      Syntax:    alias commandName="full command"
+      
+      Uncomment: # alias zshconfig="mate ~/.zshrc"
+      Edit:      alias zshconfig="vim ~/.zshrc"
+
+         
