@@ -9,3 +9,6 @@
       sudo make install
       
       tiv   <picture.jpg>
+
+# Fetch file over SSH 
+      scp remote@ip:/path/of/file /destination/of/file
