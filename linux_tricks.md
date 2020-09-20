@@ -10,5 +10,10 @@
       
       tiv   <picture.jpg>
 
-# Fetch file over SSH 
-      scp remote@ip:/path/of/file /destination/of/file
+# Fetch file over SSH from remote machine
+      scp  remote@ip:/path/of/file  /destination/of/file
+
+# Send file over SSH to remote machine
+      scp  /path/of/file  remote@ip:/destination/of/file
+
+      
