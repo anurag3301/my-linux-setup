@@ -12,16 +12,16 @@
       
       
 # SSH Setup:
-  Generate a new SSH public/private key:
-      ssh-keygen -t rsa -b 4096 -C "email@gmail.com"
+      Generate a new SSH public/private key:
+            ssh-keygen -t rsa -b 4096 -C "email@gmail.com"
       
-  Activate SSH agent:
-      eval $(ssh-agent -s)
+      Activate SSH agent:
+            eval $(ssh-agent -s)
       
-  Add the new key:
-      ssh-add ~/.ssh/id_rsa
+      Add the new key:
+            ssh-add ~/.ssh/id_rsa
   
-  Copy the public key from output of following command:
-      ssh-add ~/.ssh/id_rsa
+     Copy the public key from output of following command:
+            ssh-add ~/.ssh/id_rsa
 
-  Paste The Key in GitHub > Setting > SSH and GPG keys > New SSH key
+     Paste The Key in GitHub > Setting > SSH and GPG keys > New SSH key
