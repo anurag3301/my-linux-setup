@@ -5,23 +5,20 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'zxqfl/tabnine-vim'
 Plugin 'frazrepo/vim-rainbow'
+Plugin 'codota/tabnine-vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'vim-python/python-syntax'
+Plugin 'ternjs/tern_for_vim', { 'do' : 'npm install' } 
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'preservim/nerdtree'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 colorscheme molokai
 highlight Comment cterm=bold
 set number
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-inoremap { {}<Esc>ha
-inoremap ( ()<Esc>ha
-inoremap [ []<Esc>ha
-inoremap " ""<Esc>ha
-inoremap ' ''<Esc>ha
-inoremap ` ``<Esc>ha
+set tabstop=4 expandtab shiftwidth=4 smarttab
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
@@ -48,3 +45,13 @@ set directory=/tmp
 set nobackup
 set noswapfile
 set splitbelow
+set splitright
+autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
+autocmd FileType cpp nnoremap     <leader>rm    :!g++ -g --std=c++11 % -o %:r<CR>
+autocmd FileType cpp nnoremap     <leader>rr    :!./%:r<CR>
+autocmd FileType cpp nnoremap     <leader>rt    :!for f in *.test; do echo "\nTEST: $f"; ./%:r < $f; done<CR>
+autocmd FileType python nnoremap     <leader>rr    :!python %:r.py<CR>
+autocmd FileType python nnoremap     <leader>rt    :!for f in *.test; do echo "\nTEST: $f"; python %:r.py < $f; done<CR>
+map <F8> :NERDTreeToggle<CR>
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
