@@ -21,4 +21,9 @@
 # Stegnography using steghide
       Embed message:     steghide embed -cf image.jpg -ef sectete_message.txt
       Extract message:   steghide extract -sf image.jpg 
+
+# Encrypt file using ccrypt
+      sudo dnf install ccrypt
+      ccencrypt file.txt
+      ccdecrypt file.txt.cpt
       

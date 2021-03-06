@@ -1,16 +1,16 @@
+# DNF Package:
+      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ node npm bpython 
+
 # SnapCraft:
       sudo dnf install snapd
       sudo ln -s /var/lib/snapd/snap /snap
+
+# Snap Package:
+      snap install spotify telegram-desktop
       
 # Flatpak:
       sudo dnf install -y flatpak
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-# Spotify:
-      sudo dnf install lpf-spotify-client
-      lpf update
-                        
-      sudo flatpak install flathub com.spotify.Client
       
 # Chrome: 
       sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
@@ -29,10 +29,3 @@
       
       sudo flatpak install -y --from https://flathub.org/repo/appstream/com.skype.Client.flatpakref
       
-# Telegram:
-      sudo snap install telegram-desktop
-      
-      https://desktop.telegram.org/
-      
-# PyGame:
-      sudo dnf install python3-pygame
