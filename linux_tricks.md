@@ -1,3 +1,6 @@
+# Arduino permission problem -FIX
+      sudo usermod -a -G dialout $USER
+
 # Preview image      
       On a image viewer:
             eog   <picture.jpg>
