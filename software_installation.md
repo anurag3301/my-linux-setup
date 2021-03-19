@@ -1,5 +1,5 @@
 # DNF Package:
-      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ node npm bpython vlc
+      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ node npm bpython filezilla vim vim-X11 bat
 
 # SnapCraft:
       sudo dnf install snapd
