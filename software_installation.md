@@ -8,13 +8,14 @@
 # Snap Package:
       snap install spotify telegram-desktop
       
-# Flatpak:
-      sudo dnf install -y flatpak
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-      
 # Chrome: 
       sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-
+      
+# Sublime Text: 
+      sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+      sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+      sudo dnf install sublime-text
+    
 # Kite:
       bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
       
