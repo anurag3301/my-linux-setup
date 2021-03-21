@@ -95,11 +95,10 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
- alias zshconfig="mate ~/.zshrc"
- alias rem="python /home/anurag/Documents/program/reminder/reminder.py"
  alias sqlite="/usr/bin/sqlite3"
  alias vrc="vim ~/.vimrc"
  alias zrc="vim ~/.zshrc"
+ alias rr="ranger"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export NVM_DIR="$HOME/.nvm"
