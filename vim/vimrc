@@ -17,7 +17,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 colorscheme molokai         " The Theme of vim
-" Link to get the theme https://github.com/sickill/vim-monokai
+" Link to get the theme https://github.com/tomasr/molokai
 highlight Comment cterm=bold
 
 " Extra to c++ syntax highlighting
