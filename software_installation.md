@@ -1,5 +1,5 @@
 # DNF Package:
-      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ node npm bpython filezilla vim vim-X11 bat clang openvpn dialog python3-pip python3-setuptools
+      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ htop node npm bpython filezilla vim vim-X11 bat clang openvpn dialog python3-pip python3-setuptools
 
 # SnapCraft:
       sudo dnf install snapd
