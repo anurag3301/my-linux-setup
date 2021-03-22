@@ -1,5 +1,9 @@
 # Arduino permission problem -FIX
       sudo usermod -a -G dialout $USER
+      
+# Sudo command dont ask for password
+      sudo visudo
+      append: anurag ALL=(ALL) NOPASSWD:ALL
 
 # Preview image      
       On a image viewer:
