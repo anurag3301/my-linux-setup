@@ -1,5 +1,5 @@
 # DNF Package:
-      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ node npm bpython filezilla vim vim-X11 bat clang
+      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ node npm bpython filezilla vim vim-X11 bat clang openvpn dialog python3-pip python3-setuptools
 
 # SnapCraft:
       sudo dnf install snapd
@@ -15,7 +15,11 @@
       sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
       sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
       sudo dnf install sublime-text
-    
+
+# ProtonVPN:
+      sudo pip3 install protonvpn-cli
+      protonvpn init
+          
 # Kite:
       bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
       
