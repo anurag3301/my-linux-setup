@@ -1,12 +1,12 @@
 # DNF Package:
-      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ node npm bpython filezilla vim vim-X11 bat
+      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ node npm bpython filezilla vim vim-X11 bat clang
 
 # SnapCraft:
       sudo dnf install snapd
       sudo ln -s /var/lib/snapd/snap /snap
 
 # Snap Package:
-      snap install spotify telegram-desktop
+      snap install spotify telegram-desktop vlc discord
       
 # Chrome: 
       sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
