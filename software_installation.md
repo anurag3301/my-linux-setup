@@ -1,5 +1,8 @@
+# RPM Fusion:
+      sudo dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+
 # DNF Package:
-      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ htop node npm bpython filezilla vim vim-X11 bat clang openvpn dialog python3-pip python3-setuptools
+      sudo dnf install gnome-tweak-tool ranger neofetch ccrypt g++ htop node npm bpython filezilla vim vim-X11 bat clang openvpn dialog python3-pip python3-setuptools simplescreenrecorder
 
 # SnapCraft:
       sudo dnf install snapd
