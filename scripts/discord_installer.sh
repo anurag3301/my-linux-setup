@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ -d ~/.program ]; then
     echo "~/.program directory exits, cd into it"
     cd ~/.program
