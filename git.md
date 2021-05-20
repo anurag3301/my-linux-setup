@@ -9,11 +9,11 @@
       git config --global core.autocrlf type            //For Windows
       
       git config --global -e  
-      
-      
+
+
 # SSH Key Setup:
       Generate a new SSH public/private key:
-            ssh-keygen -t rsa -b 4096 -C "email@gmail.com"
+            ssh-keygen -t rsa -b 4096 -C "anuragkumar07102003@gmail.com
       
       Activate SSH agent:
             eval $(ssh-agent -s)
@@ -22,7 +22,7 @@
             ssh-add ~/.ssh/id_rsa
   
      Copy the public key from output of following command:
-            ~/.ssh/id_rsa
+            cat ~/.ssh/id_rsa
 
      Paste The Key in GitHub > Setting > SSH and GPG keys > New SSH key
 
@@ -44,8 +44,3 @@
       Now congit your git to sign every commit made on the system:
             git config --global commit.gpgsign true
 
-
-      
-
-
-        
