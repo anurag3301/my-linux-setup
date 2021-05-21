@@ -8,6 +8,11 @@
 # Snap Package:
       snap install spotify telegram-desktop vlc
 
+# NVIDIA CUDA Toolkit and cuDNN library:
+      sudo apt install system76-cuda-latest
+      sudo apt install system76-cudnn-10.2
+      `Visit https://support.system76.com/articles/cuda/`
+
 # Chrome: 
       wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       sudo dpkg -i google-chrome-stable_current_amd64.deb
