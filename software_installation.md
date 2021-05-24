@@ -1,5 +1,5 @@
 # APT Package:
-      sudo apt install gnome-tweak-tool ranger neofetch ccrypt g++ htop nodejs npm bpython filezilla vim vim-gtk bat clang openvpn dialog python3-pip python3-setuptools simplescreenrecorder python3-deve obs-studio gimp
+      sudo apt install gnome-tweak-tool ranger neofetch ccrypt g++ htop nvtop nodejs npm bpython filezilla vim vim-gtk bat clang openvpn dialog python3-pip python3-setuptools simplescreenrecorder python3-dev obs-studio gimp
 
 # SnapCraft:
       sudo dnf install snapd
