@@ -101,9 +101,18 @@ source $ZSH/oh-my-zsh.sh
  alias rr="ranger"
  alias reaout="pulseaudio -k && pactl load-module module-detect"
  alias h="htop"
+ alias transcode="mkdir transcoded; for i in *.mp4; do ffmpeg -i "$i" -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -f mov "transcoded/${i%.*}.mov"; done"
+ alias bat="batcat"
+ alias pico="sh /home/anurag/.program/pico_upload.sh"
+ alias serial_pico="cu -l /dev/ttyACM0 -s 9600"
+ alias code="/usr/share/code/bin/code"
+ alias list_ctrls_cam="v4l2-ctl -d /dev/video0 --list-ctrls"
+ alias set_power_cam="v4l2-ctl -d /dev/video0 --set-ctrl=power_line_frequency=1"
+ alias zoom_cam="v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute="
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH
