@@ -22,7 +22,7 @@
             ssh-add ~/.ssh/id_rsa
   
      Copy the public key from output of following command:
-            cat ~/.ssh/id_rsa
+            cat ~/.ssh/id_rsa.pub
 
      Paste The Key in GitHub > Setting > SSH and GPG keys > New SSH key
 
