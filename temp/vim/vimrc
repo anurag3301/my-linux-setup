@@ -1,4 +1,3 @@
-" run to install vundel: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set nocompatible              " required filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -6,12 +5,11 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'frazrepo/vim-rainbow'
-"Plugin 'codota/tabnine-vim'
+Plugin 'luochen1990/rainbow'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'itchyny/lightline.vim'
 Plugin 'vim-python/python-syntax'
-Plugin 'ternjs/tern_for_vim', { 'do' : 'npm install' } 
+Plugin 'ternjs/tern_for_vim', { 'do' : 'npm install' }
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
 Plugin 'sheerun/vim-polyglot'
@@ -35,23 +33,46 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 
-let g:rainbow_active = 1    " Enabling rainbow brackets
+ let g:rainbow_active = 1    " Enabling rainbow brackets
 
-" Extra to rainbow brackets
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+let g:rainbow_conf = {
+\       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\       'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\       'guis': [''],
+\       'cterms': [''],
+\       'operators': '_,_',
+\       'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\       'separately': {
+\               '*': {},
+\               'markdown': {
+\                       'parentheses_options': 'containedin=markdownCode contained',
+\               },
+\               'lisp': {
+\                       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\               },
+\               'haskell': {
+\                       'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'],
+\               },
+\               'vim': {
+\                       'parentheses_options': 'containedin=vimFuncBody',
+\               },
+\               'perl': {
+\                       'syn_name_prefix': 'perlBlockFoldRainbow',
+\               },
+\               'stylus': {
+\                       'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'],
+\               },
+\               'css': 0,
+\       'html': 0,
+\       }
+\}
+
 
 let g:python_highlight_all = 1  " Enable python syntax highlighting
 
 map <F8> :NERDTreeToggle<CR>
 
-" Close the preview window after work is done in YCM 
+" Close the preview window after work is done in YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
@@ -82,4 +103,3 @@ autocmd FileType python nnoremap     <leader>rr    :!python %:r.py<CR>
 autocmd FileType python nnoremap     <leader>rt    :!for f in *.test; do echo "\nTEST: $f"; python %:r.py < $f; done<CR>
 
 set clipboard=unnamedplus       " For using global clipboard
-
