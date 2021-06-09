@@ -1,3 +1,4 @@
+" run to install vundel: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set nocompatible              " required filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
