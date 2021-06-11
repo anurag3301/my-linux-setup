@@ -13,7 +13,7 @@
 
 # SSH Key Setup:
       Generate a new SSH public/private key:
-            ssh-keygen -t rsa -b 4096 -C "anuragkumar07102003@gmail.com
+            ssh-keygen -t rsa -b 4096 -C "anuragkumar07102003@gmail.com"
       
       Activate SSH agent:
             eval $(ssh-agent -s)
