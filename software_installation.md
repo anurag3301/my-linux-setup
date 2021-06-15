@@ -1,5 +1,5 @@
 # APT Package:
-      sudo apt install gnome-tweak-tool ranger neofetch ccrypt g++ htop nvtop nodejs npm bpython filezilla vim vim-gtk bat clang openvpn dialog python3-pip python3-setuptools simplescreenrecorder python3-dev obs-studio gimp
+      sudo apt install gnome-tweak-tool ranger neofetch ccrypt g++ htop nvtop nodejs npm bpython filezilla vim vim-gtk bat clang openvpn dialog python3-pip python3-setuptools simplescreenrecorder python3-dev obs-studio gimp catimg notepadqq
 
 # SnapCraft:
       sudo dnf install snapd
@@ -7,6 +7,13 @@
 
 # Snap Package:
       snap install spotify telegram-desktop vlc
+
+# Brave:
+    sudo apt install apt-transport-https curl
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt update
+    sudo apt install brave-browser
 
 # NVIDIA CUDA Toolkit and cuDNN library:
       sudo apt install system76-cuda-latest
