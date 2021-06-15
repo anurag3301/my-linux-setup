@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Discord
+Exec=/home/anurag/.program/Discord/Discord
+Icon=/home/anurag/.program/Discord/discord.png
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;
+X-GNOME-UsesNotifications=true
+

@@ -1,0 +1,30 @@
+[global_config]
+  dbus = False
+  focus = system
+  window_state = maximise
+  borderless = True
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+[keybindings]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    show_titlebar = False
+  [[Aci]]
+    background_color = "#0d1926"
+    background_darkness = 0.97
+    background_type = transparent
+    cursor_color = "#c4e9ff"
+    font = Monospace 13
+    foreground_color = "#b4e1fd"
+    show_titlebar = False
+    palette = "#363636:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6:#363636:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
