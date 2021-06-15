@@ -1,11 +1,12 @@
-set nocompatible              " required filetype off                  " required
+set nocompatible 
+colorscheme molokai
+syntax on
+highlight Comment cterm=bold
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'gmarik/Vundle.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'luochen1990/rainbow'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'itchyny/lightline.vim'
 Plugin 'vim-python/python-syntax'
@@ -16,65 +17,16 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vimsence/vimsence'
-
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colorscheme molokai         " The Theme of vim
-" Link to get the theme https://github.com/tomasr/molokai
-highlight Comment cterm=bold
-syntax on
 " Extra to c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
-let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
-
- let g:rainbow_active = 1    " Enabling rainbow brackets
-
-let g:rainbow_conf = {
-\       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-\       'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-\       'guis': [''],
-\       'cterms': [''],
-\       'operators': '_,_',
-\       'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-\       'separately': {
-\               '*': {},
-\               'markdown': {
-\                       'parentheses_options': 'containedin=markdownCode contained',
-\               },
-\               'lisp': {
-\                       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-\               },
-\               'haskell': {
-\                       'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'],
-\               },
-\               'vim': {
-\                       'parentheses_options': 'containedin=vimFuncBody',
-\               },
-\               'perl': {
-\                       'syn_name_prefix': 'perlBlockFoldRainbow',
-\               },
-\               'stylus': {
-\                       'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'],
-\               },
-\               'css': 0,
-\       'html': 0,
-\       }
-\}
-
-
-let g:python_highlight_all = 1  " Enable python syntax highlighting
-
-map <F8> :NERDTreeToggle<CR>
-
-" Close the preview window after work is done in YCM
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
 
 set number                  " Enable number line
 set tabstop=4 expandtab shiftwidth=4 smarttab   " Setting up the tab width
@@ -86,6 +38,10 @@ set complete+=kspell
 set completeopt=menuone
 
 
+let g:python_highlight_all = 1  " Enable python syntax highlighting
+
+map <F8> :NERDTreeToggle<CR>
+
 " Disabling creation of swap files
 set directory=/tmp
 set nobackup
@@ -93,6 +49,7 @@ set noswapfile
 
 set splitbelow
 set splitright
+
 
 " Shortcut for code running and Executing test cases for competitive programming
 " Detial readup https://medium.com/@akashrrao/how-i-use-vim-for-competitive-programming-1f0fc96682e0
