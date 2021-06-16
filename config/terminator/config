@@ -14,10 +14,18 @@
     background_darkness = 0.97
     background_type = transparent
     cursor_color = "#c4e9ff"
-    font = Monospace 13
+    font = JetBrainsMono Nerd Font 13
     foreground_color = "#b4e1fd"
     show_titlebar = False
     palette = "#363636:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6:#363636:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6"
+    use_system_font = False
+  [[Molokai]]
+    background_color = "#121212"
+    cursor_color = "#bbbbbb"
+    font = JetBrainsMono NF 13
+    foreground_color = "#bbbbbb"
+    show_titlebar = False
+    palette = "#121212:#fa2573:#98e123:#dfd460:#1080d0:#8700ff:#43a8d0:#bbbbbb:#555555:#f6669d:#b1e05f:#fff26d:#00afff:#af87ff:#51ceff:#ffffff"
     use_system_font = False
 [layouts]
   [[default]]
