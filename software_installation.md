@@ -1,12 +1,12 @@
 # APT Package:
-      sudo apt install gnome-tweak-tool ranger neofetch ccrypt g++ htop nvtop nodejs npm bpython filezilla vim vim-gtk bat clang openvpn dialog python3-pip python3-setuptools simplescreenrecorder python3-dev obs-studio gimp catimg notepadqq exa
+      sudo apt install gnome-tweak-tool ranger neofetch ccrypt g++ htop nvtop nodejs npm bpython filezilla vim vim-gtk bat clang openvpn dialog python3-pip python3-setuptools simplescreenrecorder python3-dev obs-studio gimp catimg notepadqq exa ripgrep
 
 # SnapCraft:
       sudo dnf install snapd
       sudo ln -s /var/lib/snapd/snap /snap
 
 # Snap Package:
-      snap install spotify telegram-desktop vlc
+      snap install spotify telegram-desktop vlc spt
 
 # Brave:
     sudo apt install apt-transport-https curl
