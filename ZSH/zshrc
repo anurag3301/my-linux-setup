@@ -32,6 +32,7 @@ alias la='exa -al --color=always --group-directories-first --icons' # my preferr
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat '
+alias kdiff='kitty +kitten diff '
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
