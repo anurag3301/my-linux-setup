@@ -1,0 +1,5 @@
+# Wallpaper
+nitrogen --restore &
+
+# Execute dwm
+exec dwm
