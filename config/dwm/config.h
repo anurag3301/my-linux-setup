@@ -69,9 +69,9 @@ static const char *play_pause_spotify[] = { "playerctl", "play-pause", "-p", "sp
 static const char *next_spotify[] = { "playerctl", "next","-p", "spotify", NULL};
 static const char *previous_spotify[] = { "playerctl", "previous","-p", "spotify", NULL};
 
-static const char *play_pause[] = { "playerctl", "play-pause", NULL};
-static const char *next[] = { "playerctl", "next", NULL};
-static const char *previous[] = { "playerctl", "previous", NULL};
+static const char *play_pause[] = { "playerctl", "play-pause", "-i", "spotify", NULL};
+static const char *next[] = { "playerctl", "next","-i", "spotify", NULL};
+static const char *previous[] = { "playerctl", "previous","-i", "spotify", NULL};
 
 static const char *kitty[] = {"kitty", NULL};
 
@@ -118,6 +118,9 @@ static Key keys[] = {
 	{ 0, 		XF86XK_AudioPlay,           spawn, 	   {.v = play_pause_spotify } },
 	{ 0, 		XF86XK_AudioPrev,           spawn, 	   {.v = previous_spotify } },
 	{ 0, 		XF86XK_AudioNext,           spawn, 	   {.v = next_spotify } },
+	{ ShiftMask, 	XF86XK_AudioPlay,           spawn, 	   {.v = play_pause } },
+	{ ShiftMask, 	XF86XK_AudioPrev,           spawn, 	   {.v = previous } },
+	{ ShiftMask, 	XF86XK_AudioNext,           spawn, 	   {.v = next } },
 	{ MODKEY,                       XK_space,   spawn,	   {.v = kitty} }, 
 };
 
