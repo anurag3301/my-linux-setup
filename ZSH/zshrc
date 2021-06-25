@@ -1,6 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+neofetch
+
 export ZSH="/home/anurag/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 HIST_STAMPS="dd.mm.yyyy"
 
 plugins=(git zsh-autosuggestions)
@@ -13,13 +21,12 @@ alias zrc="vim ~/.zshrc"
 alias rr="ranger"
 alias reaout="pulseaudio -k && pactl load-module module-detect"
 alias transcode="mkdir transcoded; for i in *.mp4; do ffmpeg -i "$i" -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -f mov "transcoded/${i%.*}.mov"; done"
-alias bat="batcat"
 alias pico="sh /home/anurag/.program/pico_upload.sh"
 alias serial_pico="cu -l /dev/ttyACM0 -s 9600"
 alias camctl="v4l2-ctl -d /dev/video0 --list-ctrls"
 alias campow="v4l2-ctl -d /dev/video0 --set-ctrl=power_line_frequency=1"
 alias zoom_cam="v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute="
-alias gotop="~/.program/gotop/gotop"
+#alias gotop="~/.program/gotop/gotop"
 alias c="clear"
 alias q="exit"
 alias ls='exa --color=always --group-directories-first --icons'  # all files and dirs
@@ -33,3 +40,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
