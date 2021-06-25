@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "","", "", "" };
+static const char *tags[] = { " ", " "," ", " ", " ",};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -60,9 +60,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *web[] = {"brave", NULL};
-static const char *mute[] = {"pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *volup[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *voldown[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *mute[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *volup[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *voldown[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *play_pause[] = { "playerctl", "play-pause", NULL};
 static const char *next[] = { "playerctl", "next", NULL};
 static const char *previous[] = { "playerctl", "previous", NULL};
