@@ -19,20 +19,19 @@ alias sqlite="/usr/bin/sqlite3"
 alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias rr="ranger"
-alias reaout="pulseaudio -k && pactl load-module module-detect"
 alias transcode="mkdir transcoded; for i in *.mp4; do ffmpeg -i "$i" -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -f mov "transcoded/${i%.*}.mov"; done"
 alias pico="sh /home/anurag/.program/pico_upload.sh"
 alias serial_pico="cu -l /dev/ttyACM0 -s 9600"
 alias camctl="v4l2-ctl -d /dev/video0 --list-ctrls"
 alias campow="v4l2-ctl -d /dev/video0 --set-ctrl=power_line_frequency=1"
 alias zoom_cam="v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute="
-#alias gotop="~/.program/gotop/gotop"
 alias c="clear"
 alias q="exit"
 alias ls='exa --color=always --group-directories-first --icons'  # all files and dirs
 alias la='exa -al --color=always --group-directories-first --icons' # my preferred listing
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format
 alias l.='exa -a | rg "^\."'
+alias icat='kitty +kitten icat '
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
