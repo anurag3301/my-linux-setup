@@ -60,12 +60,19 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *web[] = {"brave", NULL};
+
 static const char *mute[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
 static const char *volup[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *voldown[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+
+static const char *play_pause_spotify[] = { "playerctl", "play-pause", "-p", "spotify", NULL};
+static const char *next_spotify[] = { "playerctl", "next","-p", "spotify", NULL};
+static const char *previous_spotify[] = { "playerctl", "previous","-p", "spotify", NULL};
+
 static const char *play_pause[] = { "playerctl", "play-pause", NULL};
 static const char *next[] = { "playerctl", "next", NULL};
 static const char *previous[] = { "playerctl", "previous", NULL};
+
 static const char *kitty[] = {"kitty", NULL};
 
 
@@ -108,9 +115,9 @@ static Key keys[] = {
 	{ 0, 		XF86XK_AudioMute, 	    spawn,         {.v = mute } },
 	{ 0, 		XF86XK_AudioLowerVolume,    spawn, 	   {.v = voldown } },
 	{ 0, 		XF86XK_AudioRaiseVolume,    spawn, 	   {.v = volup } },
-	{ 0, 		XF86XK_AudioPlay,           spawn, 	   {.v = play_pause } },
-	{ 0, 		XF86XK_AudioPrev,           spawn, 	   {.v = previous } },
-	{ 0, 		XF86XK_AudioNext,           spawn, 	   {.v = next } },
+	{ 0, 		XF86XK_AudioPlay,           spawn, 	   {.v = play_pause_spotify } },
+	{ 0, 		XF86XK_AudioPrev,           spawn, 	   {.v = previous_spotify } },
+	{ 0, 		XF86XK_AudioNext,           spawn, 	   {.v = next_spotify } },
 	{ MODKEY,                       XK_space,   spawn,	   {.v = kitty} }, 
 };
 
