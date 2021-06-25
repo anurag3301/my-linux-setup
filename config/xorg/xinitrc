@@ -1,6 +1,12 @@
 # Wallpaper
 nitrogen --restore &
 
+# Startup application
+
+discord &
+spotify &
+brave &
+kitty &
 
 while true; do
     # Log stderror to a file 
