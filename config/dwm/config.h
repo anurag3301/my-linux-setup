@@ -19,6 +19,9 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+/* staticstatus */
+static const int statmonval = 1;
+
 /* tagging */
 static const char *tags[] = { " ", " "," ", " ", " ",};
 
@@ -30,7 +33,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Brave-browser",  NULL, NULL,       0,   	    0,            0 },
 	{ "discord",  NULL,       NULL,       1 << 1,       0,            0 },
-	{ "kitty",    NULL,       "Kitty",       0,            0,            1 },
+	{ "kitty",    NULL,       NULL,       0,            0,            1 },
 	{ "Spotify",  NULL,       NULL,       1 << 3,       0,            1 },
 	{ "TelegramDesktop",NULL, NULL,       1 << 4,       0,            1 },
 
