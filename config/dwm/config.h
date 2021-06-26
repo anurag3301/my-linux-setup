@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { " ", " "," ", " ", " ",};
+static const char *tags[] = { " ", " "," ", " ", " ",};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -77,6 +77,7 @@ static const char *next[] = { "playerctl", "next","-i", "spotify", NULL};
 static const char *previous[] = { "playerctl", "previous","-i", "spotify", NULL};
 
 static const char *kitty[] = {"kitty", NULL};
+static const char *audio[] = {"/home/anurag/.program/audio.sh", NULL};
 
 
 static Key keys[] = {
@@ -126,6 +127,7 @@ static Key keys[] = {
 	{ ShiftMask, 	XF86XK_AudioNext,           spawn, 	   {.v = next } },
 	{ MODKEY,       XK_space,                   spawn,         {.v = kitty} }, 
 	{ 0,            XK_Print,                   spawn,         SHCMD("scrot -s -q 100 ~/Pictures/'screenshot-%Y-%m-%d-%H_%M_%S.jpg'") },
+	{ 0,            XK_F8,                      spawn,         {.v = audio} },
 };
 
 /* button definitions */
