@@ -14,7 +14,6 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-alias sqlite="/usr/bin/sqlite3"
 
 alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
@@ -33,6 +32,10 @@ alias ll='exa -l --color=always --group-directories-first --icons'  # long forma
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat '
 alias kdiff='kitty +kitten diff '
+alias cdwm='cd /home/anurag/.program/dwm/'
+alias vdwm='sudo vim /home/anurag/.program/dwm/config.h'
+alias mdwm='cdwm && sudo make clean install'
+alias wtr='curl wttr.in'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
