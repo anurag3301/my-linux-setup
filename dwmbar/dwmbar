@@ -1,0 +1,109 @@
+#!/bin/bash
+# Copyright 2019 Archie Hilton <archie.hilton1@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+VERSION="1.0"
+
+DEFAULT_CONFIG_DIR="/usr/share/dwmbar"
+export DEFAULT_CONFIG_DIR
+DEFAULT_MODULES_DIR="$DEFAULT_CONFIG_DIR/modules/"
+export DEFAULT_MODULES_DIR
+DEFAULT_BAR_LOCATION="$DEFAULT_CONFIG_DIR/bar.sh"
+export DEFAULT_BAR_LOCATION
+DEFAULT_CONFIG_LOCATION="$DEFAULT_CONFIG_DIR/config"
+export DEFAULT_CONFIG_LOCATION
+
+CONFIG_DIR="/home/$USER/.config/dwmbar/"
+export CONFIG_DIR
+
+CUSTOM_DIR="$CONFIG_DIR/custom/"
+export CUSTOM_DIR
+
+CONFIG_FILE="$CONFIG_DIR/config"
+if [[ ! -f "$CONFIG_FILE" ]]; then
+	CONFIG_FILE=$DEFAULT_CONFIG_LOCATION
+fi
+export CONFIG_FILE
+
+CACHE_DIR="$HOME/.cache/dwmbar/"
+export CACHE_DIR
+
+INTERNET=1 # No internet
+export INTERNET
+
+print_help(){
+	echo "dwmbar $VERSION
+-v	Display this help message.
+-c	Copy default files to /home/$USER/.config/dwmbar
+"
+}
+
+copy_usr_to_home(){
+	mkdir -p "$CUSTOM_DIR"
+	cp -r "$DEFAULT_CONFIG_LOCATION" "$CONFIG_DIR"
+}
+
+check_files(){
+	if [[ ! -d "$DEFAULT_CONFIG_DIR" ]]; then
+		echo "$DEFAULT_CONFIG_DIR does not exist." > /dev/stderr
+		exit 1
+	fi
+
+	if [[ ! -d "$DEFAULT_MODULES_DIR" ]]; then
+		echo "$DEFAULT_MODULES_DIR does not exist." > /dev/stderr
+		exit 1
+	fi
+
+    if [[ ! -d "$CACHE_DIR" ]]; then
+		mkdir -p "$CACHE_DIR"
+    fi
+
+	if [[ ! -f "$DEFAULT_BAR_LOCATION" ]]; then
+		echo "$DEFAULT_BAR_LOCATION does not exist." > /dev/stderr
+		exit 1
+	fi
+
+    if [[ ! -f "$DEFAULT_CONFIG_LOCATION" ]]; then
+        echo "$DEFAULT_CONFIG_LOCATION does not exist." > /dev/stderr
+        exit 1
+    fi
+}
+
+while getopts 'vc' flag; do
+	case "${flag}" in
+		v) 	print_help
+			exit 0				;;
+		c)	copy_usr_to_home
+			exit 0				;;
+	esac
+done
+
+check_internet() {
+		wget --spider -q --timeout=2 www.google.com
+		if [[ $? -eq 0 ]]; then
+			echo 0
+		else
+			echo 1
+		fi
+}
+
+check_files
+
+while :; do
+	date=$(date +'%S')
+	if [ $(( 10#$date % 5 )) -eq 0 ]; then
+		INTERNET=$(check_internet)
+	fi
+	xsetroot -name "$(exec $DEFAULT_BAR_LOCATION)"
+done
