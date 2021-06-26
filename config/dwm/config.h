@@ -32,6 +32,7 @@ static const Rule rules[] = {
 	{ "discord",  NULL,       NULL,       1 << 1,       0,            0 },
 	{ "kitty",    NULL,       NULL,       0,            0,            1 },
 	{ "Spotify",  NULL,       NULL,       1 << 3,       0,            1 },
+	{ "TelegramDesktop",NULL, NULL,       1 << 4,       0,            1 },
 
 };
 
