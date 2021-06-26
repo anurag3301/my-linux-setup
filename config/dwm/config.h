@@ -75,6 +75,7 @@ static const char *previous_spotify[] = { "playerctl", "previous","-p", "spotify
 static const char *play_pause[] = { "playerctl", "play-pause", "-i", "spotify", NULL};
 static const char *next[] = { "playerctl", "next","-i", "spotify", NULL};
 static const char *previous[] = { "playerctl", "previous","-i", "spotify", NULL};
+static const char *screenshot[] = {"scrot", "--select", NULL};
 
 static const char *kitty[] = {"kitty", NULL};
 
@@ -124,7 +125,8 @@ static Key keys[] = {
 	{ ShiftMask, 	XF86XK_AudioPlay,           spawn, 	   {.v = play_pause } },
 	{ ShiftMask, 	XF86XK_AudioPrev,           spawn, 	   {.v = previous } },
 	{ ShiftMask, 	XF86XK_AudioNext,           spawn, 	   {.v = next } },
-	{ MODKEY,                       XK_space,   spawn,	   {.v = kitty} }, 
+	{ MODKEY,       XK_space,                   spawn,         {.v = kitty} }, 
+	{ 0,            XK_Print,                   spawn,         {.v = screenshot } },
 };
 
 /* button definitions */
