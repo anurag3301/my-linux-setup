@@ -31,9 +31,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Brave-browser",  NULL, NULL,       0,   	    0,            0 },
-	{ "discord",  NULL,       NULL,       1 << 1,       0,            0 },
-	{ "kitty",    NULL,       NULL,       0,            0,            1 },
+	{ "discord",  NULL,       NULL,       1 << 2,       0,            1 },
 	{ "Spotify",  NULL,       NULL,       1 << 3,       0,            1 },
 	{ "TelegramDesktop",NULL, NULL,       1 << 4,       0,            1 },
 
@@ -82,6 +80,7 @@ static const char *previous[] = { "playerctl", "previous","-i", "spotify", NULL}
 
 static const char *kitty[] = {"kitty", NULL};
 static const char *audio[] = {"/home/anurag/.program/audio.sh", NULL};
+static const char *code[] = {"code", NULL};
 
 
 static Key keys[] = {
@@ -89,7 +88,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-    	{ MODKEY,                       XK_w,      spawn,          {.v = web }},
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -132,6 +130,8 @@ static Key keys[] = {
 	{ MODKEY,       XK_space,                   spawn,         {.v = kitty} }, 
 	{ 0,            XK_Print,                   spawn,         SHCMD("scrot -s -q 100 ~/Pictures/'screenshot-%Y-%m-%d-%H_%M_%S.jpg'") },
 	{ 0,            XK_F8,                      spawn,         {.v = audio} },
+    	{ MODKEY,                       XK_w,      spawn,          {.v = web }},
+	{ MODKEY,                       XK_c,       spawn,         {.v = code}}, 
 };
 
 /* button definitions */
