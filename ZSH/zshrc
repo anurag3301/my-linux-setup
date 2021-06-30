@@ -18,6 +18,8 @@ source $ZSH/oh-my-zsh.sh
 alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias rr="ranger"
+alias h="htop"
+alias g="gotop"
 alias transcode="mkdir transcoded; for i in *.mp4; do ffmpeg -i "$i" -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -f mov "transcoded/${i%.*}.mov"; done"
 alias pico="sh /home/anurag/.program/pico_upload.sh"
 alias serial_pico="cu -l /dev/ttyACM0 -s 9600"
@@ -36,6 +38,7 @@ alias cdwm='cd /home/anurag/.program/dwm/'
 alias vdwm='sudo vim /home/anurag/.program/dwm/config.h'
 alias mdwm='cdwm && sudo make clean install'
 alias wtr='curl wttr.in'
+alias updwm='cp ~/.program/dwm/config.h ~/my-linux-setup/config/dwm &&  cp ~/.program/dwm/dwm.c ~/my-linux-setup/config/dwm'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
