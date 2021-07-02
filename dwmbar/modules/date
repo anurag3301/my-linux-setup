@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Prints out the date
-
 PREFIX=''
 
 get_date()

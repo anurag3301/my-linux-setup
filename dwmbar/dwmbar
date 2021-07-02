@@ -106,4 +106,5 @@ while :; do
 		INTERNET=$(check_internet)
 	fi
 	xsetroot -name "$(exec $DEFAULT_BAR_LOCATION)"
+    sleep 0.4
 done

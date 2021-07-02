@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Prints out the CPU load percentage
-
 PREFIX=' '
 
 get_load()
