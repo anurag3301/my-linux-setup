@@ -1,12 +1,16 @@
 # Wallpaper
 nitrogen --restore &
 
-# Startup application
+# DWM Status
+dwmbar &
 
+# Notification client
+dunst &
+
+# Startup application
 discord &
 spotify &
-brave &
-kitty &
+telegram-desktop &
 
 while true; do
     # Log stderror to a file 
