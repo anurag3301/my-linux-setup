@@ -135,6 +135,7 @@ static Key keys[] = {
 	{ ShiftMask, 	XF86XK_AudioNext,           spawn, 	   {.v = next } },
 	{ MODKEY,       XK_space,                   spawn,         {.v = kitty} }, 
 	{ 0,            XK_Print,                   spawn,         SHCMD("scrot -s -q 100 ~/Pictures/'screenshot-%Y-%m-%d-%H_%M_%S.jpg'") },
+	{ ShiftMask,    XK_Print,                   spawn,         SHCMD("scrot -s -q 100 -e 'xclip -selection c -t image/png < $f'") },
 	{ 0,            XK_F8,                      spawn,         {.v = audio} },
     	{ MODKEY,                       XK_w,      spawn,          {.v = web }},
 	{ MODKEY,                       XK_c,       spawn,         {.v = code}}, 
