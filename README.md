@@ -6,3 +6,4 @@ Here I store all the Linux setup and installation stuff.
 
 ![ranger](https://user-images.githubusercontent.com/52702259/124374304-c2c8d680-dcb7-11eb-8890-4a3cb8c29cc9.png)
 
+![vim](https://user-images.githubusercontent.com/52702259/124374482-3ddebc80-dcb9-11eb-87b4-74f12d02506f.png)
