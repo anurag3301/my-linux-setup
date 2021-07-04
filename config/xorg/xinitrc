@@ -7,6 +7,9 @@ dwmbar &
 # Notification client
 dunst &
 
+# The compositor
+picom &
+
 # Startup application
 discord &
 spotify &
