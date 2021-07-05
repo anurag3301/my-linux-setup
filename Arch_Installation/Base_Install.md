@@ -120,7 +120,7 @@ useradd -m anurag
 passed anurag
 
 # Add the new user to some group includeing sudo
-usermod -aG wheel,audio,video,storage anurag
+usermod -aG wheel,audio,video,storage,dialout anurag
 
 # Now make the sudo execute command with root previleges
 visudo # uncomment "%wheel ALL=(ALL) ALL" and "%sudo   ALL=(ALL) ALL"
