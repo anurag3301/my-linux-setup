@@ -61,5 +61,5 @@ gpg --export-secret-keys $ID > my-private-key.asc
 #### For SSH key
 ```sh
 # Just zip the ~/.ssh dir
-zip -r ssh-key.zip ~/.ssh
+cd ~ && zip -r ssh-key.zip .ssh
 ```
