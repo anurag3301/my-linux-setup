@@ -27,7 +27,7 @@ static const char *colors[][3]      = {
 static const int statmonval = 1;
 
 /* tagging */
-static const char *tags[] = { " ", " ", "ﭮ " , " ", " ",};
+static const char *tags[] = { " ", " ", "ﭮ " , " ", "嗢 ", " ",};
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -38,7 +38,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "discord",  NULL,       NULL,       1 << 2,       0,            1 },
 	{ "Spotify",  NULL,       NULL,       1 << 3,       0,            1 },
-	{ "TelegramDesktop",NULL, NULL,       1 << 4,       0,            1 },
+	{ "TelegramDesktop",NULL, NULL,       1 << 5,       0,            1 },
 
 };
 
