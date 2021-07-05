@@ -63,3 +63,18 @@ gpg --export-secret-keys $ID > my-private-key.asc
 # Just zip the ~/.ssh dir
 cd ~ && zip -r ssh-key.zip .ssh
 ```
+
+## Restore GPG and SSH Key
+#### For GPG key
+```sh
+gpg --import my-private-key.asc
+```
+### For SSH key
+```sh
+cp ssh-key.zip ~ && cd ~ && unzip ssh-key.zip
+chown anurag:anurag ~/.ssh/id_rsa*
+chmod 600 ~/.ssh/id_rsa
+chmod 644 ~/.ssh/id_rsa.pub
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+```
