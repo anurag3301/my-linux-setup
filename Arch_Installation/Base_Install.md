@@ -87,3 +87,41 @@ vim /etc/hosts
 ::1		localhost
 127.0.0.1	arch.localdomain	arch
 "
+```
+**Change the password**
+```sh
+passwd
+```
+**Install GRUB and dual boot**
+```sh
+# Havent added comment for the commands cuz I also barely know what they do 😅
+
+pacman -Sy grub efibootmgr os-prober
+os-prober
+grub-install --target=x86-64_efi --efi-directory=/boot/ --bootloader-id=GRUB
+mkdir /mnt2
+mount /dev/{windows-efi-partation} /mnt2
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+## Reboot
+```sh
+reboot
+```
+
+**Now add a new user and add to sudo group**
+```sh
+# Install sudo
+pacman -S sudo
+
+# Add a new user and create home dir for him
+useradd -m anurag
+
+# change password for the new user
+passed anurag
+
+# Add the new user to some group includeing sudo
+usermod -aG wheel,audio,video,storage anurag
+
+# Now make the sudo execute command with root previleges
+visudo # uncomment "%wheel ALL=(ALL) ALL" and "%sudo   ALL=(ALL) ALL"
+```
