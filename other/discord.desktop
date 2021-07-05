@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Discord
-Exec=~/.program/Discord/Discord
-Icon=~/.program/Discord/discord.png
-Terminal=false
-Type=Application
-Categories=Network;InstantMessaging;
-X-GNOME-UsesNotifications=true
-
