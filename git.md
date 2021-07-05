@@ -34,7 +34,7 @@ cat ~/.ssh/id_rsa.pub
 #Generate a GPG key and enter the details:
 gpg --full-gen-key
 
-#Get your GPG keys and get the past after / in the line starts with "sec". Eg 0E6198DFB2D67A26:
+#Get your GPG keys and get the part after / in the line starts with "sec". Eg 0E6198DFB2D67A26:
 gpg --list-secret-keys --keyid-format long
 
 #Get the public key using the GPG key ID and paste it to GitHub > Setting > SSH and GPG keys > New GPG key:
@@ -47,4 +47,19 @@ git config --global user.signingkey {KEY-ID}
 
 #Now congit your git to sign every commit made on the system:
 git config --global commit.gpgsign true
+```
+
+## Backup GPG and SSH key:
+#### For GPG key
+```sh
+# List the gpg keys info
+gpg --list-secret-keys --keyid-format LONG
+
+# Get the id get the part after / in the line starts with "sec". Eg 0E6198DFB2D67A26:
+gpg --export-secret-keys $ID > my-private-key.asc
+```
+#### For SSH key
+```sh
+# Just zip the ~/.ssh dir
+zip -r ssh-key.zip ~/.ssh
 ```
