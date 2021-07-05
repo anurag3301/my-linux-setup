@@ -87,6 +87,7 @@ static const char *kitty[] = {"kitty", NULL};
 static const char *audio[] = {"/home/anurag/.program/audio.sh", NULL};
 static const char *code[] = {"code", NULL};
 
+const char screensot_script[] = "var=~/Pictures/$(date '+%d-%m-%y-%H_%M_%S').png; maim -s -m 10 $var; cat $var | xclip -selection clipboard -t image/png;";
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -134,8 +135,7 @@ static Key keys[] = {
 	{ ShiftMask, 	XF86XK_AudioPrev,           spawn, 	   {.v = previous } },
 	{ ShiftMask, 	XF86XK_AudioNext,           spawn, 	   {.v = next } },
 	{ MODKEY,       XK_space,                   spawn,         {.v = kitty} }, 
-	{ 0,            XK_Print,                   spawn,         SHCMD("scrot -s -q 100 ~/Pictures/'screenshot-%Y-%m-%d-%H_%M_%S.jpg' -e 'xclip -selection c -t image/png < $f'") },
-	{ ShiftMask,    XK_Print,                   spawn,         SHCMD("scrot -s -q 100 ~/Pictures/'screenshot-%Y-%m-%d-%H_%M_%S.jpg'")},
+	{ 0,            XK_Print,                   spawn,         SHCMD(screensot_script)},
 	{ 0,            XK_F8,                      spawn,         {.v = audio} },
     { MODKEY,                       XK_w,       spawn,          {.v = web }},
 	{ MODKEY,                       XK_c,       spawn,         {.v = code}}, 
