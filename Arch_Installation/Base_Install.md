@@ -51,3 +51,39 @@ mount /dev/{efi-partation} /mnt/boot
 # confirm the partation and mounting
 df
 ```
+
+**Base Linux firmware installaion**
+```sh
+pacstrap /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# chcek the fstab
+vim /mnt/etc/fstab
+```
+
+**Now lets change root to the installed arch**
+```sh
+arch-chroot /mnt
+```
+
+**Set the locale and timezone**
+```sh
+# Install vim first
+pacman -Sy vim
+
+# Now do the locae stuff
+ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+hwclock --systohc
+vim /etc/locale.gen    # uncomment en_US.UTF-8 UTF-8
+vim /etc/locale.conf   # append LANG=en_US.UTF-8
+```
+**Set hostname and hosts**
+```sh
+echo arch > /etc/hostname
+vim /etc/hosts
+# and add following
+"
+127.0.0.1	localhost
+::1		localhost
+127.0.0.1	arch.localdomain	arch
+"
