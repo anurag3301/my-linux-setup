@@ -38,7 +38,10 @@ alias cdwm='cd /home/anurag/.program/dwm/'
 alias vdwm='sudo vim /home/anurag/.program/dwm/config.h'
 alias mdwm='cdwm && sudo make clean install'
 alias wtr='curl wttr.in'
+alias publicip='curl ifconfig.co'
 alias updwm='cp ~/.program/dwm/config.h ~/my-linux-setup/config/dwm &&  cp ~/.program/dwm/dwm.c ~/my-linux-setup/config/dwm'
+alias idcat='echo "\n"; echo "anurag3301" | figlet | lolcat -t -p 2.0; echo "\n"'
+alias neo='neofetch'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
