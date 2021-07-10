@@ -11,7 +11,7 @@ dunst &
 picom &
 
 # Fectchcord
-fetchcord -t 15 -m gb &
+# fetchcord -t 15 -m gb --terminal kitty &
 
 # Startup application
 discord &
