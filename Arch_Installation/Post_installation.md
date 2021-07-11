@@ -54,3 +54,11 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsM
 unzip JetBrainsMono.zip
 fc-cache
 ```
+
+**Set the config files**
+```sh
+cd my-linux-setup
+cp -r config/* ~/.config/
+```
+
+### Now you can reboot and do the ZSH and VIM config
