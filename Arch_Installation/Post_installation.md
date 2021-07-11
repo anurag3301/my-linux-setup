@@ -1,6 +1,7 @@
 ## The Post installation after Base install
 **Login to new user created**
-**First enablea and start the dhcpcd service**
+
+**First enable and start the dhcpcd service**
 ```sh
 sudo systemctl enable --now dhcpcd
 ```
