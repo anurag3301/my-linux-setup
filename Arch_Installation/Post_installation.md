@@ -7,7 +7,15 @@ sudo systemctl enable --now dhcpcd
 ```
 **Now install some absolute important packages**
 ```sh
-sudo pacman -Sy base-devel git alsa-utils pulseaudio firefox wget nvidia nvidia-settings unzip
+sudo pacman -Sy base-devel git firefox wget nvidia nvidia-settings unzip
+```
+**Install some display and audio packages**
+```sh
+# Install the packages
+sudo pacman -Sy alsa-utils pulseaudio xorg-server xorg-xinit libx11 libxinerama libxft webkit2gtk
+
+# Start the pulse audio service
+systemctl --user enable pulseaudio
 ```
 **Clone my-linux-setup repo, my build of dwm, paru**
 ```sh
@@ -19,4 +27,14 @@ https://github.com/anurag3301/my-dwm.git
 
 # Cloning paru
 git clone https://aur.archlinux.org/paru.git
+```
+**Lets build and install dwm and paru**
+```sh
+# Install dwm
+cd dwm
+sudo make clean install
+
+# Install paru
+cd paru
+makepkg -si
 ```
