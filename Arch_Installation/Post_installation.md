@@ -38,3 +38,9 @@ sudo make clean install
 cd paru
 makepkg -si
 ```
+**Install the rest of the pacman and aur packages**
+```sh
+sudo pacman -S bat bpython cmake cmatrix discord dmenu dunst evince exa ffmpeg figlet firefox gcc gimp grep htop imagemagick kitty lolcat maim neofetch nitrogen npm nvtop obs-studio picom playerctl ranger telegram-desktop v4l-utils vlc openssh noto-fonts-emoji python-pillow 
+
+paru -S brave-bin ccrypt spofity visual-studio-code-bin gotop 
+```
