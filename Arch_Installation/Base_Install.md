@@ -103,6 +103,10 @@ mkdir /mnt2
 mount /dev/{windows-efi-partation} /mnt2
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+**Install network manager**
+```sh
+pacman -S dhcpcd
+```
 ## Reboot
 ```sh
 # exit from arch-chroot
