@@ -75,7 +75,7 @@ pacman -Sy vim
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
 vim /etc/locale.gen    # uncomment en_US.UTF-8 UTF-8
-vim /etc/locale.conf   # append LANG=en_US.UTF-8
+locale-gen             # Generate the locale file
 ```
 **Set hostname and hosts**
 ```sh
@@ -83,9 +83,9 @@ echo arch > /etc/hostname
 vim /etc/hosts
 # and add following
 "
-127.0.0.1	localhost
-::1		localhost
-127.0.0.1	arch.localdomain	arch
+127.0.0.1       localhost
+::1             localhost
+127.0.0.1       arch.localdomain        arch
 "
 ```
 **Change the password**
@@ -105,6 +105,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ## Reboot
 ```sh
+# exit from arch-chroot
+exit
+
+# now reboot
 reboot
 ```
 
@@ -117,7 +121,7 @@ pacman -S sudo
 useradd -m anurag
 
 # change password for the new user
-passed anurag
+passwd anurag
 
 # Add the new user to some group includeing sudo
 usermod -aG wheel,audio,video,storage,dialout anurag
