@@ -16,7 +16,7 @@ get_gputemp()
 		PREFIX="$FIRE$PREFIX"
 	fi
 
-	echo "$PREFIX$GPU_TEMP°C"
+	printf "\x01%s%s°C\x01\\n" "$PREFIX" "$GPU_TEMP"
 }
 
 get_gputemp

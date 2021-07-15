@@ -6,7 +6,7 @@ PREFIX=' '
 
 get_time()
 {
-    echo "$PREFIX$(date '+%H:%M')"
+    printf "\x07%s%s\x01\\n" "$PREFIX" "$(date '+%H:%M')"
 }
 
 get_time
