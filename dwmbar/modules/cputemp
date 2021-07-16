@@ -19,7 +19,7 @@ get_cputemp()
 		PREFIX="$FIRE$PREFIX"
 	fi
 
-	printf "\x08%s%s\x01\\n" "$PREFIX" "$CPU_TEMP°C"
+	printf "\x03%s%s\x01\\n" "$PREFIX" "$CPU_TEMP°C"
 }
 
 get_cputemp

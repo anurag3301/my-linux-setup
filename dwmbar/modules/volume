@@ -12,9 +12,9 @@ get_volume(){
 
         if [ "${curStatus}" = 'yes' ]
         then
-            printf "\x06%s %s\x01\\n" "$VOLUME_MUTED_ICON" "$volume"
+            printf "\x04%s %s\x01\\n" "$VOLUME_MUTED_ICON" "$volume"
         else
-            printf "\x06%s %s\x01\\n"  "$VOLUME_ON_ICON" "$volume%"
+            printf "\x04%s %s\x01\\n"  "$VOLUME_ON_ICON" "$volume%"
         fi
 }
 
