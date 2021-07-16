@@ -2,6 +2,7 @@ set nocompatible
 colorscheme molokai
 syntax on
 highlight Comment cterm=bold
+set encoding=UTF-8
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -15,8 +16,10 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'vimsence/vimsence'
+Plugin 'anurag3301/vimsence'
+Plugin 'ryanoasis/vim-devicons'
+"Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'vwxyutarooo/nerdtree-devicons-syntax'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -37,10 +40,13 @@ set noshowmode
 set complete+=kspell
 set completeopt=menuone
 
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+highlight Directory ctermfg=42
 
 let g:python_highlight_all = 1  " Enable python syntax highlighting
 
-map <F8> :NERDTreeToggle<CR>
+map <F7> :NERDTreeToggle<CR>
 
 " Disabling creation of swap files
 set directory=/tmp
@@ -49,7 +55,6 @@ set noswapfile
 
 set splitbelow
 set splitright
-
 
 " Shortcut for code running and Executing test cases for competitive programming
 " Detial readup https://medium.com/@akashrrao/how-i-use-vim-for-competitive-programming-1f0fc96682e0
