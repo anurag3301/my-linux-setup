@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Prints out spotify song
+PREFIX_PLAY=' '
+PREFIX_PAUSE=' '
+
+player_status="$(playerctl status -p spotify)"
+
+get_song()
+{
+    song="$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2."spotify" /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'Metadata' | awk -F '"' 'BEGIN {RS=" entry"}; /"xesam:artist"/ {a = $4}
+     /"xesam:title"/ {t = $4} END {print a " - " t}' | sed 's/(.*//'
+     )"
+    if [ "$player_status" = "Playing" ]; then
+        printf "\x06%s %s\x01\\n" "$PREFIX_PLAY" "$song"
+    else
+        printf "\x06%s %s\x01\\n" "$PREFIX_PAUSE" "$song"
+    fi
+}
+
+get_song
