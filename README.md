@@ -2,8 +2,9 @@
 Here I store all the Linux setup and installation stuff.
 
 # This is How my desktop looks like
-![screenshot](https://user-images.githubusercontent.com/52702259/124374198-dd4e8000-dcb6-11eb-97f8-dd046e12d6e0.png)
+![17-07-21-10_52_41](https://user-images.githubusercontent.com/52702259/126026939-0f8f33a0-914c-4308-b40a-e2107933375f.png)
 
-![ranger](https://user-images.githubusercontent.com/52702259/124374304-c2c8d680-dcb7-11eb-8890-4a3cb8c29cc9.png)
+![17-07-21-10_55_01](https://user-images.githubusercontent.com/52702259/126026941-ac7c9630-b3fd-4e1d-ad16-ff1023cba439.png)
 
-![vim](https://user-images.githubusercontent.com/52702259/124374482-3ddebc80-dcb9-11eb-87b4-74f12d02506f.png)
+![17-07-21-10_59_54](https://user-images.githubusercontent.com/52702259/126026943-40981a8c-a643-46ca-ae9d-81e24ea0858b.png)
+
