@@ -12,9 +12,9 @@ get_song()
     title="$(playerctl metadata title -p spotify | sed 's/(.*//')"
 
     if [ "$player_status" = "Playing" ]; then
-        printf "\x06%s %s - %s\x01\\n" "$PREFIX_PLAY" "$artist" "$title"
+        printf "\x08%s %s - %s\x01\\n" "$PREFIX_PLAY" "$artist" "$title"
     else
-        printf "\x06%s %s - %s\x01\\n" "$PREFIX_PAUSE" "$artist" "$title"
+        printf "\x08%s %s - %s\x01\\n" "$PREFIX_PAUSE" "$artist" "$title"
     fi
 
 }
