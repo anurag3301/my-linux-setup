@@ -34,15 +34,11 @@ alias ll='exa -l --color=always --group-directories-first --icons'  # long forma
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat '
 alias kdiff='kitty +kitten diff '
-alias cdwm='cd /home/anurag/.program/dwm/'
-alias vdwm='sudo vim /home/anurag/.program/dwm/config.h'
-alias mdwm='cdwm && sudo make clean install'
+alias cdwm='cd /home/anurag/repo/my-dwm'
+alias cdli='cd /home/anurag/repo/my-linux-setup'
 alias wtr='curl wttr.in'
 alias publicip='curl ifconfig.co'
-alias updwm='cp ~/.program/dwm/config.h ~/my-linux-setup/config/dwm &&  cp ~/.program/dwm/dwm.c ~/my-linux-setup/config/dwm'
-alias idcat='echo "\n"; echo "anurag3301" | figlet | lolcat -t -p 2.0; echo "\n"'
-alias neo='neofetch'
-alias update='sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"'
+alias clip='tr -d "\n" | xclip -selection clipbaord'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
