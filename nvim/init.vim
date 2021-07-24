@@ -17,6 +17,9 @@ Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'glepnir/dashboard-nvim'
 Plug 'Lenovsky/nuake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'p00f/cphelper.nvim'
+Plug 'airblade/vim-rooter'
 call plug#end()
 
 nnoremap <F4> :Nuake<CR>
@@ -36,6 +39,9 @@ let g:webdevicons_enable_nerdtree = 1
 highlight Directory ctermfg=42
 
 let g:python_highlight_all = 1  " Enable python syntax highlighting
+
+let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh', 'Cargo.toml', 'input1', 'output1']
+let g:cphdir = "/home/anurag/problems"
 
 map <F7> :NERDTreeToggle<CR>
 
