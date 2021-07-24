@@ -15,7 +15,12 @@ Plug 'godlygeek/tabular'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'glepnir/dashboard-nvim'
+Plug 'Lenovsky/nuake'
 call plug#end()
+
+nnoremap <F4> :Nuake<CR>
+inoremap <F4> <C-\><C-n>:Nuake<CR>
+tnoremap <F4> <C-\><C-n>:Nuake<CR>
 
 " Extra to c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
@@ -32,14 +37,6 @@ highlight Directory ctermfg=42
 let g:python_highlight_all = 1  " Enable python syntax highlighting
 
 map <F7> :NERDTreeToggle<CR>
-
-" Shortcut for code running and Executing test cases for competitive programming
-" Detial readup https://medium.com/@akashrrao/how-i-use-vim-for-competitive-programming-1f0fc96682e0
-autocmd FileType cpp nnoremap     <leader>rr    :!g++ -g --std=c++17 % -o %:r && ./%:r<CR>
-autocmd FileType cpp nnoremap     <leader>rt    :!for f in *.test; do echo "\nTEST: $f"; ./%:r < $f; done<CR>
-autocmd FileType c nnoremap     <leader>rr    :!gcc -g % -o %:r && ./%:r<CR>
-autocmd FileType python nnoremap     <leader>rr    :!python %:r.py<CR>
-autocmd FileType python nnoremap     <leader>rt    :!for f in *.test; do echo "\nTEST: $f"; python %:r.py < $f; done<CR>
 
 set clipboard=unnamedplus       " For using global clipboard
 let &t_ut=''                    " Kitty colour issue fix
