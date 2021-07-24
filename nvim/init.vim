@@ -16,6 +16,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'glepnir/dashboard-nvim'
 Plug 'Lenovsky/nuake'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 nnoremap <F4> :Nuake<CR>
