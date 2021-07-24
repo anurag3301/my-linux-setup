@@ -1,3 +1,5 @@
+source ~/.config/nvim/sources/run.vim
+source ~/.config/nvim/sources/floaterm.vim
 colorscheme molokai
 syntax on
 highlight Comment cterm=bold
@@ -15,16 +17,12 @@ Plug 'godlygeek/tabular'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'glepnir/dashboard-nvim'
-Plug 'Lenovsky/nuake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'p00f/cphelper.nvim'
 Plug 'airblade/vim-rooter'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
-
-nnoremap <F4> :Nuake<CR>
-inoremap <F4> <C-\><C-n>:Nuake<CR>
-tnoremap <F4> <C-\><C-n>:Nuake<CR>
 
 " Extra to c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
@@ -41,7 +39,9 @@ highlight Directory ctermfg=42
 let g:python_highlight_all = 1  " Enable python syntax highlighting
 
 let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh', 'Cargo.toml', 'input1', 'output1']
+let g:cphdir = "/home/anurag/problems"
 
+nnoremap <F6> :call CompileAndRun()<CR>
 map <F7> :NERDTreeToggle<CR>
 
 set clipboard=unnamedplus       " For using global clipboard
