@@ -5,6 +5,10 @@ syntax on
 highlight Comment cterm=bold
 set encoding=UTF-8
 set number                  " Enable number line
+set splitright
+
+nnoremap <silent> <Leader>[ :exe "vertical resize +5"<CR>
+nnoremap <silent> <Leader>] :exe "vertical resize -5"<CR>
 
 call plug#begin('~/.vim/plugged')
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -38,7 +42,7 @@ highlight Directory ctermfg=42
 
 let g:python_highlight_all = 1  " Enable python syntax highlighting
 
-let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh', 'Cargo.toml', 'input1', 'output1']
+let g:rooter_patterns = ['input1', 'output1']
 let g:cphdir = "/home/anurag/problems"
 
 nnoremap <F6> :call CompileAndRun()<CR>
