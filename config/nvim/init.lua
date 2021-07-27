@@ -11,3 +11,4 @@ end
 
 -- include plugins
 require('plugins')
+require('lualine').setup()
