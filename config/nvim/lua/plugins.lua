@@ -1,4 +1,5 @@
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-  use '9mm/vim-closer'
+  use 'nvim-lua/plenary.nvim'
+  use {'p00f/cphelper.nvim', rocks = 'http', requires = 'nvim-lua/plenary.nvim'}
 end)
