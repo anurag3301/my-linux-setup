@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Prints out the volume percentage
-VOLUME_ON_ICON=''
-VOLUME_MUTED_ICON=''
 
 get_volume(){
 	device=$(pacmd list-sinks | grep -e 'index:' | awk '{print $1}' | head -n 1)
 	if [ "$device" = "*" ]
 	then
 		VOLUME_ON_ICON=''
+		VOLUME_MUTED_ICON='ﳌ'
 	else
 		VOLUME_ON_ICON=''
+		VOLUME_MUTED_ICON='婢'
 	fi
         active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
         curStatus=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
