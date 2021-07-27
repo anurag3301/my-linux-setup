@@ -32,4 +32,4 @@ vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.function
 
 require('nvim-autopairs').setup()
 
-
+require("toggleterm").setup{}
