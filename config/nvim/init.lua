@@ -23,7 +23,20 @@ require('lualine').setup{
 require('nvim-autopairs').setup()
 
 -- include toggleterm
-require("toggleterm").setup{}
+require("toggleterm").setup{
+  size = 15,
+  open_mapping = '<F1>',
+  hide_numbers = true,
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = 1,
+  start_in_insert = true,
+  insert_mappings = true,
+  persist_size = true,
+  direction = 'horizontal',
+  close_on_exit = true,
+  shell = vim.o.shell, -- change the default shell
+}
 
 -- CpHelper config
 vim.g.cphdir = '/home/anurag/problems'
@@ -32,7 +45,6 @@ vim.g.cphdir = '/home/anurag/problems'
 vim.g.rooter_pattern = { "input1", "output1" }
 
 -- Material Theme config
-require('material').set()
 vim.g.material_style = 'deep ocean'
 vim.g.material_italic_comments = true
 vim.g.material_italic_keywords = true
@@ -41,6 +53,7 @@ vim.g.material_italic_variables = true
 vim.g.material_contrast = true
 vim.g.material_borders = true
 vim.g.material_disable_background = false
+require('material').set()
 vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.functions').toggle_style()<CR>]], { noremap = true, silent = true })
 
 -- General config
@@ -56,13 +69,10 @@ vim.opt['autoread'] = true
 vim.opt['title'] = true
 vim.opt['termguicolors'] = true
 vim.opt['hlsearch'] = true
-
+vim.opt['hidden'] = true
 vim.opt['encoding'] = 'utf-8'
 vim.opt['fileencoding'] = 'utf-8'
 vim.opt['showmode'] = false
-vim.opt['shiftwidth'] = 4
-vim.opt['tabstop'] = 4
-vim.opt['showtabline'] = 2
 vim.opt['clipboard'] = 'unnamedplus'
 
 -- Persistent undo
