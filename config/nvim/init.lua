@@ -61,3 +61,9 @@ vim.opt['tabstop'] = 4
 vim.opt['showtabline'] = 2
 vim.opt['clipboard'] = 'unnamedplus'
 
+-- Persistent undo
+-- mkdir $HOME/.vim/undo
+vim.opt['undofile'] = true
+vim.opt['undodir'] = '/home/anurag/.cache/nvim/undo'
+vim.opt['undolevels'] = 1000 
+vim.opt['undoreload'] = 10000
