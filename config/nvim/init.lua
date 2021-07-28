@@ -13,9 +13,7 @@ end
 require('plugins')
 require('lualine').setup{
 	  options = {
-      -- ... your lualine config
       theme = 'material-nvim'
-      -- ... your lualine config
   }
 }
 
@@ -40,3 +38,26 @@ vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.function
 require('nvim-autopairs').setup()
 
 require("toggleterm").setup{}
+
+-- General config
+vim.opt['number'] = true
+vim.opt['ruler'] = true
+vim.opt['splitright'] = true
+vim.opt['splitbelow'] = true
+vim.opt['smarttab'] = true
+vim.opt['expandtab'] = true
+vim.opt['smartindent'] = true
+vim.opt['autoindent'] = true
+vim.opt['autoread'] = true
+vim.opt['title'] = true
+vim.opt['termguicolors'] = true
+vim.opt['hlsearch'] = true
+
+vim.opt['encoding'] = 'utf-8'
+vim.opt['fileencoding'] = 'utf-8'
+vim.opt['showmode'] = false
+vim.opt['shiftwidth'] = 4
+vim.opt['tabstop'] = 4
+vim.opt['showtabline'] = 2
+vim.opt['clipboard'] = 'unnamedplus'
+
