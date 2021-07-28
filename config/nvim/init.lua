@@ -74,6 +74,7 @@ vim.opt['encoding'] = 'utf-8'
 vim.opt['fileencoding'] = 'utf-8'
 vim.opt['showmode'] = false
 vim.opt['clipboard'] = 'unnamedplus'
+vim.opt['swapfile'] = false
 
 -- Persistent undo
 -- mkdir $HOME/.vim/undo

@@ -13,10 +13,13 @@ return require('packer').startup(function()
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-  
+
   use {
     "nvim-treesitter/nvim-treesitter",
-    event = "BufRead",
+        event = "BufRead",
+        config = function()
+            require("plug_config.treesitter")
+        end,
   }
 
   use {
