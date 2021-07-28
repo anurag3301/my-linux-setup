@@ -22,6 +22,8 @@ require('lualine').setup{
 -- CpHelper config
 vim.g.cphdir = '/home/anurag/problems'
 
+-- Rooter config
+vim.g.rooter_pattern = { "input1", "output1" }
 
 vim.g.material_style = 'deep ocean'
 vim.g.material_italic_comments = true

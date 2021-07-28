@@ -3,6 +3,7 @@ return require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use {'p00f/cphelper.nvim', rocks = 'http', requires = 'nvim-lua/plenary.nvim'}
   use 'windwp/nvim-autopairs'
+  use 'ygm2/rooter.nvim'
   use {"akinsho/nvim-toggleterm.lua"}
   use {
     'marko-cerovac/material.nvim',
