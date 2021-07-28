@@ -11,11 +11,19 @@ end
 
 -- include plugins
 require('plugins')
+
+-- include lualine and its config
 require('lualine').setup{
 	  options = {
       theme = 'material-nvim'
   }
 }
+
+-- include nvim-autopairs
+require('nvim-autopairs').setup()
+
+-- include toggleterm
+require("toggleterm").setup{}
 
 -- CpHelper config
 vim.g.cphdir = '/home/anurag/problems'
@@ -34,10 +42,6 @@ vim.g.material_contrast = true
 vim.g.material_borders = true
 vim.g.material_disable_background = false
 vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.functions').toggle_style()<CR>]], { noremap = true, silent = true })
-
-require('nvim-autopairs').setup()
-
-require("toggleterm").setup{}
 
 -- General config
 vim.opt['number'] = true
