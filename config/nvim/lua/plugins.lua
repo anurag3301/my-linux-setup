@@ -32,5 +32,6 @@ return require('packer').startup(function()
 
   use "wfxr/minimap.vim"
   use "andweeb/presence.nvim"
+  use "Pocco81/AutoSave.nvim"
 
 end)
