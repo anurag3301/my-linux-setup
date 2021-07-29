@@ -30,6 +30,7 @@ return require('packer').startup(function()
       after = "nvim-web-devicons",
     }
 
+  use "wfxr/minimap.vim"
   use "andweeb/presence.nvim"
 
 end)
