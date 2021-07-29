@@ -15,7 +15,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-alias vrc="vim ~/.vimrc"
+alias vim="nvim"
+alias vrc="vim ~/.config/nvim/init.vim"
 alias zrc="vim ~/.zshrc"
 alias rr=". ranger"
 alias h="htop"
@@ -32,13 +33,15 @@ alias ls='exa --color=always --group-directories-first --icons'  # all files and
 alias la='exa -al --color=always --group-directories-first --icons' # my preferred listing
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format
 alias l.='exa -a | rg "^\."'
-alias icat='kitty +kitten icat '
+alias icat='kitty +kitten icat'
 alias kdiff='kitty +kitten diff '
 alias cdwm='cd /home/anurag/repo/my-dwm'
 alias cdli='cd /home/anurag/repo/my-linux-setup'
 alias wtr='curl wttr.in'
 alias publicip='curl ifconfig.co'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
+alias startd='startx /home/anurag/.config/xorg/xinitrc'
+alias startk='startx /home/anurag/.config/xorg/xinitkde'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -49,3 +52,10 @@ export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
