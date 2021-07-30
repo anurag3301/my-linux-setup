@@ -4,7 +4,7 @@ return require('packer').startup(function()
   use {'p00f/cphelper.nvim', rocks = 'http', requires = 'nvim-lua/plenary.nvim'}
   use 'windwp/nvim-autopairs'
   use 'ygm2/rooter.nvim'
-  use {"akinsho/nvim-toggleterm.lua"}
+  use {'akinsho/nvim-toggleterm.lua'}
   use {
     'marko-cerovac/material.nvim',
   }
@@ -15,19 +15,18 @@ return require('packer').startup(function()
   }
 
   use {
-    "nvim-treesitter/nvim-treesitter",
+    'nvim-treesitter/nvim-treesitter',
   }
 
   use {
-      "kyazdani42/nvim-tree.lua",
+      'kyazdani42/nvim-tree.lua',
       config = function()
-          require("plug_config.tree")
+          require('plug_config.tree')
       end,
-      after = "nvim-web-devicons",
+      after = 'nvim-web-devicons',
     }
 
-  use "wfxr/minimap.vim"
-  use "andweeb/presence.nvim"
-  use "Pocco81/AutoSave.nvim"
-
+  use 'andweeb/presence.nvim'
+  use 'Pocco81/AutoSave.nvim'
+  use 'glepnir/dashboard-nvim'
 end)
