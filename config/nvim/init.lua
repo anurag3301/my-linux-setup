@@ -51,6 +51,11 @@ require("nvim-treesitter.configs").setup{
   },
 }
 
+-- Nerd tree config
+vim.g.NERDTreeFileExtensionHighlightFullName = 1
+vim.g.NERDTreeExactMatchHighlightFullName = 1
+vim.g.NERDTreePatternMatchHighlightFullName = 1
+
 
 -- include lualine and its config
 require('lualine').setup{

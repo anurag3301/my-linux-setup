@@ -11,7 +11,7 @@ return require('packer').startup(function()
 
   use {
     'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
   }
 
   use {
@@ -19,12 +19,12 @@ return require('packer').startup(function()
   }
 
   use {
-      'kyazdani42/nvim-tree.lua',
-      config = function()
-          require('plug_config.tree')
-      end,
-      after = 'nvim-web-devicons',
-    }
+    'preservim/nerdtree',
+    requires = {
+      'ryanoasis/vim-devicons',
+      'tiagofumo/vim-nerdtree-syntax-highlight',
+      opt = true}
+  }
 
   use 'andweeb/presence.nvim'
   use 'Pocco81/AutoSave.nvim'
