@@ -55,6 +55,7 @@ require("nvim-treesitter.configs").setup{
 vim.g.NERDTreeFileExtensionHighlightFullName = 1
 vim.g.NERDTreeExactMatchHighlightFullName = 1
 vim.g.NERDTreePatternMatchHighlightFullName = 1
+vim.api.nvim_set_keymap('n', '<F7>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
 
 
 -- include lualine and its config
