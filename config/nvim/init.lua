@@ -9,9 +9,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
+
 -- include plugins
 require('plugins')
-
 -- include presence and its config
 -- The setup config table shows all available config options with their default values:
 require("presence"):setup({
@@ -39,7 +39,7 @@ vim.g.dashboard_custom_header = {
     "                              ⠛⠂                              ",
     "                                                              "
 }
-vim.cmd("highlight DashboardHeader guifg=#ffffff")
+vim.cmd([[highlight DashboardHeader guifg=#ffffff]])
 
 require("nvim-treesitter.configs").setup{
   ensure_installed = {"c", "cpp"},
@@ -155,3 +155,4 @@ vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
 
 -- Disable lualine on Nvim-tree
 vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
+

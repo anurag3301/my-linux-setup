@@ -28,13 +28,6 @@ return require('packer').startup(function()
 
   use 'andweeb/presence.nvim'
   use 'Pocco81/AutoSave.nvim'
-  use {
-    'glepnir/dashboard-nvim',
-     config = function()
-        vim.cmd([[
-          highlight DashboardHeader guifg=#ffffff
-        ]])
-     end,
-  }
+  use 'glepnir/dashboard-nvim'
 
 end)
