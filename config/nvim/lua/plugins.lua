@@ -29,5 +29,7 @@ return require('packer').startup(function()
   use 'andweeb/presence.nvim'
   use 'Pocco81/AutoSave.nvim'
   use 'glepnir/dashboard-nvim'
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-compe'
 
 end)
