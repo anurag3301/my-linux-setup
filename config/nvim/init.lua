@@ -11,8 +11,8 @@ end
 
 -- include plugins
 require('plugins')
+
 -- include presence and its config
--- The setup config table shows all available config options with their default values:
 require("presence"):setup({
     enable_line_number = true,
     main_image = "file",
@@ -20,7 +20,7 @@ require("presence"):setup({
     debounce_timeout = 10,
 })
 
-
+-- include treesitter and its config
 require("nvim-treesitter.configs").setup{
   ensure_installed = {"c", "cpp"},
   highlight = {
@@ -80,8 +80,8 @@ vim.g.material_disable_background = false
 require('material').set()
 vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.functions').toggle_style()<CR>]], { noremap = true, silent = true })
 
+-- include autosave and its config
 local autosave = require("autosave")
-
 autosave.setup(
     {
         enabled = true,
@@ -98,6 +98,8 @@ autosave.setup(
         debounce_delay = 135
     }
 )
+
+-- Dashboard config
 vim.g.dashboard_custom_header = {
     "                                                              ",
     "    ⢀⣀⣤⣤⣤⠤⢤⣤⣤⣤⣤⣄⣀⡀           ⢀⣠⣤⣄⡀            ⣀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀   ",
@@ -115,8 +117,9 @@ vim.g.dashboard_custom_header = {
     "                              ⠛⠂                              ",
     "                                                              "
 }
-
 vim.cmd([[highlight DashboardHeader guifg=#ffffff]])
+
+
 -- General config
 vim.opt['number'] = true
 vim.opt['ruler'] = true
