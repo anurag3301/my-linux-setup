@@ -9,12 +9,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
--- include plugins
+-- include plugins and their config
 require('plugins')
-
 require('lsp')
-
 require('nerdtree')
+require('treesitter')
+require('autopairs')
+require("colors")
+require("dashboard")
+require("general")
 
 -- include presence and its config
 require("presence"):setup({
@@ -24,16 +27,12 @@ require("presence"):setup({
     debounce_timeout = 10,
 })
 
-require('treesitter')
-
 -- include lualine and its config
 require('lualine').setup{
 	  options = {
       theme = 'material-nvim'
   }
 }
-
-require('autopairs')
 
 -- include toggleterm
 require("toggleterm").setup{
@@ -51,15 +50,9 @@ require("toggleterm").setup{
   shell = vim.o.shell, -- change the default shell
 }
 
-
 -- CpHelper config
 vim.g.cphdir = '/home/anurag/problems'
 
 -- Rooter config
 vim.g.rooter_pattern = { "input1", "output1" }
 
-require("colors")
-
-require("dashboard")
-
-require("general")
