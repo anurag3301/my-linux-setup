@@ -13,6 +13,9 @@ end
 require('plugins')
 
 require('lsp')
+
+require('nerdtree')
+
 -- include presence and its config
 require("presence"):setup({
     enable_line_number = true,
@@ -21,21 +24,7 @@ require("presence"):setup({
     debounce_timeout = 10,
 })
 
--- include treesitter and its config
-require("nvim-treesitter.configs").setup{
-  ensure_installed = {"c", "cpp"},
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-}
-
--- Nerd tree config
-vim.g.NERDTreeFileExtensionHighlightFullName = 1
-vim.g.NERDTreeExactMatchHighlightFullName = 1
-vim.g.NERDTreePatternMatchHighlightFullName = 1
-vim.api.nvim_set_keymap('n', '<F7>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
-
+require('treesitter')
 
 -- include lualine and its config
 require('lualine').setup{
