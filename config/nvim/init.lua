@@ -20,13 +20,7 @@ require("dashboard")
 require("general")
 require("toggleTerm")
 require("presence-nvim")
-
--- include lualine and its config
-require('lualine').setup{
-	  options = {
-      theme = 'material-nvim'
-  }
-}
+require("lualine-nvim")
 
 -- CpHelper config
 vim.g.cphdir = '/home/anurag/problems'
