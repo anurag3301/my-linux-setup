@@ -36,6 +36,11 @@ require('lualine').setup{
 -- include nvim-autopairs
 require('nvim-autopairs').setup()
 
+require("nvim-autopairs.completion.compe").setup({
+  map_cr = true,
+  map_complete = true
+})
+
 -- include toggleterm
 require("toggleterm").setup{
   size = 15,
