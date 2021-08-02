@@ -11,16 +11,17 @@ end
 
 -- include plugins and their config
 require('plugins')
-require('lsp')
-require('nerdtree')
-require('treesitter')
-require('autopairs')
-require("colors")
-require("dashboard")
+require('plug-config.lsp')
+require('plug-config.nerdtree')
+require('plug-config.treesitter')
+require('plug-config.autopairs')
+require("plug-config.colors")
+require("plug-config.dashboard")
+require("plug-config.toggleTerm")
+require("plug-config.presence")
+require("plug-config.lualine")
+
 require("general")
-require("toggleTerm")
-require("presence-nvim")
-require("lualine-nvim")
 
 -- CpHelper config
 vim.g.cphdir = '/home/anurag/problems'
