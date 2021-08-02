@@ -51,6 +51,7 @@ require("toggleterm").setup{
   shell = vim.o.shell, -- change the default shell
 }
 
+
 -- CpHelper config
 vim.g.cphdir = '/home/anurag/problems'
 
