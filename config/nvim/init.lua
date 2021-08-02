@@ -120,7 +120,6 @@ vim.g.dashboard_custom_header = {
 }
 vim.cmd([[highlight DashboardHeader guifg=#ffffff]])
 
-
 -- General config
 vim.opt['number'] = true
 vim.opt['ruler'] = true
