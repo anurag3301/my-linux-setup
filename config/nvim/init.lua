@@ -78,25 +78,6 @@ vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.function
 
 require("dashboard")
 
--- include autosave and its config
-local autosave = require("autosave")
-autosave.setup(
-    {
-        enabled = true,
-        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-        events = {"InsertLeave"},
-        conditions = {
-            exists = true,
-            filetype_is_not = {},
-            modifiable = true
-        },
-        write_all_buffers = false,
-        on_off_commands = true,
-        clean_command_line_interval = 0,
-        debounce_delay = 135
-    }
-)
-
 -- General config
 vim.opt['number'] = true
 vim.opt['ruler'] = true
