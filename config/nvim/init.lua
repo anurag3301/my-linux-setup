@@ -22,6 +22,7 @@ require("plug-config.presence")
 require("plug-config.lualine")
 
 require("general")
+require("bindings")
 
 
 -- CpHelper config
