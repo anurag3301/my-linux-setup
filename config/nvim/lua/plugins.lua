@@ -1,20 +1,35 @@
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-  use {'p00f/cphelper.nvim', rocks = 'http', requires = 'nvim-lua/plenary.nvim'}
   use 'windwp/nvim-autopairs'
-  use 'ygm2/rooter.nvim'
-  use {'akinsho/nvim-toggleterm.lua'}
+  use 'glepnir/dashboard-nvim'
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'akinsho/nvim-toggleterm.lua'
+  use 'marko-cerovac/material.nvim'
+
   use {
-    'marko-cerovac/material.nvim',
+    'p00f/cphelper.nvim',
+    rocks = 'http',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'ygm2/rooter.nvim',
+      opt = true
+    }
+  }
+
+  use {
+    'andweeb/presence.nvim',
+    require = {
+      'hrsh7th/vim-vsnip',
+      opt = true
+    }
   }
 
   use {
     'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-  }
-
-  use {
-    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+      opt = true
+    }
   }
 
   use {
@@ -25,12 +40,13 @@ return require('packer').startup(function()
       opt = true}
   }
 
-  use 'andweeb/presence.nvim'
-  use 'glepnir/dashboard-nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-compe'
-  use 'kabouzeid/nvim-lspinstall'
-  use 'hrsh7th/vim-vsnip'
+  use {'neovim/nvim-lspconfig',
+    require = {
+      'hrsh7th/nvim-compe',
+      'kabouzeid/nvim-lspinstall',
+      opt = true
+    }
+  }
 --[[  use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
