@@ -6,4 +6,5 @@ Here I store all the Linux setup and installation stuff.
 
 ![17-07-21-13_25_21](https://user-images.githubusercontent.com/52702259/126030320-18f79c27-0e54-4d56-a0d7-191874f99663.png)
 
-![17-07-21-13_24_25](https://user-images.githubusercontent.com/52702259/126030319-8cc06394-bad8-467e-a101-b1f7addb6298.png)
+![image](https://user-images.githubusercontent.com/52702259/127979026-8a05e997-f49a-40b5-a7f1-641962980e9e.png)
+
