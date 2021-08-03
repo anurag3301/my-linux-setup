@@ -3,4 +3,12 @@ vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', { noremap
 vim.api.nvim_set_keymap('n', '<Leader>o', ':Telescope oldfiles<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>[', ':vertical resize +7<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>c', ':CphReceive<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>t', ':CphTest<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>e1', ':CphEdit 1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>e2', ':CphEdit 2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>e3', ':CphEdit 3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>e4', ':CphEdit 4<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>e5', ':CphEdit 5<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>e6', ':CphEdit 6<CR>', { noremap = true, silent = true })
 
