@@ -22,7 +22,6 @@ require("plug-config.presence")
 require("plug-config.lualine")
 
 require("general")
-
 -- CpHelper config
 vim.g.cphdir = '/home/anurag/problems'
 
