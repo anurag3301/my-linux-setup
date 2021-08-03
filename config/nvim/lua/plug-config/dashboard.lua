@@ -17,4 +17,3 @@ vim.g.dashboard_custom_header = {
     "                                                              "
 }
 vim.cmd([[highlight DashboardHeader guifg=#ffffff]])
-
