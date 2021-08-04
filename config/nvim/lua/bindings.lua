@@ -3,6 +3,8 @@ vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', { noremap
 vim.api.nvim_set_keymap('n', '<Leader>o', ':Telescope oldfiles<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>[', ':vertical resize +7<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>cc', ':ColorizerToggle<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<Leader>c', ':CphReceive<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>t', ':CphTest<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>e1', ':CphEdit 1<CR>', { noremap = true, silent = true })
