@@ -8,5 +8,9 @@ require("nvim-treesitter.configs").setup{
     enable = true,
     disable = {},
   },
+
+  autotag = {
+    enable = true,
+  }
 }
 
