@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
+  use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
   use {
     'p00f/cphelper.nvim',

@@ -21,6 +21,7 @@ require("plug-config.toggleTerm")
 require("plug-config.presence")
 require("plug-config.lualine")
 require("plug-config.colorizer")
+require("plug-config.toggle_lsp_diagnostics")
 
 require("general")
 require("bindings")
