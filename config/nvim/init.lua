@@ -20,6 +20,7 @@ require("plug-config.dashboard")
 require("plug-config.toggleTerm")
 require("plug-config.presence")
 require("plug-config.lualine")
+require("plug-config.colorizer")
 
 require("general")
 require("bindings")

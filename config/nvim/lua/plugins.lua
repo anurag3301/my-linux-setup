@@ -15,6 +15,7 @@ return require('packer').startup(function()
   use 'akinsho/nvim-toggleterm.lua'
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
+  use 'norcalli/nvim-colorizer.lua'
 
   use {
     'p00f/cphelper.nvim',
