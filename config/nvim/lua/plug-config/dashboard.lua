@@ -26,7 +26,7 @@ vim.g.dashboard_custom_section = {
         command = "enew",
     },
     b = {
-        description = { "  Competitive                    ---- " },
+        description = { "  Competitive                    SPC c" },
         command = "CphReceive",
     },
     c = {
