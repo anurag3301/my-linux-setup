@@ -12,16 +12,17 @@ require'lualine'.setup {
     lualine_b = {'branch'},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
+      lualine_y = {
+        {
+          "diagnostics",
+          sources = { "nvim_lsp" },
+          color_error = "#BF616A",
+          color_warn = "#EBCB8B",
+          color_info = "#88C0D0",
+          color_hint = "#3A4151",
+        },
+      },
     lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
   },
   tabline = {},
   extensions = {}
