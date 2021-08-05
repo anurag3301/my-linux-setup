@@ -6,6 +6,7 @@ map('n', '<Leader>o', ':Telescope oldfiles<CR>', { noremap = true, silent = true
 map('n', '<Leader>[', ':vertical resize +7<CR>', { noremap = true, silent = true })
 map('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true })
 map('n', '<Leader>cc', ':ColorizerToggle<CR>', { noremap = true, silent = true })
+map('n', '<Leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
 
 map('n', '<Leader>dd', ':ToggleDiag<CR>', { noremap = true, silent = true })
 map("n", "<leader>du", "<Plug>(toggle-lsp-diag-underline)", {silent = true })
