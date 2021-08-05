@@ -7,3 +7,7 @@ vim.g.NERDTreeQuitOnOpen = 1
 vim.g.NERDTreeMinimalUI = 1
 vim.g.NERDTreeDirArrows = 1
 vim.g.NERDTreeGitStatusUseNerdFonts = 1
+vim.cmd([[
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+]])
