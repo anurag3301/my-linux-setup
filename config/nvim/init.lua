@@ -11,7 +11,6 @@ end
 
 -- include plugins and their config
 require('plugins')
-require('plug-config.lsp')
 require('plug-config.nerdtree')
 require('plug-config.treesitter')
 require('plug-config.autopairs')
@@ -22,6 +21,7 @@ require("plug-config.presence")
 require("plug-config.lualine")
 require("plug-config.colorizer")
 require("plug-config.toggle_lsp_diagnostics")
+require('plug-config.lsp')
 
 require("general")
 require("bindings")

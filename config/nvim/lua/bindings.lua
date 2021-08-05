@@ -22,3 +22,14 @@ for i = 1, 9, 1 do
   )
 end
 
+-- lsp-config keybindigs
+vim.cmd("nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>")
+vim.cmd("nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>")
+vim.cmd("nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>")
+vim.cmd("nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>")
+vim.cmd("nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>")
+vim.cmd("nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>")
+vim.cmd("nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
+vim.cmd("nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
+vim.o.completeopt = "menuone,noselect"
+
