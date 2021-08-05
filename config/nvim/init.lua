@@ -22,6 +22,7 @@ require("plug-config.lualine")
 require("plug-config.colorizer")
 require("plug-config.toggle_lsp_diagnostics")
 require('plug-config.lsp')
+require('plug-config.lazygit')
 
 require("general")
 require("bindings")
