@@ -23,6 +23,7 @@ require("plug-config.colorizer")
 require("plug-config.toggle_lsp_diagnostics")
 require('plug-config.lsp')
 require('plug-config.lazygit')
+require('plug-config.comment')
 
 require("general")
 require("bindings")

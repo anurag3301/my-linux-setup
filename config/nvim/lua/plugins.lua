@@ -18,6 +18,7 @@ return require('packer').startup(function()
   use 'norcalli/nvim-colorizer.lua'
   use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
   use 'kdheepak/lazygit.nvim'
+  use 'terrortylor/nvim-comment'
 
   use {
     'p00f/cphelper.nvim',
