@@ -13,10 +13,11 @@ vim.api.nvim_set_keymap("n", "<leader>di", "<Plug>(toggle-lsp-diag-update_in_ins
 
 vim.api.nvim_set_keymap('n', '<Leader>c', ':CphReceive<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>t', ':CphTest<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>e1', ':CphEdit 1<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>e2', ':CphEdit 2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>e3', ':CphEdit 3<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>e4', ':CphEdit 4<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>e5', ':CphEdit 5<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>e6', ':CphEdit 6<CR>', { noremap = true, silent = true })
+for i = 1, 9, 1 do
+  vim.api.nvim_set_keymap('n',
+    string.format('<Leader>e%d', i),
+    string.format(':CphEdit %d<CR>', i),
+    { noremap = true, silent = true }
+  )
+end
 
