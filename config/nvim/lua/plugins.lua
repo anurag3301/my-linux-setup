@@ -32,6 +32,7 @@ return require('packer').startup(function()
     'hoob3rt/lualine.nvim',
     requires = {
       'kyazdani42/nvim-web-devicons',
+      'Xuyuanp/nerdtree-git-plugin',
       opt = true
     }
   }
