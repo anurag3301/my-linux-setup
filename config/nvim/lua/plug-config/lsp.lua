@@ -144,3 +144,4 @@ vim.fn.sign_define(
         numhl = "LspDiagnosticsSignInformation",
     }
 )
+
