@@ -25,6 +25,7 @@ require('plug-config.lsp')
 require('plug-config.lazygit')
 require('plug-config.comment')
 require('plug-config.bufferline')
+require('plug-config.hop')
 
 require("general")
 require("bindings")

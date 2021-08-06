@@ -22,6 +22,11 @@ return require('packer').startup(function()
   use "rafamadriz/friendly-snippets"
 
   use {
+  'phaazon/hop.nvim',
+  as = 'hop'
+  }
+
+  use {
     'akinsho/nvim-bufferline.lua',
     requires = 'kyazdani42/nvim-web-devicons'
   }
