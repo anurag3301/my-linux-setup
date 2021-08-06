@@ -26,6 +26,7 @@ require('plug-config.lazygit')
 require('plug-config.comment')
 require('plug-config.bufferline')
 require('plug-config.hop')
+require('plug-config.gitsigns')
 
 require("general")
 require("bindings")

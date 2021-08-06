@@ -22,6 +22,13 @@ return require('packer').startup(function()
   use "rafamadriz/friendly-snippets"
 
   use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
+
+  use {
   'phaazon/hop.nvim',
   as = 'hop'
   }
