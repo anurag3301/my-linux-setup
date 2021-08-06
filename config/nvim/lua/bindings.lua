@@ -15,6 +15,9 @@ map('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true 
 map('n', 'm.', ':BufferLineMoveNext<CR>', { noremap = true, silent = true })
 map('n', 'm,', ':BufferLineMovePrev<CR>', { noremap = true, silent = true })
 
+map('n', ';j', ':HopWord<CR>', { noremap = true, silent = true })
+map('n', ';l', ':HopLineStart<CR>', { noremap = true, silent = true })
+
 map('n', '<Leader>dd', ':ToggleDiag<CR>', { noremap = true, silent = true })
 map("n", "<leader>du", "<Plug>(toggle-lsp-diag-underline)", {silent = true })
 map("n", "<leader>ds", "<Plug>(toggle-lsp-diag-signs)", {silent = true })
