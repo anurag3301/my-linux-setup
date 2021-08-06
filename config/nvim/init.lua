@@ -24,6 +24,7 @@ require("plug-config.toggle_lsp_diagnostics")
 require('plug-config.lsp')
 require('plug-config.lazygit')
 require('plug-config.comment')
+require('plug-config.bufferline')
 
 require("general")
 require("bindings")
