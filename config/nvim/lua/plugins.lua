@@ -19,6 +19,7 @@ return require('packer').startup(function()
   use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
   use 'kdheepak/lazygit.nvim'
   use 'terrortylor/nvim-comment'
+  use "rafamadriz/friendly-snippets"
 
   use {
     'p00f/cphelper.nvim',
