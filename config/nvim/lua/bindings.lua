@@ -8,6 +8,13 @@ map('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true
 map('n', '<Leader>cc', ':ColorizerToggle<CR>', { noremap = true, silent = true })
 map('n', '<Leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
 
+map('n', 'f', ':BufferLinePick<CR>', { noremap = true, silent = true })
+map('n', 'F', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
+map('n', '<TAB>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+map('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+map('n', 'm.', ':BufferLineMoveNext<CR>', { noremap = true, silent = true })
+map('n', 'm,', ':BufferLineMovePrev<CR>', { noremap = true, silent = true })
+
 map('n', '<Leader>dd', ':ToggleDiag<CR>', { noremap = true, silent = true })
 map("n", "<leader>du", "<Plug>(toggle-lsp-diag-underline)", {silent = true })
 map("n", "<leader>ds", "<Plug>(toggle-lsp-diag-signs)", {silent = true })
