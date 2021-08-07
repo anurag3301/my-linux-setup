@@ -30,9 +30,6 @@ vim.opt['undoreload'] = 10000
 -- Stop comments on newline
 vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o]])
 
--- Auto remove trailing space
-vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]])
-
 -- Disable lualine on Nvim-tree
 vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
 
