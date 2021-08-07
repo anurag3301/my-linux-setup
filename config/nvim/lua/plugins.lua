@@ -20,6 +20,7 @@ return require('packer').startup(function()
   use 'kdheepak/lazygit.nvim'
   use 'terrortylor/nvim-comment'
   use "rafamadriz/friendly-snippets"
+  use "Pocco81/AutoSave.nvim"
 
   use {
     'lewis6991/gitsigns.nvim',

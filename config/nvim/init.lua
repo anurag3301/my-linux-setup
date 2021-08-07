@@ -27,6 +27,7 @@ require('plug-config.comment')
 require('plug-config.bufferline')
 require('plug-config.hop')
 require('plug-config.gitsigns')
+require('plug-config.autosave')
 
 require("general")
 require("bindings")
