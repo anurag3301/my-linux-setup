@@ -7,6 +7,7 @@ fi
 neofetch
 
 export ZSH="/home/anurag/.oh-my-zsh"
+export EDITOR="nvim"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 HIST_STAMPS="dd.mm.yyyy"
@@ -35,8 +36,6 @@ alias ll='exa -l --color=always --group-directories-first --icons'  # long forma
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat'
 alias kdiff='kitty +kitten diff '
-alias cdwm='cd /home/anurag/repo/my-dwm'
-alias cdli='cd /home/anurag/repo/my-linux-setup'
 alias wtr='curl wttr.in'
 alias publicip='curl ifconfig.co'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
@@ -59,3 +58,8 @@ compinit
 kitty + complete setup zsh | source /dev/stdin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+[[ -s /home/anurag/.autojump/etc/profile.d/autojump.sh ]] && source /home/anurag/.autojump/etc/profile.d/autojump.sh
+
+autoload -U compinit && compinit -u
