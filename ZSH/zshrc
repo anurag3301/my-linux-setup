@@ -41,6 +41,8 @@ alias publicip='curl ifconfig.co'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
 alias startd='startx /home/anurag/.config/xorg/xinitrc'
 alias startk='startx /home/anurag/.config/xorg/xinitkde'
+alias rs='g++ solution.cpp -o cpp.out; ./cpp.out'
+alias rt='g++ test.cpp -o cpp.out; ./cpp.out'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
