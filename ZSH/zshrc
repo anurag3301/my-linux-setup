@@ -31,8 +31,8 @@ alias zoom_cam="v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute="
 alias c="clear"
 alias q="exit"
 alias ls='exa --color=always --group-directories-first --icons'  # all files and dirs
-alias la='exa -al --color=always --group-directories-first --icons' # my preferred listing
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias la='exa -al --color=always --group-directories-first --icons --git' # my preferred listing
+alias ll='exa -l --color=always --group-directories-first --icons --git'  # long format
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat'
 alias kdiff='kitty +kitten diff '
