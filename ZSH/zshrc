@@ -43,6 +43,7 @@ alias startd='startx /home/anurag/.config/xorg/xinitrc'
 alias startk='startx /home/anurag/.config/xorg/xinitkde'
 alias rs='g++ solution.cpp -o cpp.out; ./cpp.out'
 alias rt='g++ test.cpp -o cpp.out; ./cpp.out'
+alias mine='./.program/trex/t-rex --algo kawpow -o asia-rvn.2miners.com:6060 -u RF4eKaHAwGpX38dbfBwCYq3HYYnHBUENxs -w RavenRig -p x'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
