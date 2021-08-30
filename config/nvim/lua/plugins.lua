@@ -22,6 +22,7 @@ return require('packer').startup(function()
   use "rafamadriz/friendly-snippets"
   use "Pocco81/AutoSave.nvim"
   use "jbyuki/venn.nvim"
+  use "turbio/bracey.vim"
 
   use {
     'lewis6991/gitsigns.nvim',
