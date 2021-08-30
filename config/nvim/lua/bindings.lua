@@ -7,6 +7,8 @@ map('n', '<Leader>[', ':vertical resize +7<CR>', { noremap = true, silent = true
 map('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true })
 map('n', '<Leader>cc', ':ColorizerToggle<CR>', { noremap = true, silent = true })
 map('n', '<Leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
+map('n', '<Leader>b', ':Bracey<CR>', { noremap = true, silent = true })
+map('n', '<Leader>bb', ':BraceyStop<CR>', { noremap = true, silent = true })
 
 map('n', 'f', ':BufferLinePick<CR>', { noremap = true, silent = true })
 map('n', 'F', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
