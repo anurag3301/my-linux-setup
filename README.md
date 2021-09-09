@@ -8,4 +8,14 @@ Here I store all the Linux setup and installation stuff.
 
 ![image](https://user-images.githubusercontent.com/52702259/129735881-c374af11-5ade-4f35-968c-69e87c0c050f.png)
 
+| Distro              | Arch Linux             |
+|---------------------|------------------------|
+| Window Manager      | Dynamic Window Manager |
+| Terminal Emulator   | Kitty                  |
+| Text Editor/IDE     | Neovim/VSCode          |
+| Display Server      | XOrg                   |
+| Audio Server        | Pulse Audio/ALSA       |
+| Init System         | SystemD                |
+| Notification Client | Dunst                  |
+| Screenshot Client   | Maim                   |
 
