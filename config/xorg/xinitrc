@@ -16,7 +16,6 @@ picom &
 # Startup application
 discord &
 spotify &
-telegram-desktop &
 
 while true; do
     # Log stderror to a file 
