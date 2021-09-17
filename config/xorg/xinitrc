@@ -16,6 +16,7 @@ picom &
 # Startup application
 discord &
 spotify &
+brave &
 
 while true; do
     # Log stderror to a file 
