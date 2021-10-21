@@ -1,16 +1,18 @@
+-- Material Theme config
+
 vim.cmd[[colorscheme material]]
 vim.g.material_style = "deep ocean"
 require('material').setup({
 	contrast = true,
-	borders = false,
+	borders = true,
 	popup_menu = "dark",
 
 	italics = {
-		comments = false,
-		keywords = false,
-		functions = false,
-		strings = false,
-		variables = false
+		comments = true,
+		keywords = true,
+		functions = true,
+		strings = true,
+		variables = false 
 	},
 
 	contrast_windows = {
@@ -21,7 +23,7 @@ require('material').setup({
 
 	text_contrast = {
 		lighter = false,
-		darker = false
+		darker = true
 	},
 	disable = {
 		background = false,
