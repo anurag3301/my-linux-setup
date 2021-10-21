@@ -3,6 +3,8 @@ return require('packer').startup(function(use)
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	use 'marko-cerovac/material.nvim'
 	use "Pocco81/AutoSave.nvim"
+	use 'norcalli/nvim-colorizer.lua'
+
 
 	use {
 		'hoob3rt/lualine.nvim',
