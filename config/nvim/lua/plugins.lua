@@ -4,7 +4,7 @@ return require('packer').startup(function(use)
 	use 'marko-cerovac/material.nvim'
 	use "Pocco81/AutoSave.nvim"
 	use 'norcalli/nvim-colorizer.lua'
-
+	use 'terrortylor/nvim-comment'
 
 	use {
 		'hoob3rt/lualine.nvim',
