@@ -5,6 +5,10 @@ return require('packer').startup(function(use)
 	use {
 		'hoob3rt/lualine.nvim',
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
-	  }	  
+	}	  
+	use {
+		'akinsho/bufferline.nvim', 
+		requires = 'kyazdani42/nvim-web-devicons'
+	}
 
 end)
