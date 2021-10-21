@@ -1,2 +1,3 @@
 
-require("plugin")
+require("plugins")
+require("plugin/colour")
