@@ -5,7 +5,10 @@ return require('packer').startup(function(use)
 	use "Pocco81/AutoSave.nvim"
 	use 'norcalli/nvim-colorizer.lua'
 	use 'terrortylor/nvim-comment'
-
+	use {'glepnir/dashboard-nvim',
+		cmd = "highlight DashboardHeader guifg=#ffffff",
+		config = 'vim.cmd[[highlight DashboardHeader guifg=#ffffff]]'
+	}
 	use {
 		'hoob3rt/lualine.nvim',
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
