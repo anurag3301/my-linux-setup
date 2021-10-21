@@ -1,3 +1,3 @@
 
 require("plugins")
-require("plugin/colour")
+require("plug_config/colour")
