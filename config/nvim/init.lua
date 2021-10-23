@@ -26,6 +26,7 @@ require('plug_config.hop')
 require('plug_config.gitsigns')
 require('plug_config.autosave')
 require("plug_config.dashboard")
+require("plug_config.nvim-tree")
 require('venn')
 
 
