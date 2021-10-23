@@ -55,17 +55,8 @@ return require('packer').startup(function(use)
 	  'hoob3rt/lualine.nvim',
 	  requires = {
 		'kyazdani42/nvim-web-devicons',
-		'Xuyuanp/nerdtree-git-plugin',
 		opt = true
 	  }
-	}
-  
-	use {
-	  'preservim/nerdtree',
-	  requires = {
-		'ryanoasis/vim-devicons',
-		'tiagofumo/vim-nerdtree-syntax-highlight',
-		opt = true}
 	}
   
 	use {

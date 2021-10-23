@@ -17,7 +17,7 @@ require('bufferline').setup {
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       return "("..count..")"
     end,
-	offsets = { { filetype = "nerdtree", text_align = "left" } },
+	offsets = { { filetype = "NvimTree", text_align = "left" } },
 	show_buffer_icons = true,
 	show_buffer_close_icons = false,
 	show_close_icon = false,
