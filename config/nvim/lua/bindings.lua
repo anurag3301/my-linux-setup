@@ -51,3 +51,5 @@ map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+map("n", "<F7>", ":NvimTreeToggle<CR>", {silent = true })
