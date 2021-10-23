@@ -1,13 +1,14 @@
-#!/bin/zsh
+#!/bin/sh
 
-var=$(pacmd list-sinks | grep -e 'index:' | awk '{print $1}' | head -n 1)
+#devices
+speakers="alsa_output.pci-0000_05_00.1.hdmi-stereo-extra2"
+headphone="alsa_output.pci-0000_07_00.4.analog-stereo"
 
-if [ "$var" = "*" ]
+curr_device="$(pactl get-default-sink)"
+
+if [ "$curr_device" = $speakers ]
 then
-    echo "Its Headphone, changing to speakers"
-    pacmd "set-default-sink alsa_output.pci-0000_05_00.1.hdmi-stereo-extra2"
+  pactl set-default-sink $headphone
 else
-    echo "Its speakers, changing to Headphone"
-    pacmd "set-default-sink alsa_output.pci-0000_07_00.4.analog-stereo"
-fi
-
+  pactl set-default-sink $speakers
+fi 
