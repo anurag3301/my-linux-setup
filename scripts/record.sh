@@ -6,6 +6,10 @@ case "$ARG" in
     echo "Recording Desktop audio" &
     ffmpeg -y -f pulse -i $(pactl get-default-sink).monitor\
       "$HOME/vid/desktop_$(date '+%d-%m-%y-%H:%M:%S').wav";;
+  "m")
+    echo "Recording Mircrophone audio" &
+    ffmpeg -y -f pulse -i alsa_input.usb-DCMT_Technology_USB_Condenser_Microphone_214b206000000178-00.mono-fallback\
+      "$HOME/vid/mictrophone_$(date '+%d-%m-%y-%H:%M:%S').wav";;
   "s1") 
     echo "Recording with screen 1" & 
     ffmpeg -y -f x11grab -r 25 -s $(xrandr | fgrep '*' | awk '{print $1}')\
