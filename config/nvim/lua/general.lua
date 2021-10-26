@@ -33,4 +33,4 @@ vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatopt
 -- Disable lualine on Nvim-tree
 vim.cmd ([[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]])
 
-vim.cmd("command cdd cd %:p:h")
+vim.cmd("command CDD cd %:p:h")
