@@ -17,7 +17,12 @@ case "$ARG" in
       "$HOME/vid/record_$(date '+%d-%m-%y-%H:%M:%S').mkv";;
   
   "s2") echo "Recording with screen 2" ;;
-  "s1m") echo "Recording with screen 1 and microphone" ;;
+  "s1m") echo "Recording with screen 1 and microphone" &
+    ffmpeg -y -f pulse -i alsa_input.usb-DCMT_Technology_USB_Condenser_Microphone_214b206000000178-00.mono-fallback\
+      -f x11grab -r 25 -s $(xrandr | fgrep '*' | awk '{print $1}')\
+      -i :0.0 -vcodec libx264 -preset ultrafast\
+      "$HOME/vid/record_$(date '+%d-%m-%y-%H:%M:%S').mkv";;
+
   "s2m") echo "Recording with screen 2 and microphone" ;;
   "s1d") echo "Recording with screen 1 and desktop audio" &
     ffmpeg -y -f pulse -i $(pactl get-default-sink).monitor\
