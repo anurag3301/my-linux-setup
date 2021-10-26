@@ -2,6 +2,10 @@
 ARG=${1?Error: no input given}
 
 case "$ARG" in 
+  "d")
+    echo "Recording Desktop audio" &
+    ffmpeg -y -f pulse -i $(pactl get-default-sink).monitor\
+      "$HOME/vid/desktop_$(date '+%d-%m-%y-%H:%M:%S').wav";;
   "s1") 
     echo "Recording with screen 1" & 
     ffmpeg -y -f x11grab -r 25 -s $(xrandr | fgrep '*' | awk '{print $1}')\
