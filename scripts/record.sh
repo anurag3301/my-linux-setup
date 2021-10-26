@@ -36,7 +36,13 @@ case "$ARG" in
   
   "s2d") echo "Recording with screen 2 and desktop audio" ;;
 
-  "s1dm") echo "Recording with screen 1 and both microphone and desktop audio" ;;
+  "s1dm") echo "Recording with screen 1 and both microphone and desktop audio" &
+    ffmpeg -f x11grab -r 25 -s $(xrandr | fgrep '*' | awk '{print $1}') -i :0.0 \
+      -vcodec libx264 -preset ultrafast\
+      -f pulse -i $(pactl get-default-sink).monitor -f pulse -i\
+      alsa_input.usb-DCMT_Technology_USB_Condenser_Microphone_214b206000000178-00.mono-fallback\
+      -filter_complex "[0][1] amix [a]" -map "[a]" -threads 2\
+      "$HOME/vid/record_$(date '+%d-%m-%y-%H:%M:%S').mkv";;
   
   "s2dm") echo "Recording with screen 2 and both microphone and desktop audio" ;;
 esac
