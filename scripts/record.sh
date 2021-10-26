@@ -2,7 +2,12 @@
 ARG=${1?Error: no input given}
 
 case "$ARG" in 
-  "s1") echo "Recording with screen 1" ;;
+  "s1") 
+    echo "Recording with screen 1" & 
+    ffmpeg -y -f x11grab -r 25 -s $(xrandr | fgrep '*' | awk '{print $1}')\
+      -i :0.0 -vcodec libx264 -preset ultrafast\
+      "$HOME/vid/record_$(date '+%d-%m-%y-%H:%M:%S').mkv";;
+  
   "s2") echo "Recording with screen 2" ;;
   "s1m") echo "Recording with screen 1 and microphone" ;;
   "s2m") echo "Recording with screen 2 and microphone" ;;
