@@ -10,9 +10,6 @@ dunst &
 # The compositor
 picom &
 
-# Fectchcord
-# fetchcord -t 15 -m gb --terminal kitty &
-
 # Startup application
 discord &
 spotify &
