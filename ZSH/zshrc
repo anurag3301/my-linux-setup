@@ -16,13 +16,11 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-alias vim="nvim"
 alias vrc="vim ~/.config/nvim/init.lua"
 alias zrc="vim ~/.zshrc"
 alias rr=". ranger"
 alias h="htop"
 alias g="gotop"
-alias transcode="mkdir transcoded; for i in *.mp4; do ffmpeg -i "$i" -vcodec mjpeg -q:v 2 -acodec pcm_s16be -q:a 0 -f mov "transcoded/${i%.*}.mov"; done"
 alias pico="sh /home/anurag/.program/pico_upload.sh"
 alias serial_pico="cu -l /dev/ttyACM0 -s 9600"
 alias camctl="v4l2-ctl -d /dev/video0 --list-ctrls"
@@ -35,7 +33,6 @@ alias la='exa -al --color=always --group-directories-first --icons --git' # my p
 alias ll='exa -l --color=always --group-directories-first --icons --git'  # long format
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat'
-alias kdiff='kitty +kitten diff '
 alias wtr='curl wttr.in'
 alias publicip='curl ifconfig.co'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
