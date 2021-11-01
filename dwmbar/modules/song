@@ -10,11 +10,24 @@ get_song()
 {
     artist="$(playerctl metadata artist -p spotify)"
     title="$(playerctl metadata title -p spotify | sed 's/(.*//')"
+    album="$(playerctl metadata album -p spotify)"
+
+    if (( ${#title} > 30 )); then
+      title="$(echo $title | cut -c 1-30)..."
+    fi
 
     if [ "$player_status" = "Playing" ]; then
-        printf "\x08%s %s - %s\x01\\n" "$PREFIX_PLAY" "$artist" "$title"
+        if [ "$artist" ]; then
+          printf "\x08%s %s - %s\x01\\n" "$PREFIX_PLAY" "$artist" "$title"
+        else
+          printf "\x08%s %s - %s\x01\\n" "$PREFIX_PLAY" "$album" "$title"
+        fi
     else
-        printf "\x08%s %s - %s\x01\\n" "$PREFIX_PAUSE" "$artist" "$title"
+        if [ "$artist" ]; then
+          printf "\x08%s %s - %s\x01\\n" "$PREFIX_PAUSE" "$artist" "$title"
+        else
+          printf "\x08%s %s - %s\x01\\n" "$PREFIX_PAUSE" "$album" "$title"
+        fi
     fi
 
 }
