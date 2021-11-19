@@ -65,4 +65,11 @@ cd my-linux-setup
 cp -r config/* ~/.config/
 ```
 
+**Install Nordic GTK theme**
+```sh
+git clone https://github.com/EliverLara/Nordic.git
+sudo cp Nordic /usr/share/themes/
+lxappearance
+```
+
 ### Now you can reboot and do the ZSH and VIM config
