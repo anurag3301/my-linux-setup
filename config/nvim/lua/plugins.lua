@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 	use "Pocco81/AutoSave.nvim"
 	use "jbyuki/venn.nvim"
 	use "turbio/bracey.vim"
+    use "iamcco/markdown-preview.nvim"
   
 	use {
 	  'lewis6991/gitsigns.nvim',
