@@ -75,7 +75,7 @@ done
 **Install Nordic GTK theme**
 ```sh
 git clone https://github.com/EliverLara/Nordic.git
-sudo cp Nordic /usr/share/themes/
+sudo cp -r Nordic /usr/share/themes/
 lxappearance
 ```
 
