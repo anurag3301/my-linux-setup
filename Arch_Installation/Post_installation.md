@@ -61,8 +61,15 @@ fc-cache
 
 **Set the config files**
 ```sh
-cd my-linux-setup
-cp -r config/* ~/.config/
+#please cd into my-linux-setup/config
+conf_path=$(pwd)
+echo $conf_path
+
+for d in *; do
+    run="ln -s $conf_path/$d $HOME/.config/$d"
+    echo $run
+    eval $run
+done
 ```
 
 **Install Nordic GTK theme**
