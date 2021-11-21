@@ -3,14 +3,18 @@
 # Prints out the volume percentage
 
 get_volume(){
-	device=$(pacmd list-sinks | grep -e 'index:' | awk '{print $1}' | head -n 1)
-	if [ "$device" = "*" ]
+    speakers="alsa_output.pci-0000_05_00.1.hdmi-stereo"
+    headphone="alsa_output.pci-0000_07_00.4.analog-stereo"
+
+    curr_device="$(pactl get-default-sink)"
+
+    if [ "$curr_device" = $speakers ]
 	then
-		VOLUME_ON_ICON=''
-		VOLUME_MUTED_ICON='ﳌ'
-	else
 		VOLUME_ON_ICON=''
 		VOLUME_MUTED_ICON='婢'
+	else
+		VOLUME_ON_ICON=''
+		VOLUME_MUTED_ICON='ﳌ'
 	fi
         active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
         curStatus=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
