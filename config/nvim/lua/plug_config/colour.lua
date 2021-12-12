@@ -1,6 +1,4 @@
 -- Material Theme config
-
-vim.cmd[[colorscheme material]]
 vim.g.material_style = "deep ocean"
 require('material').setup({
 	contrast = true,
@@ -31,3 +29,4 @@ require('material').setup({
 		eob_lines = false
 	},
 })
+vim.cmd[[colorscheme material]]
