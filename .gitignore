@@ -1,2 +1,3 @@
 packer_compiled.lua
 *.pyc
+config/lazygit/state.yml
