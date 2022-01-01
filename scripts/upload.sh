@@ -24,9 +24,8 @@ then
     else
         echo "Please give a file name"
     fi
-fi
 
-if [[ "$1" == "-l" ]]
+elif [[ "$1" == "-l" ]]
 then
     if [[ ${#2} > 0 ]]
     then
@@ -39,6 +38,10 @@ then
     else
         cat ~/.0x0_list | less
     fi
+
+elif [[ "$1" == "-e" ]]
+then
+    nvim ~/.0x0_list
 else
-    echo "Enter a vlid arg"
+    echo "Invalid argument"
 fi    
