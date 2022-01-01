@@ -1,14 +1,30 @@
-#!/bin/sh
+#!/bin/zsh
 
-command="curl -s -F'file=@$(pwd)/$1' https://0x0.st"
-echo "Executing: $command"
+if [[ "$1" == "-u" ]]
+then
+    if [[ ${#2} > 0 ]]
+    then
+        if [[ -f "$(pwd)/$2" ]]
+        then
+            command="curl -s -F'file=@$(pwd)/$2' https://0x0.st"
+            echo "Executing: $command"
 
-url=$(eval $command)
-echo "URL: $url"
+            url=$(eval $command)
+            echo "URL: $url"
 
-printf "$url" | xclip -sel clip
-notify-send "File Uploaded" "URL: $url \ncopied to clipboard" -t 5000 -i "$HOME/.program/icon.png"
+            printf "$url" | xclip -sel clip
+            notify-send "File Uploaded" "URL: $url \ncopied to clipboard" -t 5000 -i "$HOME/.program/icon.png"
 
-entry="$(date '+%d-%m-%y-%H:%M:%S')    $url    $(echo $1 | awk -F'/' '{print $(NF)}')"
-echo $entry >> $HOME/.0x0_list
+            entry="$(date '+%d-%m-%y-%H:%M:%S')    $url    $(echo $2 | awk -F'/' '{print $(NF)}')"
+            echo $entry >> $HOME/.0x0_list
+            echo "Uploaded"
+        else
+            echo "File doesnt exist"
+        fi
+    else
+        echo "Please give a file name"
+    fi
 
+else
+    echo "Invalid input"
+fi
