@@ -24,7 +24,21 @@ then
     else
         echo "Please give a file name"
     fi
-
-else
-    echo "Invalid input"
 fi
+
+if [[ "$1" == "-l" ]]
+then
+    if [[ ${#2} > 0 ]]
+    then
+        if [[ $2 =~ ^[0-9]+$ ]]
+        then
+            cat ~/.0x0_list | tail -$2
+        else
+            echo "Enter a valid integer"
+        fi
+    else
+        cat ~/.0x0_list | tail -5
+    fi
+else
+    echo "Enter a vlid arg"
+fi    
