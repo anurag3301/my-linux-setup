@@ -37,7 +37,7 @@ then
             echo "Enter a valid integer"
         fi
     else
-        cat ~/.0x0_list | tail -5
+        cat ~/.0x0_list | less
     fi
 else
     echo "Enter a vlid arg"
