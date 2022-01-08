@@ -1,32 +1,23 @@
 -- Material Theme config
 vim.g.material_style = "deep ocean"
-require('material').setup({
-	contrast = true,
-	borders = true,
-	popup_menu = "dark",
 
+require('material').setup({
+	contrast = {
+		sidebars = true,
+		floating_windows = true,
+	},
 	italics = {
-		comments = true,
 		keywords = true,
 		functions = true,
-		strings = true,
-		variables = false 
 	},
-
-	contrast_windows = {
+	contrast_filetypes = {
 		"terminal",
 		"packer",
-		"qf"
-	},
-
-	text_contrast = {
-		lighter = false,
-		darker = true
+		"qf",
 	},
 	disable = {
-		background = false,
-		term_colors = false,
-		eob_lines = false
-	},
+		borders = false,
+		eob_lines = false 
+	}
 })
-vim.cmd[[colorscheme material]]
+vim.cmd 'colorscheme material'
