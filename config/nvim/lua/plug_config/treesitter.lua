@@ -8,6 +8,14 @@ require("nvim-treesitter.configs").setup{
     enable = true,
     disable = {},
   },
+  rainbow = {
+    enable = false,
+    -- disable = { "jsx", "cpp" },
+    extended_mode = true,
+    max_file_lines = nil,
+    -- colors = {},
+    -- termcolors = {}
+  },
 
   autotag = {
     enable = true,
