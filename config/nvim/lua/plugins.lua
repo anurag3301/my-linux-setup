@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use {'michaelb/sniprun', run = 'bash ./install.sh'}
+    use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
     use 'p00f/nvim-ts-rainbow'
     use 'akinsho/nvim-toggleterm.lua'
     use 'windwp/nvim-autopairs'
