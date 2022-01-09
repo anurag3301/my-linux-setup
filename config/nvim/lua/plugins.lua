@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
 	use "jbyuki/venn.nvim"
 	use "turbio/bracey.vim"
     use "iamcco/markdown-preview.nvim"
+    use "rcarriga/nvim-notify"
   
 	use {
 	  'lewis6991/gitsigns.nvim',
