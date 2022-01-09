@@ -1,5 +1,5 @@
 -- Use following commadn to install language server in arch using pacman, paru and npm
--- pacman pyright bash-language-server lua-language-server ccls haskell-language-server 
+-- pacman python-lsp-server bash-language-server lua-language-server ccls haskell-language-server 
 -- paru typescript-language-server-git arduino-language-server cmake-language-server-git cssmodules-language-server jdtls
 -- npm i -g vscode-langservers-extracted 
 
@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
 
 end
 
-local servers = {'pyright', 'arduino_language_server', 'tsserver', 'hls', 'cmake', 'html', 'cssls', 'rust_analyzer', 'sumneko_lua', 'bashls', 'ccls'}
+local servers = {'pylsp', 'arduino_language_server', 'tsserver', 'hls', 'cmake', 'html', 'cssls', 'rust_analyzer', 'sumneko_lua', 'bashls', 'ccls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
