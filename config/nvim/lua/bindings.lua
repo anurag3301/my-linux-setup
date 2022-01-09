@@ -47,11 +47,6 @@ vim.cmd("nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
 vim.cmd("nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
 vim.o.completeopt = "menuone,noselect"
 
-map("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-
 map("n", "<F7>", ":NvimTreeToggle<CR>", {silent = true })
 
 map("n", "<leader>md", ":MarkdownPreviewToggle<CR>", {silent = true })
