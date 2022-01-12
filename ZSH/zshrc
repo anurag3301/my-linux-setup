@@ -40,7 +40,7 @@ alias startd='startx /home/anurag/.config/xorg/xinitrc'
 alias startk='startx /home/anurag/.config/xorg/xinitkde'
 alias rs='g++ solution.cpp -o cpp.out; ./cpp.out'
 alias rt='g++ test.cpp -o cpp.out; ./cpp.out'
-alias mine='/home/anurag/.program/trex/t-rex --algo kawpow -o asia-rvn.2miners.com:6060 -u RF4eKaHAwGpX38dbfBwCYq3HYYnHBUENxs -w RavenRig -p x'
+alias mine='/home/anurag/.program/trex/t-rex -a firopow -o stratum+tcp://asia-firo.2miners.com:8181 -u aLe4UJ7QoZBpHVAPwzdVqq14rFQFGH1wrS.PC -p x'
 alias up='pio run --target upload'
 alias sm='pio device monitor'
 alias n='nvim'
@@ -50,7 +50,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:/var/lib/snapd/snap/bin:/home/anurag/.local/bin:/home/anurag/.program:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
