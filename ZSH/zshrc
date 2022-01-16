@@ -17,7 +17,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 alias vrc="vim ~/.config/nvim/init.lua"
-alias zrc="vim ~/.zshrc"
+alias zrc="nvim ~/.zshrc"
 alias rr=". ranger"
 alias h="htop"
 alias g="gotop"
