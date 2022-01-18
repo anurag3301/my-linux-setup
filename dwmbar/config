@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # What modules, in what order
-MODULES="song cpuload volume ram cputemp nvidia_gpu_temp time date"
+MODULES="song miner_check cpuload volume ram cputemp nvidia_gpu_temp time date"
 
 # Modules that require an active internet connection
 ONLINE_MODULES="weather internet"
