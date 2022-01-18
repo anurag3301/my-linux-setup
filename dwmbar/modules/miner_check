@@ -11,7 +11,7 @@ get_miner_info(){
         printf "\x06%sMiner\x01\\n" "$tick"
     else
        # echo "Miner not running"
-       printf "\x03%sMiner\x01\\n" "$cross"
+       printf "\x0a%sMiner\x01\\n" "$cross"
     fi
 }
 
