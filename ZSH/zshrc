@@ -46,6 +46,7 @@ alias sm='pio device monitor'
 alias n='nvim'
 alias du='/sbin/du -h'
 alias mtp='aft-mtp-mount ~/mnt'
+alias ssh='kitty +kitten ssh'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
