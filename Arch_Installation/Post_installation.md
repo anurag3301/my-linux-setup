@@ -79,4 +79,24 @@ sudo cp -r Nordic /usr/share/themes/
 lxappearance
 ```
 
+**Setup autologin**
+```sh
+sudo nvim /etc/systemd/system/getty.target.wants/getty@tty1.service
+```
+```diff
+diff --git a/getty@tty1.service b/getty@tty1.service
+index 381bdb1..46270e5 100644
+--- a/getty@tty1.service
++++ b/getty@tty1.service
+@@ -35,7 +35,7 @@ ConditionPathExists=/dev/tty0
+ # The '-o' option value tells agetty to replace 'login' arguments with an
+ # option to preserve environment (-p), followed by '--' for safety, and then
+ # the entered username.
+-ExecStart=-/sbin/agetty -o '-p -- \\u' --noclear - $TERM
++ExecStart=-/usr/bin/agetty --autologin anurag --noclear %I $TERM
+ Type=idle
+ Restart=always
+ RestartSec=0
+```
+
 ### Now you can reboot and do the ZSH and VIM config
