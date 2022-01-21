@@ -47,6 +47,7 @@ alias n='nvim'
 alias du='/sbin/du -h'
 alias mtp='aft-mtp-mount ~/mnt'
 alias ssh='kitty +kitten ssh'
+alias winmount='sudo mount /dev/nvme0n1p3 /win'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
