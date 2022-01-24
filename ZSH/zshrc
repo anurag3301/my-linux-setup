@@ -33,7 +33,6 @@ alias la='exa -al --color=always --group-directories-first --icons --git' # my p
 alias ll='exa -l --color=always --group-directories-first --icons --git'  # long format
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat'
-alias wtr='curl wttr.in'
 alias publicip='curl ifconfig.co'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
 alias startd='startx /home/anurag/.config/xorg/xinitrc'
