@@ -6,7 +6,8 @@ Here I store all the Linux setup and installation stuff.
 
 ![17-07-21-13_25_21](https://user-images.githubusercontent.com/52702259/126030320-18f79c27-0e54-4d56-a0d7-191874f99663.png)
 
-![image](https://user-images.githubusercontent.com/52702259/129735881-c374af11-5ade-4f35-968c-69e87c0c050f.png)
+![image](https://user-images.githubusercontent.com/52702259/152478435-2c68f4d0-eb15-468a-bab8-85b0711fea10.png)
+
 
 | Distro              | Arch Linux             |
 |---------------------|------------------------|
