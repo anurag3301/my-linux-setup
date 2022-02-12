@@ -50,3 +50,4 @@ vim.o.completeopt = "menuone,noselect"
 map("n", "<F7>", ":NvimTreeToggle<CR>", {silent = true })
 
 map("n", "<leader>md", ":MarkdownPreviewToggle<CR>", {silent = true })
+map('n', '<Leader><Space>', ':noh<CR>', { noremap = true, silent = true })
