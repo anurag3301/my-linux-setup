@@ -12,9 +12,9 @@ get_song()
     title="$(playerctl metadata title -p spotify | sed 's/(.*//')"
     album="$(playerctl metadata album -p spotify)"
 
-    if (( ${#title} > 20 )); then
-      title="$(echo $title | cut -c 1-20)..."
-    fi
+    # if (( ${#title} > 20 )); then
+    #   title="$(echo $title | cut -c 1-20)..."
+    # fi
 
     if [ "$player_status" = "Playing" ]; then
         if [ "$artist" ]; then
