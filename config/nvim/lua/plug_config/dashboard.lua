@@ -45,3 +45,6 @@ local plugins_count = vim.fn.len(
 vim.g.dashboard_custom_footer = {
     "-- Neovim Loaded " .. plugins_count .. " Plugins --",
 }
+
+vim.cmd([[highlight DashboardHeader guifg=#ffffff]])
+
