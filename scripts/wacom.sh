@@ -4,7 +4,7 @@ id="$(xsetwacom list devices | grep stylus | awk '{print $9}')"
 
 if [ "$1" == "l" ] 
 then
-    xsetwacom set $id MapToOutput 1366x768+0+0
+    xsetwacom set $id MapToOutput 2560x1440+0+0
 
 elif [ "$1" == "r" ] 
 then
