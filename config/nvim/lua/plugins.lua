@@ -16,9 +16,6 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind-nvim'
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-refactor'
-    use {'michaelb/sniprun', run = 'bash ./install.sh'}
-    use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
-    use 'p00f/nvim-ts-rainbow'
     use 'akinsho/nvim-toggleterm.lua'
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
@@ -28,7 +25,6 @@ return require('packer').startup(function(use)
     use 'terrortylor/nvim-comment'
     use "rafamadriz/friendly-snippets"
     use "Pocco81/AutoSave.nvim"
-    use "jbyuki/venn.nvim"
     use "turbio/bracey.vim"
     use "iamcco/markdown-preview.nvim"
   
