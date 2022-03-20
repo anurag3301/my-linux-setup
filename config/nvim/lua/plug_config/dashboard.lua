@@ -21,19 +21,19 @@ vim.g.dashboard_default_executive = "telescope"
 
 vim.g.dashboard_custom_section = {
     a = {
-        description = { "  New File                       SPC n" },
+        description = { "  New File                       LDR n" },
         command = "enew",
     },
     b = {
-        description = { "  Competitive                    SPC c" },
+        description = { "  Competitive                    LDR c" },
         command = "CphReceive",
     },
     c = {
-        description = { "  Find Files                     SPC f" },
+        description = { "  Find Files                     LDR f" },
         command = "Telescope find_files",
     },
     d = {
-        description = { "  Find History                   SPC o" },
+        description = { "  Find History                   LDR o" },
         command = "Telescope oldfiles",
     },
 }
