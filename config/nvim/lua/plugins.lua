@@ -24,8 +24,8 @@ return require('packer').startup(function(use)
     use 'terrortylor/nvim-comment'
     use "rafamadriz/friendly-snippets"
     use "Pocco81/AutoSave.nvim"
-    use "turbio/bracey.vim"
-    use "iamcco/markdown-preview.nvim"
+    use {'turbio/bracey.vim', run = 'cd app & npm install --prefix server'}
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
   
     use {
       'lewis6991/gitsigns.nvim',
