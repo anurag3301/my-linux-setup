@@ -15,7 +15,6 @@ return require('packer').startup(function(use)
     use 'williamboman/nvim-lsp-installer'
     use 'onsails/lspkind-nvim'
     use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'akinsho/nvim-toggleterm.lua'
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
