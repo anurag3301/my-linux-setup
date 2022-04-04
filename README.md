@@ -1,6 +1,7 @@
 # My-Linux-Stuff
 Here I store all the Linux setup and installation stuff.
 #### Checkout this [GitHub repo](https://github.com/anurag3301/my-dwm) for my DWM build
+#### Checkout my [NeoVim Config](./config/nvim)
 
 # This is How my desktop looks like
 ![image](https://user-images.githubusercontent.com/52702259/158743615-cde039b8-9944-4553-b106-dacdd23870f9.png)
