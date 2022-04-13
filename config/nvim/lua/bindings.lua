@@ -1,5 +1,7 @@
 map = vim.api.nvim_set_keymap
 
+-- LSP bindings: nivm/lua/plug_config/lsp_config/lsp-config.lua
+
 map('n', '<Leader>n', ':enew<CR>', { noremap = true, silent = true })
 map('n', '<Leader>f', ':Telescope find_files<CR>', { noremap = true, silent = true })
 map('n', '<Leader>o', ':Telescope oldfiles<CR>', { noremap = true, silent = true })
@@ -35,17 +37,6 @@ for i = 1, 9, 1 do
     { noremap = true, silent = true }
   )
 end
-
--- lsp-config keybindigs
-vim.cmd('nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>')
-vim.cmd('nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>')
-vim.cmd('nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>')
-vim.cmd('nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>')
-vim.cmd('nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>')
-vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
-vim.cmd('nnoremap <silent> <C-n> <cmd>lua vim.diagnostic.goto_prev()<CR>')
-vim.cmd('nnoremap <silent> <C-p> <cmd>lua vim.diagnostic.goto_next()<CR>')
-vim.o.completeopt = 'menuone,noselect'
 
 map('n', '<F7>', ':NvimTreeToggle<CR>', {silent = true })
 
