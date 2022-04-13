@@ -51,3 +51,6 @@ map('n', '<F7>', ':NvimTreeToggle<CR>', {silent = true })
 
 map('n', '<leader>md', ':MarkdownPreviewToggle<CR>', {silent = true })
 map('n', '<Leader><Space>', ':noh<CR>', { noremap = true, silent = true })
+
+map('n', '<Leader>p', ':Neoformat<CR>', { noremap = true, silent = true })
+

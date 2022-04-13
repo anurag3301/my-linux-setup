@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
     use 'Pocco81/AutoSave.nvim'
     use {'turbio/bracey.vim', run = 'cd app & npm install --prefix server'}
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+    use 'sbdchd/neoformat'
   
     use {
       'lewis6991/gitsigns.nvim',
