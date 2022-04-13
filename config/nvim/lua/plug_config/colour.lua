@@ -1,5 +1,5 @@
 -- Material Theme config
-vim.g.material_style = "deep ocean"
+vim.g.material_style = 'deep ocean'
 
 require('material').setup({
 	contrast = {
@@ -11,9 +11,9 @@ require('material').setup({
 		functions = true,
 	},
 	contrast_filetypes = {
-		"terminal",
-		"packer",
-		"qf",
+		'terminal',
+		'packer',
+		'qf',
 	},
 	disable = {
 		borders = false,

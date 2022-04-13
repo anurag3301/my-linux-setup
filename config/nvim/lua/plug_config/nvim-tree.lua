@@ -14,10 +14,10 @@ require'nvim-tree'.setup {
   diagnostics = {
     enable = false,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = '',
+      info = '',
+      warning = '',
+      error = '',
     }
   },
   update_focused_file = {
@@ -41,4 +41,4 @@ require'nvim-tree'.setup {
     }
   }
 }
-vim.cmd("let g:nvim_tree_quit_on_open = 1")
+vim.cmd('let g:nvim_tree_quit_on_open = 1')

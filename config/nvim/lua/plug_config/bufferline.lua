@@ -12,12 +12,12 @@ require('bufferline').setup {
     max_name_length = 18,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
     tab_size = 18,
-    diagnostics = "nvim_lsp",
+    diagnostics = 'nvim_lsp',
     diagnostics_update_in_insert = false,
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      return "("..count..")"
+      return '('..count..')'
     end,
-	offsets = { { filetype = "NvimTree", text_align = "left" } },
+	offsets = { { filetype = 'NvimTree', text_align = 'left' } },
 	show_buffer_icons = true,
 	show_buffer_close_icons = false,
 	show_close_icon = false,
@@ -25,6 +25,6 @@ require('bufferline').setup {
 	persist_buffer_sort = true,
 	enforce_regular_tabs = false,
 	always_show_bufferline = false,
-	sort_by = "id",
+	sort_by = 'id',
 	}
 }
