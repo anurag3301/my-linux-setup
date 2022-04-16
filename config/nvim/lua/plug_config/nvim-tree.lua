@@ -3,7 +3,6 @@ require'nvim-tree'.setup {
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
-  auto_close          = true,
   open_on_tab         = false,
   update_to_buf_dir   = {
     enable = true,
@@ -19,6 +18,11 @@ require'nvim-tree'.setup {
       warning = '',
       error = '',
     }
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
   },
   update_focused_file = {
     enable      = false,
@@ -41,4 +45,3 @@ require'nvim-tree'.setup {
     }
   }
 }
-vim.cmd('let g:nvim_tree_quit_on_open = 1')
