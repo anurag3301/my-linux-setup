@@ -23,7 +23,7 @@ vim.opt['swapfile'] = false
 -- Persistent undo
 -- mkdir $HOME/.vim/undo
 vim.opt['undofile'] = true
-vim.opt['undodir'] = '/home/anurag/.cache/nvim/undo'
+vim.opt['undodir'] = os.getenv( 'HOME' )..'/.cache/nvim/undo'
 vim.opt['undolevels'] = 1000
 vim.opt['undoreload'] = 10000
 
