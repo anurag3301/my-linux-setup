@@ -33,6 +33,7 @@ require('plug_config.telescope')
 
 require('general')
 require('bindings')
+require('commands')
 
 
 -- CpHelper config
