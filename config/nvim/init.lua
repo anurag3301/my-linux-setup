@@ -37,7 +37,7 @@ require('commands')
 
 
 -- CpHelper config
-vim.g.cphdir = '/home/anurag/problems'
+vim.g.cphdir = os.getenv( 'HOME' )..'/problems'
 
 -- Rooter config
 vim.g.rooter_pattern = { 'input1', 'output1' }

@@ -26,12 +26,6 @@ ln -s $HOME/repos/my-linux-setup/config/nvim $HOME/.config/nvim
 
 Open neovim, you should get some errors, just press enter key and run `:PackerInstall` followed by `:PackerSync`. This will install all the plugins.
 
-Make some changes to hard-coded home directory names. Ill Fix it later to get it dynamically.
-
-https://github.com/anurag3301/my-linux-setup/blob/4ad0b860ae9c72cc416a131ec15131d55c8d9070/config/nvim/init.lua#L39
-
-https://github.com/anurag3301/my-linux-setup/blob/4d9e1daf2fe8875517b3cadb874c237b55769d11/config/nvim/lua/general.lua#L26
-
 Install the Required LSP servers
 
 https://github.com/anurag3301/my-linux-setup/blob/4d9e1daf2fe8875517b3cadb874c237b55769d11/config/nvim/lua/plug_config/lsp_config/lsp-config.lua#L1-L7
