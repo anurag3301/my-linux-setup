@@ -48,7 +48,6 @@ return require('packer').startup(function(use)
   
     use {
       'p00f/cphelper.nvim',
-      rocks = 'http',
       requires = {
         'nvim-lua/plenary.nvim',
         'ygm2/rooter.nvim',
