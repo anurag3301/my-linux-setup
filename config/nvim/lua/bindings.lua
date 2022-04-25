@@ -2,8 +2,19 @@ map = vim.api.nvim_set_keymap
 
 -- LSP bindings: nivm/lua/plug_config/lsp_config/lsp-config.lua
 
+    
+function _find_files()
+    local is_git = os.execute("git status &>/dev/null")
+    if (is_git == 0) then
+        vim.cmd(":Telescope git_files")
+    else
+        vim.cmd(":Telescope find_files")
+    end
+end
+
+
 map('n', '<Leader>n', ':enew<CR>', { noremap = true, silent = true })
-map('n', '<Leader>f', ':Telescope find_files<CR>', { noremap = true, silent = true })
+map('n', '<Leader>f', ':lua _find_files()<CR>', { noremap = true, silent = true })
 map('n', '<Leader>o', ':Telescope oldfiles<CR>', { noremap = true, silent = true })
 map('n', '<Leader>[', ':vertical resize +7<CR>', { noremap = true, silent = true })
 map('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true })
