@@ -16,6 +16,7 @@ end
 map('n', '<Leader>n', ':enew<CR>', { noremap = true, silent = true })
 map('n', '<Leader>f', ':lua _find_files()<CR>', { noremap = true, silent = true })
 map('n', '<Leader>o', ':Telescope oldfiles<CR>', { noremap = true, silent = true })
+map('n', '<Leader>s', ':Telescope live_grep<CR>', { noremap = true, silent = true })
 map('n', '<Leader>[', ':vertical resize +7<CR>', { noremap = true, silent = true })
 map('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true })
 map('n', '<Leader>cc', ':ColorizerToggle<CR>', { noremap = true, silent = true })
