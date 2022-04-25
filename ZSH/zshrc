@@ -4,7 +4,11 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-neofetch
+
+if [[ "nvim" != $(ps -p $(ps -p $$ -o ppid=) o args= | awk '{print $1 }') ]]
+then
+    neofetch
+fi
 
 export ZSH="/home/anurag/.oh-my-zsh"
 export EDITOR="nvim"
