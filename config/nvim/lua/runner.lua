@@ -1,5 +1,13 @@
 local run_command_table = {
     ['cpp'] = 'g++ %:t -o %:r && ./%:r',
+    ['c'] = 'gcc %:t -o %:r && ./%:r',
+    ['python'] = 'python %:t',
+    ['lua'] = 'lua %:t',
+    ['java'] = 'javac %:t && java %:r',
+    ['zsh'] = 'zsh %:t',
+    ['sh'] = 'sh %:t',
+    ['rust'] = 'rustc %:t && ./%:r',
+    ['go'] = 'go run %:t'
 }
 
 function run_code()
