@@ -35,3 +35,5 @@ local commands_table = {
 for command, action in pairs(commands_table) do
     vim.cmd('command! ' .. command .. ' :Telescope '.. action)
 end
+
+vim.cmd('command! Run :lua run_code()')

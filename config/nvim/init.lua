@@ -34,6 +34,7 @@ require('plug_config.telescope')
 require('general')
 require('bindings')
 require('commands')
+require('runner')
 
 
 -- CpHelper config
