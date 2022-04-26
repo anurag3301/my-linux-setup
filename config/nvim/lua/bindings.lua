@@ -51,6 +51,9 @@ for i = 1, 9, 1 do
   )
 end
 
+-- Binding for code runner
+map('n', '<F5>', ':Run<CR>', { noremap = true, silent = true })
+
 -- Other bindings nvimtree, markdown preview, Neoformat, Colorizer, LazyGit
 map('n', '<F7>', ':NvimTreeToggle<CR>', {silent = true })
 map('n', '<leader>md', ':MarkdownPreviewToggle<CR>', {silent = true })
