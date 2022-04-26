@@ -14,10 +14,9 @@ timedatectl status
 fdisk -l
 
 # now open the disk in fdisk, in my case 
-fdisk /dev/nvme0n1  #sda
+fdisk /dev/nvme0n1  #sda, vda
 
-# now make 3 partations
-# First of 512 MB as EFI partations
+# now make 2 partations
 # Second of 2GB as linux swap
 # And remaing as Linux Filesystem
 ```
@@ -26,9 +25,6 @@ Demo output of partationing
 
 **Lets format partations**
 ```sh
-# format efi disk as fat32
-mkfs.fat -F32 /dev/{efi-partation}
-
 # format swap partation
 mkswap /dev/{swap-partation}
 
@@ -44,17 +40,13 @@ mkfs.ext4 /dev/{linux-filesystem-partation}
 # Mount the Linux Filesystem partation of drive to /mnt dir of boot environment
 mount /dev/{linux-filesystem-partation} /mnt
 
-# Make a boot directory in the linux filesystem partation mount the efi partation in the boot dir.
-mkdir /mnt/boot
-mount /dev/{efi-partation} /mnt/boot
-
 # confirm the partation and mounting
 df
 ```
 
 **Base Linux firmware installaion with vim**
 ```sh
-pacstrap /mnt base linux linux-firmware vim git
+pacstrap /mnt base linux linux-firmware vim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # chcek the fstab
@@ -92,12 +84,10 @@ passwd
 **Install GRUB and dual boot and other stuff**
 ```sh
 # Havent added comment for the commands cuz I also barely know what they do 😅
+pacman -S grub os-prober mtools dosfstools base-devel linux-headers dhcpcd
 
-pacman -Sy grub efibootmgr os-prober base-devel linux-headers dhcpcd
 os-prober
-grub-install --target=x86-64_efi --efi-directory=/boot/ --bootloader-id=GRUB
-mkdir /mnt2
-mount /dev/{windows-efi-partation} /mnt2
+grub-install --target-i386-pc /dev/{drive}  # /dev/sda vda
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ## Reboot
@@ -105,7 +95,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # exit from arch-chroot
 exit
 
-# Unmount eveything
+# Unmount everything
 umount -a
 
 # now reboot
