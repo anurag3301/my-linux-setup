@@ -7,7 +7,8 @@ local run_command_table = {
     ['zsh'] = 'zsh %:t',
     ['sh'] = 'sh %:t',
     ['rust'] = 'rustc %:t && ./%:r',
-    ['go'] = 'go run %:t'
+    ['go'] = 'go run %:t',
+    ['javascript'] = 'node %:t'
 }
 
 local extra = 'echo \"\\\\n\\\\033[0;33mPlease Press ENTER to continue \\\\033[0m\"; read; exit;'
