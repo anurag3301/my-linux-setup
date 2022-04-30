@@ -22,8 +22,8 @@ function run_code()
 end
 
 -- Use the following function to update the execution command of a filetype temporarly
--- Usage :lua update_command_table(filetype, new_command)
--- Example :lua update_command_table('python', 'python %:t argument1 argument2')
+-- Usage :lua update_command_table(filetype) --OR-- :RunUpdate filetype
+-- Example :RunUpdate python
 function update_command_table(filetype)
     local command
 
