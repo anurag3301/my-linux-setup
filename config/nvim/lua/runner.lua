@@ -25,11 +25,18 @@ end
 -- Usage :lua update_command_table(filetype, new_command)
 -- Example :lua update_command_table('python', 'python %:t argument1 argument2')
 function update_command_table(filetype)
-    local command = vim.fn.input(string.format("Update run command of filetype (%s): ", filetype),
-    run_command_table[filetype], 'file')
+    local command
 
-    run_command_table[filetype] = command
-    
-    print("  Updated!")
+    if(run_command_table[filetype]) then
+        command = vim.fn.input(string.format("Update run command of filetype (%s): ", filetype),
+        run_command_table[filetype], 'file')
+    else
+        command = vim.fn.input(string.format("Add new run command of filetype (%s): ", filetype))
+    end
+
+    if(#command ~= 0) then
+        run_command_table[filetype] = command
+        print("  Updated!")
+    end
 end
 
