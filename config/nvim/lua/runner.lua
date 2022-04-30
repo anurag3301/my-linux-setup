@@ -24,7 +24,12 @@ end
 -- Use the following function to update the execution command of a filetype temporarly
 -- Usage :lua update_command_table(filetype, new_command)
 -- Example :lua update_command_table('python', 'python %:t argument1 argument2')
-function update_command_table(filetype, new_command)
-    run_command_table[filetype] = new_command
-    print(string.format("Run command for filetype: %s is being changed to '%s' temporarly.", filetype, new_command))
+function update_command_table(filetype)
+    local command = vim.fn.input(string.format("Update run command of filetype (%s): ", filetype),
+    run_command_table[filetype], 'file')
+
+    run_command_table[filetype] = command
+    
+    print("  Updated!")
 end
+
