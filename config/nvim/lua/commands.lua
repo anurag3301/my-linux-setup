@@ -37,3 +37,5 @@ for command, action in pairs(commands_table) do
 end
 
 vim.cmd('command! Run :lua run_code()')
+
+vim.cmd('command! -nargs=1 RunUpdate :lua update_command_table(<f-args>)')
