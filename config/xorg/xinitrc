@@ -10,6 +10,9 @@ dunst &
 # The compositor
 picom &
 
+# Enable Numlock
+numlockx &
+
 # Startup application
 discord &
 spotify &
