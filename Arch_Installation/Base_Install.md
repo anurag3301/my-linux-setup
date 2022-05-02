@@ -93,7 +93,7 @@ passwd
 ```sh
 # Havent added comment for the commands cuz I also barely know what they do 😅
 
-pacman -Sy grub efibootmgr os-prober base-devel linux-headers dhcpcd
+pacman -Sy grub efibootmgr os-prober base-devel linux-headers networkmanager
 os-prober
 grub-install --target=x86-64_efi --efi-directory=/boot/ --bootloader-id=GRUB
 mkdir /mnt2

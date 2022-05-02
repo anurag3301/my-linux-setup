@@ -1,9 +1,9 @@
 ## The Post installation after Base install
 **Login to new user created**
 
-**First enable and start the dhcpcd service**
+**First enable and start the NetworkManager service**
 ```sh
-sudo systemctl enable --now dhcpcd
+sudo systemctl enable --now NetworkManager.service 
 ```
 
 **Install the required packages**

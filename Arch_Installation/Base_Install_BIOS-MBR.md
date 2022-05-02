@@ -84,7 +84,7 @@ passwd
 **Install GRUB and dual boot and other stuff**
 ```sh
 # Havent added comment for the commands cuz I also barely know what they do 😅
-pacman -S grub os-prober mtools dosfstools base-devel linux-headers dhcpcd
+pacman -S grub os-prober mtools dosfstools base-devel linux-headers networkmanager
 
 os-prober
 grub-install --target-i386-pc /dev/{drive}  # /dev/sda vda
