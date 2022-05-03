@@ -1,14 +1,17 @@
+-- refer this wiki to know how to use path specifiers in vim 
+-- https://vim.fandom.com/wiki/Get_the_name_of_the_current_file
+
 local run_command_table = {
-    ['cpp'] = 'g++ %:t -o %:r && ./%:r',
-    ['c'] = 'gcc %:t -o %:r && ./%:r',
-    ['python'] = 'python %:t',
-    ['lua'] = 'lua %:t',
-    ['java'] = 'javac %:t && java %:r',
-    ['zsh'] = 'zsh %:t',
-    ['sh'] = 'sh %:t',
-    ['rust'] = 'rustc %:t && ./%:r',
-    ['go'] = 'go run %:t',
-    ['javascript'] = 'node %:t'
+    ['cpp'] = 'g++ % -o %:r && ./%:r',
+    ['c'] = 'gcc % -o %:r && ./%:r',
+    ['python'] = 'python %',
+    ['lua'] = 'lua %',
+    ['java'] = 'javac % && java %:r',
+    ['zsh'] = 'zsh %',
+    ['sh'] = 'sh %',
+    ['rust'] = 'rustc % && ./%:r',
+    ['go'] = 'go run %',
+    ['javascript'] = 'node %'
 }
 
 local extra = 'echo \"\\\\n\\\\033[0;33mPlease Press ENTER to continue \\\\033[0m\"; read; exit;'
