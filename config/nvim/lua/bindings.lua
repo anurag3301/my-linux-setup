@@ -65,3 +65,4 @@ map('n', '<Leader><Space>', ':noh<CR>', { noremap = true, silent = true })
 map('n', '<Leader>[', ':vertical resize +7<CR>', { noremap = true, silent = true })
 map('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true })
 
+vim.cmd(':tnoremap <Esc> <C-\\><C-n>')
