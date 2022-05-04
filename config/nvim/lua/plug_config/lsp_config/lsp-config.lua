@@ -36,7 +36,11 @@ local on_attach = function(client, bufnr)
 
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 local servers = {'pyright', 'arduino_language_server', 'tsserver', 'hls', 'cmake', 'html', 'cssls', 'rust_analyzer', 'sumneko_lua', 'bashls', 'ccls'}
+
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
