@@ -1,7 +1,7 @@
 -- Use following commadn to install language server in arch using pacman, paru(AUR) and npm
 
--- pacman pyright bash-language-server lua-language-server ccls haskell-language-server 
--- paru typescript-language-server-git arduino-language-server cmake-language-server-git cssmodules-language-server jdtls
+-- sudo pacman -S pyright bash-language-server lua-language-server ccls haskell-language-server typescript-language-server 
+-- paru -S arduino-language-server cmake-language-server-git cssmodules-language-server jdtls
 -- npm i -g vscode-langservers-extracted 
 
 -- If you dont use Arch then check the installation process for your distro.
