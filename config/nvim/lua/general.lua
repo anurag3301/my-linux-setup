@@ -19,6 +19,7 @@ vim.opt['fileencoding'] = 'utf-8'
 vim.opt['showmode'] = false
 vim.opt['clipboard'] = 'unnamedplus'
 vim.opt['swapfile'] = false
+vim.o.laststatus = 3 -- 3: show always and ONLY the last window
 
 -- Persistent undo
 -- mkdir $HOME/.vim/undo
@@ -29,8 +30,5 @@ vim.opt['undoreload'] = 10000
 
 -- Stop comments on newline
 vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o]])
-
--- Disable lualine on Nvim-tree
-vim.cmd ([[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == 'NvimTree' | set laststatus=0 | else | set laststatus=2 | endif]])
 
 vim.cmd('command CDD cd %:p:h')
