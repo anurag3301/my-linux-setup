@@ -16,6 +16,8 @@ local run_command_table = {
 
 local extra = 'echo \"\\\\n\\\\033[0;33mPlease Press ENTER to continue \\\\033[0m\"; read; exit;'
 
+
+-- To run file run :Run or just press <F5>
 function run_code()
     if (run_command_table[vim.bo.filetype]) then
        vim.cmd("2TermExec cmd='".. run_command_table[vim.bo.filetype].."; " .. extra .. "' direction=float")
@@ -24,11 +26,21 @@ function run_code()
    end
 end
 
+local function strsplit (inputstr)
+    local t={}
+    for str in string.gmatch(inputstr, "([^%s]+)") do
+        table.insert(t, str)
+    end
+    return t
+end
+
 -- Use the following function to update the execution command of a filetype temporarly
 -- Usage :lua update_command_table(filetype) --OR-- :RunUpdate filetype
 -- Example :RunUpdate python
 function update_command_table(filetype)
     local command
+
+    filetype = strsplit(filetype)[1]
 
     if(run_command_table[filetype]) then
         command = vim.fn.input(string.format("Update run command of filetype (%s): ", filetype),
