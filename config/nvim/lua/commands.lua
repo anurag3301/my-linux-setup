@@ -38,4 +38,4 @@ end
 
 vim.cmd('command! Run :lua run_code()')
 
-vim.cmd('command! -nargs=1 RunUpdate :lua update_command_table(<f-args>)')
+vim.cmd('command! -nargs=* RunUpdate :lua update_command_table(<f-args>)')

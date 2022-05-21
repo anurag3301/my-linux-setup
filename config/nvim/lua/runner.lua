@@ -35,10 +35,14 @@ local function strsplit (inputstr)
 end
 
 -- Use the following function to update the execution command of a filetype temporarly
--- Usage :lua update_command_table(filetype) --OR-- :RunUpdate filetype
--- Example :RunUpdate python
+-- Usage :RunUpdate  --OR-- :RunUpdate filetype
+-- If no argument is provided, the command is going to take the filetype of active buffer
 function update_command_table(filetype)
     local command
+
+    if(filetype == nil)then
+        filetype = vim.bo.filetype
+    end
 
     filetype = strsplit(filetype)[1]
 
