@@ -31,48 +31,55 @@ return require('packer').startup(function(use)
     use 'sbdchd/neoformat'
   
     use {
-      'lewis6991/gitsigns.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim'
-      }
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
     }
   
     use {
-    'phaazon/hop.nvim',
-    as = 'hop'
+        'phaazon/hop.nvim',
+        as = 'hop'
     }
   
     use {
-      'akinsho/nvim-bufferline.lua',
-      requires = 'kyazdani42/nvim-web-devicons'
+        'akinsho/nvim-bufferline.lua',
+        requires = 'kyazdani42/nvim-web-devicons'
     }
   
     use {
-      'p00f/cphelper.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'ygm2/rooter.nvim',
-        opt = true
-      }
+        'p00f/cphelper.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'ygm2/rooter.nvim',
+            opt = true
+        }
     }
   
     use {
-      'hoob3rt/lualine.nvim',
-      requires = {
-        'kyazdani42/nvim-web-devicons',
-        opt = true
-      }
+        'hoob3rt/lualine.nvim',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+            opt = true
+        }
     }
   
     use {
-      'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            'nvim-lua/popup.nvim', 
+            'nvim-lua/plenary.nvim' 
+        }
     }
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-  }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim', 
+        run = 'make' 
+    }
+
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
+    }
 
 end)

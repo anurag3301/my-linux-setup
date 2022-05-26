@@ -1,4 +1,4 @@
-map = vim.api.nvim_set_keymap
+keymap = vim.keymap.set
 
 -- LSP bindings: nivm/lua/plug_config/lsp_config/lsp-config.lua
 
@@ -13,56 +13,54 @@ function _find_files()
     end
 end
 
-map('n', '<Leader>f', ':lua _find_files()<CR>', { noremap = true, silent = true })
-map('n', '<Leader>o', ':Telescope oldfiles<CR>', { noremap = true, silent = true })
-map('n', '<Leader>s', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>f', _find_files)
+keymap('n', '<Leader>o', ':Telescope oldfiles<CR>')
+keymap('n', '<Leader>s', ':Telescope live_grep<CR>')
 
 -- Bracey bindings
-map('n', '<Leader>b', ':Bracey<CR>', { noremap = true, silent = true })
-map('n', '<Leader>bb', ':BraceyStop<CR>', { noremap = true, silent = true })
-map('n', '<Leader>bbb', ':BraceyReload<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>b', ':Bracey<CR>')
+keymap('n', '<Leader>bb', ':BraceyStop<CR>')
+keymap('n', '<Leader>bbb', ':BraceyReload<CR>')
 
 -- Bufferline bindings
-map('n', 'f', ':BufferLinePick<CR>', { noremap = true, silent = true })
-map('n', 'F', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
-map('n', '<TAB>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
-map('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-map('n', 'm.', ':BufferLineMoveNext<CR>', { noremap = true, silent = true })
-map('n', 'm,', ':BufferLineMovePrev<CR>', { noremap = true, silent = true })
+keymap('n', 'f', ':BufferLinePick<CR>')
+keymap('n', 'F', ':BufferLinePickClose<CR>')
+keymap('n', '<TAB>', ':BufferLineCycleNext<CR>')
+keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>')
+keymap('n', 'm.', ':BufferLineMoveNext<CR>')
+keymap('n', 'm,', ':BufferLineMovePrev<CR>')
 
 -- Hope bindings
-map('n', ';j', ':HopWord<CR>', { noremap = true, silent = true })
-map('n', ';l', ':HopLineStart<CR>', { noremap = true, silent = true })
+keymap('n', ';j', ':HopWord<CR>')
+keymap('n', ';l', ':HopLineStart<CR>')
 
 -- LSP Diagnostics Toggle bindings
-map('n', '<Leader>dd', ':ToggleDiag<CR>', { noremap = true, silent = true })
-map('n', '<leader>du', '<Plug>(toggle-lsp-diag-underline)', {silent = true })
-map('n', '<leader>ds', '<Plug>(toggle-lsp-diag-signs)', {silent = true })
-map('n', '<leader>dv', '<Plug>(toggle-lsp-diag-vtext)', {silent = true })
-map('n', '<leader>di', '<Plug>(toggle-lsp-diag-update_in_insert)', {silent = true })
+keymap('n', '<Leader>dd', ':ToggleDiag<CR>')
+keymap('n', '<leader>du', '<Plug>(toggle-lsp-diag-underline)')
+keymap('n', '<leader>ds', '<Plug>(toggle-lsp-diag-signs)')
+keymap('n', '<leader>dv', '<Plug>(toggle-lsp-diag-vtext)')
+keymap('n', '<leader>di', '<Plug>(toggle-lsp-diag-update_in_insert)')
 
 -- CPHelper bindings
-map('n', '<Leader>c', ':CphReceive<CR>', { noremap = true, silent = true })
-map('n', '<Leader>t', ':CphTest<CR>', { noremap = true, silent = true })
+keymap('n', '<Leader>c', ':CphReceive<CR>')
+keymap('n', '<Leader>t', ':CphTest<CR>')
 for i = 1, 9, 1 do
-  map('n', string.format('<Leader>e%d', i),
-    string.format(':CphEdit %d<CR>', i),
-    { noremap = true, silent = true }
-  )
+  keymap('n', string.format('<Leader>e%d', i),
+    string.format(':CphEdit %d<CR>', i))
 end
 
 -- Binding for code runner
-map('n', '<F5>', ':Run<CR>', { noremap = true, silent = true })
+keymap('n', '<F5>', ':Run<CR>')
 
 -- Other bindings nvimtree, markdown preview, Neoformat, Colorizer, LazyGit
-map('n', '<F7>', ':NvimTreeToggle<CR>', {silent = true })
-map('n', '<leader>md', ':MarkdownPreviewToggle<CR>', {silent = true })
-map('n', '<Leader>p', ':Neoformat<CR>', { noremap = true, silent = true })
-map('n', '<Leader>cc', ':ColorizerToggle<CR>', { noremap = true, silent = true })
-map('n', '<Leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
-map('n', '<Leader>n', ':enew<CR>', { noremap = true, silent = true })
-map('n', '<Leader><Space>', ':noh<CR>', { noremap = true, silent = true })
-map('n', '<Leader>[', ':vertical resize +7<CR>', { noremap = true, silent = true })
-map('n', '<Leader>]', ':vertical resize -7<CR>', { noremap = true, silent = true })
+keymap('n', '<F7>', ':NvimTreeToggle<CR>')
+keymap('n', '<leader>md', ':MarkdownPreviewToggle<CR>')
+keymap('n', '<Leader>p', ':Neoformat<CR>')
+keymap('n', '<Leader>cc', ':ColorizerToggle<CR>')
+keymap('n', '<Leader>gg', ':LazyGit<CR>')
+keymap('n', '<Leader>n', ':enew<CR>')
+keymap('n', '<Leader><Space>', ':noh<CR>')
+keymap('n', '<Leader>[', ':vertical resize +7<CR>')
+keymap('n', '<Leader>]', ':vertical resize -7<CR>')
 
 vim.cmd(':tnoremap <Esc> <C-\\><C-n>')

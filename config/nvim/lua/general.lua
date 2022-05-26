@@ -19,7 +19,7 @@ vim.opt['fileencoding'] = 'utf-8'
 vim.opt['showmode'] = false
 vim.opt['clipboard'] = 'unnamedplus'
 vim.opt['swapfile'] = false
-vim.o.laststatus = 3 -- 3: show always and ONLY the last window
+vim.opt['laststatus'] = 3
 
 -- Persistent undo
 -- mkdir $HOME/.vim/undo
@@ -29,6 +29,6 @@ vim.opt['undolevels'] = 1000
 vim.opt['undoreload'] = 10000
 
 -- Stop comments on newline
-vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o]])
+vim.cmd('autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o')
 
 vim.cmd('command CDD cd %:p:h')
