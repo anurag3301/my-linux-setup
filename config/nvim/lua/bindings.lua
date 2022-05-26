@@ -14,53 +14,53 @@ function _find_files()
 end
 
 keymap('n', '<Leader>f', _find_files)
-keymap('n', '<Leader>o', ':Telescope oldfiles<CR>')
-keymap('n', '<Leader>s', ':Telescope live_grep<CR>')
+keymap('n', '<Leader>o', '<cmd> Telescope oldfiles <cr>')
+keymap('n', '<Leader>s', '<cmd> Telescope live_grep <cr>')
 
 -- Bracey bindings
-keymap('n', '<Leader>b', ':Bracey<CR>')
-keymap('n', '<Leader>bb', ':BraceyStop<CR>')
-keymap('n', '<Leader>bbb', ':BraceyReload<CR>')
+keymap('n', '<Leader>b',    '<cmd> Bracey <cr>')
+keymap('n', '<Leader>bb',   '<cmd> BraceyStop <cr>')
+keymap('n', '<Leader>bbb',  '<cmd> BraceyReload <cr>')
 
 -- Bufferline bindings
-keymap('n', 'f', ':BufferLinePick<CR>')
-keymap('n', 'F', ':BufferLinePickClose<CR>')
-keymap('n', '<TAB>', ':BufferLineCycleNext<CR>')
-keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>')
-keymap('n', 'm.', ':BufferLineMoveNext<CR>')
-keymap('n', 'm,', ':BufferLineMovePrev<CR>')
+keymap('n', 'f',        '<cmd> BufferLinePick <cr>')
+keymap('n', 'F',        '<cmd> BufferLinePickClose <cr>')
+keymap('n', '<TAB>',    '<cmd> BufferLineCycleNext <cr>')
+keymap('n', '<S-TAB>',  '<cmd> BufferLineCyclePrev <cr>')
+keymap('n', 'm.',       '<cmd> BufferLineMoveNext <cr>')
+keymap('n', 'm,',       '<cmd> BufferLineMovePrev <cr>')
 
 -- Hope bindings
-keymap('n', ';j', ':HopWord<CR>')
-keymap('n', ';l', ':HopLineStart<CR>')
+keymap('n', ';j', '<cmd> HopWord <cr>')
+keymap('n', ';l', '<cmd> HopLineStart <cr>')
 
 -- LSP Diagnostics Toggle bindings
-keymap('n', '<Leader>dd', ':ToggleDiag<CR>')
+keymap('n', '<Leader>dd', '<cmd> ToggleDiag <cr>')
 keymap('n', '<leader>du', '<Plug>(toggle-lsp-diag-underline)')
 keymap('n', '<leader>ds', '<Plug>(toggle-lsp-diag-signs)')
 keymap('n', '<leader>dv', '<Plug>(toggle-lsp-diag-vtext)')
 keymap('n', '<leader>di', '<Plug>(toggle-lsp-diag-update_in_insert)')
 
 -- CPHelper bindings
-keymap('n', '<Leader>c', ':CphReceive<CR>')
-keymap('n', '<Leader>t', ':CphTest<CR>')
+keymap('n', '<Leader>c', '<cmd> CphReceive <cr>')
+keymap('n', '<Leader>t', '<cmd> CphTest <cr>')
 for i = 1, 9, 1 do
   keymap('n', string.format('<Leader>e%d', i),
-    string.format(':CphEdit %d<CR>', i))
+    string.format('<cmd> CphEdit %d <cr>', i))
 end
 
 -- Binding for code runner
-keymap('n', '<F5>', ':Run<CR>')
+keymap('n', '<F5>', '<cmd> Run <cr>')
 
 -- Other bindings nvimtree, markdown preview, Neoformat, Colorizer, LazyGit
-keymap('n', '<F7>', ':NvimTreeToggle<CR>')
-keymap('n', '<leader>md', ':MarkdownPreviewToggle<CR>')
-keymap('n', '<Leader>p', ':Neoformat<CR>')
-keymap('n', '<Leader>cc', ':ColorizerToggle<CR>')
-keymap('n', '<Leader>gg', ':LazyGit<CR>')
-keymap('n', '<Leader>n', ':enew<CR>')
-keymap('n', '<Leader><Space>', ':noh<CR>')
-keymap('n', '<Leader>[', ':vertical resize +7<CR>')
-keymap('n', '<Leader>]', ':vertical resize -7<CR>')
+keymap('n', '<F7>',            '<cmd> NvimTreeToggle <cr>')
+keymap('n', '<leader>md',      '<cmd> MarkdownPreviewToggle <cr>')
+keymap('n', '<Leader>p',       '<cmd> Neoformat <cr>')
+keymap('n', '<Leader>cc',      '<cmd> ColorizerToggle <cr>')
+keymap('n', '<Leader>gg',      '<cmd> LazyGit <cr>')
+keymap('n', '<Leader>n',       '<cmd> enew <cr>')
+keymap('n', '<Leader><Space>', '<cmd> noh <cr>')
+keymap('n', '<Leader>[',       '<cmd> vertical resize +7 <cr>')
+keymap('n', '<Leader>]',       '<cmd> vertical resize -7 <cr>')
 
 vim.cmd(':tnoremap <Esc> <C-\\><C-n>')
