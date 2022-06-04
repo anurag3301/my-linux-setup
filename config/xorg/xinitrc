@@ -14,10 +14,11 @@ picom &
 numlockx &
 
 # Startup application
-discord &
 spotify &
+sleep 1
+xdotool set_window --classname Spotify --class spotify --name Spotify $(wmctrl -l | awk 'END{print $1}')
+discord &
 brave &
-element-desktop &
 kdeconnect-app &
 noisetorch -i -t 75 &
 pavucontrol &
