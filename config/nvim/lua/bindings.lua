@@ -80,4 +80,5 @@ keymap('n', '<C-n>',     '<cmd> lua vim.diagnostic.goto_prev() <cr>')
 keymap('n', '<C-p>',     '<cmd> lua vim.diagnostic.goto_next() <cr>')
 
 
-vim.cmd(':tnoremap <Esc> <C-\\><C-n>')
+-- Binding to swtich to normal mode in terminal, press <Esc> two times
+vim.cmd(':tnoremap <Esc><Esc> <C-\\><C-n>')
