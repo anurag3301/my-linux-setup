@@ -30,6 +30,12 @@ return require('packer').startup(function(use)
     use {'turbio/bracey.vim', run = 'cd app & npm install --prefix server'}
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
     use 'sbdchd/neoformat'
+    use {
+        "ur4ltz/surround.nvim",
+        config = function()
+            require"surround".setup {mappings_style = "surround"}
+        end
+    }
   
     use {
         'lewis6991/gitsigns.nvim',
@@ -82,5 +88,7 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
     }
+
+    use_rocks {'lunajson'}
 
 end)
