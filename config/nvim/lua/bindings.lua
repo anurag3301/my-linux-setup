@@ -1,8 +1,5 @@
 keymap = vim.keymap.set
 
--- LSP bindings: nivm/lua/plug_config/lsp_config/lsp-config.lua
-
-    
 -- Telescope bindings
 function _find_files()
     local is_git = os.execute("git status &>/dev/null")
@@ -62,5 +59,25 @@ keymap('n', '<Leader>n',       '<cmd> enew <cr>')
 keymap('n', '<Leader><Space>', '<cmd> noh <cr>')
 keymap('n', '<Leader>[',       '<cmd> vertical resize +7 <cr>')
 keymap('n', '<Leader>]',       '<cmd> vertical resize -7 <cr>')
+
+-- LSP bindings
+keymap('n', 'gD',        '<cmd> lua vim.lsp.buf.declaration() <cr>')
+keymap('n', 'gd',        '<cmd> lua vim.lsp.buf.definition() <cr>')
+keymap('n', 'K',         '<cmd> lua vim.lsp.buf.hover() <cr>')
+keymap('n', 'gi',        '<cmd> lua vim.lsp.buf.implementation() <cr>')
+keymap('n', '<space>wa', '<cmd> lua vim.lsp.buf.add_workspace_folder() <cr>')
+keymap('n', '<space>wr', '<cmd> lua vim.lsp.buf.remove_workspace_folder() <cr>')
+keymap('n', '<space>wl', '<cmd> lua print(vim.inspect(vim.lsp.buf.list_workspace_folders())) <cr>')
+keymap('n', '<space>D',  '<cmd> lua vim.lsp.buf.type_definition() <cr>')
+keymap('n', '<space>rn', '<cmd> lua vim.lsp.buf.rename() <cr>')
+keymap('n', '<space>ca', '<cmd> lua vim.lsp.buf.code_action() <cr>')
+keymap('n', 'gr',        '<cmd> lua vim.lsp.buf.references() <cr>')
+keymap('n', '<space>e',  '<cmd> lua vim.diagnostic.open_float() <cr>')
+keymap('n', '<space>q',  '<cmd> lua vim.diagnostic.setloclist() <cr>')
+keymap('n', '<space>f',  '<cmd> lua vim.lsp.buf.formatting() <cr>')
+keymap('n', '<C-k>',     '<cmd> lua vim.lsp.buf.signature_help() <cr>')
+keymap('n', '<C-n>',     '<cmd> lua vim.diagnostic.goto_prev() <cr>')
+keymap('n', '<C-p>',     '<cmd> lua vim.diagnostic.goto_next() <cr>')
+
 
 vim.cmd(':tnoremap <Esc> <C-\\><C-n>')
