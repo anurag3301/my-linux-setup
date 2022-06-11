@@ -54,6 +54,8 @@ alias winmount='sudo mount /dev/nvme0n1p3 /win'
 alias mkdwm='rm -rf config.h && sudo make clean install'
 alias gmake='gcc $(pkg-config --cflags --libs glib-2.0 gobject-2.0 gtk+-3.0) '
 alias glmake='g++ `pkg-config --cflags --libs gl glu glfw3 glu glx opengl` '
+alias enc="ccrypt -e \$(find . ! '(' -name '*.cpt' -o -name '*.age' ')' | tail -n+2)"
+alias dec="ccrypt -d \$(/bin/ls *.cpt)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
