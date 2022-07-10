@@ -57,8 +57,10 @@ keymap('n', '<Leader>cc',      '<cmd> ColorizerToggle <cr>')
 keymap('n', '<Leader>gg',      '<cmd> LazyGit <cr>')
 keymap('n', '<Leader>n',       '<cmd> enew <cr>')
 keymap('n', '<Leader><Space>', '<cmd> noh <cr>')
-keymap('n', '<Leader>[',       '<cmd> vertical resize +7 <cr>')
-keymap('n', '<Leader>]',       '<cmd> vertical resize -7 <cr>')
+keymap('n', '[[',       '<cmd> vertical resize +7 <cr>')
+keymap('n', ']]',       '<cmd> vertical resize -7 <cr>')
+keymap('n', '+',               '<cmd> resize +1 <cr>')
+keymap('n', '-',               '<cmd> resize -1 <cr>')
 
 -- LSP bindings
 keymap('n', 'gD',        '<cmd> lua vim.lsp.buf.declaration() <cr>')
