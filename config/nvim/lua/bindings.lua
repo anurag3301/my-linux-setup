@@ -51,6 +51,7 @@ keymap('n', '[[',       '<cmd> vertical resize +7 <cr>')
 keymap('n', ']]',       '<cmd> vertical resize -7 <cr>')
 keymap('n', '+',               '<cmd> resize +1 <cr>')
 keymap('n', '-',               '<cmd> resize -1 <cr>')
+keymap('n', '<Leader>nc',      config_nvim)
 
 -- LSP bindings
 keymap('n', 'gD',        '<cmd> lua vim.lsp.buf.declaration() <cr>')

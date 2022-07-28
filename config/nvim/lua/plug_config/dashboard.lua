@@ -24,6 +24,11 @@ db.custom_center = {
   shortcut = 'LDR n',
   action ='enew'},
 
+  {icon = ' 漣 ',
+  desc = 'Neovim config                  ',
+  shortcut = 'LDR nc',
+  action = 'lua config_nvim()'},
+
   {icon = '  ',
   desc = 'Competitive                    ',
   shortcut = 'LDR c',
@@ -45,7 +50,7 @@ local plugins_count = vim.fn.len(
 )
 db.custom_footer = {'-- Neovim Loaded ' .. plugins_count .. ' Plugins --'}
 
-local dashboard_height = 25
+local dashboard_height = 27
 db.header_pad  = math.floor((vim.api.nvim_list_uis()[1]['height'] - dashboard_height) / 4)
 
 vim.cmd([[highlight DashboardHeader guifg=#ffffff]])
