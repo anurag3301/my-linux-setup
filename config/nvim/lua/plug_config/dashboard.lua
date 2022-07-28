@@ -1,5 +1,6 @@
 -- Dashboard config
-vim.g.dashboard_custom_header = {
+local db = require('dashboard')
+db.custom_header = {
     '                                                              ',
     '    ⢀⣀⣤⣤⣤⠤⢤⣤⣤⣤⣤⣄⣀⡀           ⢀⣠⣤⣄⡀            ⣀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀   ',
     ' ⢀⣤⠚⠩⠁⡄ ⠠⣤⠒⠒⣂ ⢈⣨⣭⣿⠛⠶⣦⣤⣄⡀   ⢠⣾⡟⠉⠉⠝⠿⠇    ⢀⣠⡤⠔⠒⣻⠟⠋⠩⠉⢁⣀⡀  ⣶  ⠙⡛⠷  ',
@@ -17,34 +18,35 @@ vim.g.dashboard_custom_header = {
     '                                                              '
 }
 
-vim.g.dashboard_default_executive = 'telescope'
+db.custom_center = {
+  {icon = '  ',
+  desc = 'New File                       ',
+  shortcut = 'LDR n',
+  action ='enew'},
 
-vim.g.dashboard_custom_section = {
-    a = {
-        description = { '  New File                       LDR n' },
-        command = 'enew',
-    },
-    b = {
-        description = { '  Competitive                    LDR c' },
-        command = 'CphReceive',
-    },
-    c = {
-        description = { '  Find Files                     LDR f' },
-        command = 'Telescope find_files',
-    },
-    d = {
-        description = { '  Find History                   LDR o' },
-        command = 'Telescope oldfiles',
-    },
+  {icon = '  ',
+  desc = 'Competitive                    ',
+  shortcut = 'LDR c',
+  action ='CphReceive'},
+
+  {icon = '  ',
+  desc = 'Find Files                     ',
+  shortcut = 'LDR f',
+  action ='Telescope find_files'},
+
+  {icon = '  ',
+  desc = 'Find History                   ',
+  shortcut = 'LDR o',
+  action ='Telescope oldfiles'},
 }
 
 local plugins_count = vim.fn.len(
     vim.fn.globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1)
 )
+db.custom_footer = {'-- Neovim Loaded ' .. plugins_count .. ' Plugins --'}
 
-vim.g.dashboard_custom_footer = {
-    '-- Neovim Loaded ' .. plugins_count .. ' Plugins --',
-}
+local dashboard_height = 25
+db.header_pad  = math.floor((vim.api.nvim_list_uis()[1]['height'] - dashboard_height) / 4)
 
 vim.cmd([[highlight DashboardHeader guifg=#ffffff]])
 
