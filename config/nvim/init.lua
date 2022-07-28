@@ -32,6 +32,7 @@ require('plug_config.telescope')
 
 
 require('general')
+require('functions')
 require('bindings')
 require('commands')
 require('runner')
