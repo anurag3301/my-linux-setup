@@ -46,8 +46,8 @@ paru -S brave-bin ccrypt spofity visual-studio-code-bin gotop
 sudo mkdir /usr/local/share/fonts
 sudo mkdir /usr/local/share/fonts/ttf
 cd /usr/local/share/fonts/ttf
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
-unzip JetBrainsMono.zip
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+sudo unzip JetBrainsMono.zip
 fc-cache
 ```
 
