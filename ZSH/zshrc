@@ -24,12 +24,9 @@ alias vrc="vim ~/.config/nvim/init.lua"
 alias zrc="nvim ~/.zshrc"
 alias rr=". ranger"
 alias h="htop"
-alias g="gotop"
 alias pico="sh /home/anurag/.program/pico_upload.sh"
 alias serial_pico="cu -l /dev/ttyACM0 -s 9600"
-alias camctl="v4l2-ctl -d /dev/video0 --list-ctrls"
 alias campow="v4l2-ctl -d /dev/video0 --set-ctrl=power_line_frequency=1"
-alias zoom_cam="v4l2-ctl -d /dev/video0 --set-ctrl=zoom_absolute="
 alias c="clear"
 alias q="exit"
 alias ls='exa --color=always --group-directories-first --icons'  # all files and dirs
@@ -37,23 +34,16 @@ alias la='exa -al --color=always --group-directories-first --icons --git' # my p
 alias ll='exa -l --color=always --group-directories-first --icons --git'  # long format
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat'
-alias publicip='curl ifconfig.co'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
 alias startd='startx /home/anurag/.config/xorg/xinitrc'
 alias startk='startx /home/anurag/.config/xorg/xinitkde'
-alias rs='g++ solution.cpp -o cpp.out; ./cpp.out'
-alias rt='g++ test.cpp -o cpp.out; ./cpp.out'
 alias mine='/home/anurag/.program/trex/t-rex -a firopow -o stratum+tcp://asia-firo.2miners.com:8181 -u aLe4UJ7QoZBpHVAPwzdVqq14rFQFGH1wrS.PC -p x'
-alias up='pio run --target upload'
-alias sm='pio device monitor'
 alias n='nvim'
 alias du='/sbin/du -h'
 alias mtp='aft-mtp-mount ~/mnt'
 alias ssh='kitty +kitten ssh'
 alias winmount='sudo mount /dev/nvme0n1p3 /win'
 alias mkdwm='rm -rf config.h && sudo make clean install'
-alias gmake='gcc $(pkg-config --cflags --libs glib-2.0 gobject-2.0 gtk+-3.0) '
-alias glmake='g++ `pkg-config --cflags --libs gl glu glfw3 glu glx opengl` '
 alias enc="ccrypt -e \$(find . ! '(' -name '*.cpt' -o -name '*.age' ')' | tail -n+2)"
 alias dec="ccrypt -d \$(/bin/ls *.cpt)"
 
