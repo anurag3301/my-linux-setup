@@ -1,7 +1,7 @@
 ## GIT Config:
 ```sh
 git config --global user.name "Anurag Kumar Singh"
-git config --global user.email anuragkumar07102003@gmail.com
+git config --global user.email anurag3301.0x0@gmail.com
 
 git config --global core.editor "vim"             # For VIM
 git config --global core.editor "code --wait"     # For VS Code
@@ -15,7 +15,7 @@ git config --global -e
 ## SSH Key Setup:
 ```sh
 #Generate a new SSH public/private key:
-ssh-keygen -t rsa -b 4096 -C "anuragkumar07102003@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "anurag3301.0x0@gmail.com"
 
 #Activate SSH agent:
 eval $(ssh-agent -s)
@@ -39,10 +39,10 @@ gpg --list-secret-keys --keyid-format long
 
 #Get the public key using the GPG key ID and paste it to GitHub > Setting > SSH and GPG keys > New GPG key:
 gpg --armor --export {KEY ID}
-gpg --armor --export 0E6198DFB2D67A26
+gpg --armor --export E46B6F176910EA41
 
 #Now config your git to sign commits using the KEY-ID:
-git config --global user.signingkey 0E6198DFB2D67A26
+git config --global user.signingkey E46B6F176910EA41
 git config --global user.signingkey {KEY-ID}
 
 #Now congit your git to sign every commit made on the system:
@@ -55,7 +55,7 @@ git config --global commit.gpgsign true
 # List the gpg keys info
 gpg --list-secret-keys --keyid-format LONG
 
-# Get the id get the part after / in the line starts with "sec". Eg 0E6198DFB2D67A26:
+# Get the id get the part after / in the line starts with "sec". Eg E46B6F176910EA41:
 gpg --export-secret-keys $ID > my-private-key.asc
 ```
 #### For SSH key
