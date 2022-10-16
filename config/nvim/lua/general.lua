@@ -31,5 +31,3 @@ vim.opt['undoreload'] = 10000
 
 -- Stop comments on newline
 vim.cmd('autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o')
-
-vim.cmd('command CDD cd %:p:h')
