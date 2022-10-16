@@ -20,6 +20,7 @@ vim.opt['showmode'] = false
 vim.opt['clipboard'] = 'unnamedplus'
 vim.opt['swapfile'] = false
 vim.opt['laststatus'] = 3
+vim.opt['mouse'] = 'c'
 
 -- Persistent undo
 -- mkdir $HOME/.vim/undo
