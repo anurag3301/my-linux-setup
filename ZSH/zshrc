@@ -41,6 +41,8 @@ alias ssh='kitty +kitten ssh'
 alias winmount='sudo mount /dev/nvme0n1p3 /win'
 alias mkdwm='rm -rf config.h && sudo make clean install'
 alias rgb="sudo systemctl restart openrgb.service && openrgb -c 000000"
+alias popen="sudo cryptsetup luksOpen /dev/sda2 cryptpart && sudo mount /dev/mapper/cryptpart /oth"
+alias pclose="sudo umount /oth && sudo cryptsetup luksClose /dev/mapper/cryptpart"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
