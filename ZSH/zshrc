@@ -20,12 +20,9 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
-alias vrc="vim ~/.config/nvim/init.lua"
 alias zrc="nvim ~/.zshrc"
 alias rr=". ranger"
 alias h="htop"
-alias pico="sh /home/anurag/.program/pico_upload.sh"
-alias serial_pico="cu -l /dev/ttyACM0 -s 9600"
 alias campow="v4l2-ctl -d /dev/video0 --set-ctrl=power_line_frequency=1"
 alias c="clear"
 alias q="exit"
@@ -35,8 +32,6 @@ alias ll='exa -l --color=always --group-directories-first --icons --git'  # long
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
-alias startd='startx /home/anurag/.config/xorg/xinitrc'
-alias startk='startx /home/anurag/.config/xorg/xinitkde'
 alias firomine='/home/anurag/.program/trex/t-rex -a firopow -o stratum+tcp://asia-firo.2miners.com:8181 -u aLe4UJ7QoZBpHVAPwzdVqq14rFQFGH1wrS.PC -p x'
 alias rvnmine='/home/anurag/.program/trex/t-rex -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RNtZ47Wd7z6bbSqsQEuN5ExvBtzim8C1Wj -p x'
 alias n='nvim'
@@ -45,8 +40,6 @@ alias mtp='aft-mtp-mount ~/mnt'
 alias ssh='kitty +kitten ssh'
 alias winmount='sudo mount /dev/nvme0n1p3 /win'
 alias mkdwm='rm -rf config.h && sudo make clean install'
-alias enc="ccrypt -e \$(find . ! '(' -name '*.cpt' -o -name '*.age' ')' | tail -n+2)"
-alias dec="ccrypt -d \$(/bin/ls *.cpt)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
