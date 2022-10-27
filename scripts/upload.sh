@@ -41,7 +41,7 @@ then
 
 elif [[ "$1" == "-e" ]]
 then
-    nvim ~/.0x0_list
+    $EDITOR ~/.0x0_list
 
 elif [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]
 then
