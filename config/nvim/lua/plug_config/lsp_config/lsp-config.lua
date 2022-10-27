@@ -14,12 +14,12 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local servers = {'pylsp', 'tsserver', 'hls', 'cmake', 'html', 'cssls', 'rust_analyzer', 'sumneko_lua', 'bashls', 'ccls', 'marksman', 'intelephense'}
 
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150,
-    },
-    root_dir = function() return vim.loop.cwd() end
-  }
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = 150,
+        },
+        root_dir = function() return vim.loop.cwd() end
+    }
 end
