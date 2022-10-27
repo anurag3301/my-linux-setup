@@ -42,6 +42,29 @@ then
 elif [[ "$1" == "-e" ]]
 then
     nvim ~/.0x0_list
+
+elif [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]
+then
+    echo "Usage: upload [OPTION]... [FILE]...
+
+Uploads file to 0x0 server(no login needed), copies the URL for file to 
+clipboard and also stores the URLs in ~/.0x0_list
+
+OPTIONS:
+    -h, --help      Prints the help
+    -u [File]       specify the file to be uploaded, filename in cwd or absolute/relative path works
+    -l [number]     List the last n uploads with their URL, if number not specified it will all the URLS
+    -e              Opens the ~/.0x0_list file for editing
+
+EXAMPLE:
+    upload -u hello.txt
+    upload -u dir/hello.txt
+    upload -u /home/user/dir/hello.txt
+    upload -l
+    upload -l 10
+    upload -e
+"
+
 else
-    echo "Invalid argument"
+    echo "Invalid argument, run: upload --help"
 fi    
