@@ -2,8 +2,8 @@
 -- https://vim.fandom.com/wiki/Get_the_name_of_the_current_file
 
 local run_command_table = {
-    ['cpp'] = 'g++ % -o %:r && ./%:r',
-    ['c'] = 'gcc % -o %:r && ./%:r',
+    ['cpp'] = 'g++ -g -Wall % -o %:r && ./%:r',
+    ['c'] = 'gcc -g -Wall % -o %:r && ./%:r',
     ['python'] = 'python %',
     ['lua'] = 'lua %',
     ['java'] = 'cd %:h && javac *.java && java %:t:r',
