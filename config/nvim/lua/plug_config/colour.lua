@@ -12,7 +12,8 @@ require('material').setup({
         filetypes = {
             'terminal',
             'packer',
-            'qf'
+            'qf',
+            'toggleterm'
         },
     },
 
