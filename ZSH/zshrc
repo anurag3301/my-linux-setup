@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias zrc="nvim ~/.zshrc"
 alias rr=". ranger"
-alias h="htop"
+alias sr="var=\$(pwd); sudo ranger \$var"
 alias campow="v4l2-ctl -d /dev/video0 --set-ctrl=power_line_frequency=1"
 alias c="clear"
 alias q="exit"
@@ -32,23 +32,20 @@ alias ll='exa -l --color=always --group-directories-first --icons --git'  # long
 alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
-alias firomine='/home/anurag/.program/trex/t-rex -a firopow -o stratum+tcp://asia-firo.2miners.com:8181 -u aLe4UJ7QoZBpHVAPwzdVqq14rFQFGH1wrS.PC -p x'
-alias rvnmine='/home/anurag/.program/trex/t-rex -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RNtZ47Wd7z6bbSqsQEuN5ExvBtzim8C1Wj -p x'
-alias n='nvim'
 alias du='/sbin/du -h'
 alias mtp='aft-mtp-mount ~/mnt'
 alias ssh='kitty +kitten ssh'
-alias winmount='sudo mount /dev/nvme0n1p3 /win'
+alias winmount='sudo mount /dev/sda3 /win'
 alias mkdwm='rm -rf config.h && sudo make clean install'
 alias rgb="sudo systemctl restart openrgb.service && openrgb -c 000000"
-alias popen="sudo cryptsetup luksOpen /dev/sda2 cryptpart && sudo mount /dev/mapper/cryptpart /oth"
-alias pclose="sudo umount /oth && sudo cryptsetup luksClose /dev/mapper/cryptpart"
+alias popen="sudo cryptsetup luksOpen /dev/sdb2 cryptpart && sudo mount /dev/mapper/cryptpart /home/anurag/.oth"
+alias pclose="sudo umount /home/anurag/.oth && sudo cryptsetup luksClose /dev/mapper/cryptpart"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH=$HOME/.npm-global/bin:$HOME/.cargo/bin:$HOME/.platformio/penv/bin:$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:/var/lib/snapd/snap/bin:/home/anurag/.local/bin:/home/anurag/.program:$PATH
+export PATH=$HOME/.npm-global/bin:$HOME/.cargo/bin:$HOME/.platformio/penv/bin:$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:/var/lib/snapd/snap/bin:/home/anurag/.local/bin:/home/anurag/.program:/opt/resolve/bin:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
