@@ -19,26 +19,56 @@ local debug_command_table = {
     ['c'] = 'gcc -g % -o %:r && gdb ./%:r',
 }
 
-local extra = 'printf \"\\\\n\\\\033[0;33mPlease Press ENTER to continue \\\\033[0m\"; read; exit;'
+local extra = 'printf \"\\\\n\\\\033[0;33mPlease Press ENTER to continue \\\\033[0m\"; read'
+local Terminal  = require('toggleterm.terminal').Terminal
+
+function expand_symbol_resolver(cmd)
+    local mod = string.byte("%")
+    local space = string.byte(" ")
+    local i=1
+    local expanded_cmd=""
+    while i <= #cmd do
+        if cmd:byte(i) == mod then
+            local j=i
+            while cmd:byte(j) ~= space and j <= #cmd do
+                j=j+1
+            end
+            expanded_cmd = expanded_cmd .. vim.fn.expand(string.sub(cmd, i, j-1))
+            i=j
+        end 
+        expanded_cmd = expanded_cmd .. string.sub(cmd, i, i)
+        i = i+1
+    end
+
+    return expanded_cmd
+end
 
 
 -- To run file run :Run or just press <F5>
 function run_code()
     if (run_command_table[vim.bo.filetype]) then
-       vim.cmd("2TermExec cmd='".. run_command_table[vim.bo.filetype].."; " .. extra .. "' direction=float")
+       local expanded_cmd = expand_symbol_resolver(run_command_table[vim.bo.filetype])
+       local runcmd = expanded_cmd .."; " .. extra
+       local runterm = Terminal:new({ cmd = runcmd, direction = "float"})
+       runterm:toggle()
    else
        print("\nFileType not supported\n")
    end
 end
 
+
 -- To run file run :Debug
 function debug_code()
     if (debug_command_table[vim.bo.filetype]) then
-       vim.cmd("2TermExec cmd='".. debug_command_table[vim.bo.filetype].."; " .. extra .. "' direction=float")
+       local expanded_cmd = expand_symbol_resolver(debug_command_table[vim.bo.filetype])
+       local runcmd = expanded_cmd .."; " .. extra
+       local debugterm = Terminal:new({ cmd = runcmd, direction = "float"})
+       debugterm:toggle()
    else
        print("\nFileType not supported\n")
    end
 end
+
 
 local function strsplit (inputstr)
     local t={}
@@ -47,6 +77,7 @@ local function strsplit (inputstr)
     end
     return t
 end
+
 
 -- Use the following function to update the execution command of a filetype temporarly
 -- Usage :RunUpdate  --OR-- :RunUpdate filetype
