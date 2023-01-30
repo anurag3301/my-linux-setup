@@ -44,3 +44,7 @@ vim.g.cphdir = os.getenv( 'HOME' )..'/problems'
 -- Rooter config
 vim.g.rooter_pattern = { 'input1', 'output1' }
 
+-- Emmet configuration
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ''
+vim.g.maplocalleader = ' '
