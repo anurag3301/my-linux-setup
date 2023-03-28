@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #devices
-speakers="alsa_output.pci-0000_05_00.1.hdmi-stereo"
+speakers="alsa_output.pci-0000_05_00.1.hdmi-stereo-extra1"
 headphone="alsa_output.pci-0000_07_00.4.analog-stereo"
 
 curr_device="$(pactl get-default-sink)"
