@@ -7,6 +7,7 @@ return require('packer').startup(function(use)
     use 'mattn/emmet-vim'
     use 'marko-cerovac/material.nvim'
     use 'andweeb/presence.nvim'
+    use 'RRethy/vim-illuminate'
   
     -- functional plugins
     use 'neovim/nvim-lspconfig'
