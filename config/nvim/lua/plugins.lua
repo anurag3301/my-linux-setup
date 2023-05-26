@@ -1,5 +1,17 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use({
+      "jackMort/ChatGPT.nvim",
+        config = function()
+          require("chatgpt").setup()
+        end,
+        requires = {
+          "MunifTanjim/nui.nvim",
+          "nvim-lua/plenary.nvim",
+          "nvim-telescope/telescope.nvim"
+        }
+    })
+
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
