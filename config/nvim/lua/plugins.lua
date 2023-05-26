@@ -1,5 +1,9 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+    }
 
     -- apperative plugins
     use 'hrsh7th/vim-vsnip'
