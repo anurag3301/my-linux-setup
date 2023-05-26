@@ -40,8 +40,7 @@ require('runner')
 
 
 -- CpHelper config
-vim.g.cphdir = os.getenv( 'HOME' )..'/problems'
-
+vim.g["cph#dir"] = os.getenv( 'HOME' )..'/problems'
 -- Rooter config
 vim.g.rooter_pattern = { 'input1', 'output1' }
 
@@ -49,3 +48,5 @@ vim.g.rooter_pattern = { 'input1', 'output1' }
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ''
 vim.g.maplocalleader = ' '
+vim.g.user_emmet_leader_key=','
+
