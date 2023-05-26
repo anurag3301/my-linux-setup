@@ -25,13 +25,14 @@ local Terminal  = require('toggleterm.terminal').Terminal
 function expand_symbol_resolver(cmd)
     local mod = string.byte("%")
     local space = string.byte(" ")
+    local col = string.byte(":")
     local i=1
     local expanded_cmd=""
     while i <= #cmd do
         if cmd:byte(i) == mod then
-            local j=i
-            while cmd:byte(j) ~= space and j <= #cmd do
-                j=j+1
+            local j=i+1
+            while cmd:byte(j) == col and cmd:byte(j+1) ~= space and j <= #cmd do
+                j=j+2
             end
             expanded_cmd = expanded_cmd .. vim.fn.expand(string.sub(cmd, i, j-1))
             i=j
