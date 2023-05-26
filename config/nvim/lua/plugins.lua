@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
     use 'RRethy/vim-illuminate'
   
     -- functional plugins
+    use { 'rush-rs/tree-sitter-asm' }
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
