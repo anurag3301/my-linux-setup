@@ -7,8 +7,17 @@ return require('packer').startup(function(use)
 
     -- apperative plugins
     use 'hrsh7th/vim-vsnip'
-    use 'glepnir/dashboard-nvim'
     use 'mattn/emmet-vim'
+    use {
+      'glepnir/dashboard-nvim',
+      event = 'VimEnter',
+    config = function()
+        require('dashboard').setup {
+            theme = 'hyper',
+        }
+    end,
+      requires = {'nvim-tree/nvim-web-devicons'}
+    }
     use 'marko-cerovac/material.nvim'
     use 'andweeb/presence.nvim'
     use 'RRethy/vim-illuminate'
