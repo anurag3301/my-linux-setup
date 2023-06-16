@@ -72,9 +72,8 @@ keymap('n', '<C-k>',     '<cmd> lua vim.lsp.buf.signature_help() <cr>')
 keymap('n', '<C-n>',     '<cmd> lua vim.diagnostic.goto_prev() <cr>')
 keymap('n', '<C-p>',     '<cmd> lua vim.diagnostic.goto_next() <cr>')
 
-keymap('n', '<leader>dk', function() require('dap').continue() end)
-keymap('n', '<leader>dl', function() require('dap').run_last() end)
-keymap('n', '<leader>k', function() require('dap').toggle_breakpoint() end)
+keymap('n', '<F2>', function() require('dap').toggle_breakpoint() end)
+keymap('n', '<F3>', function() dap_toggle() end)
 
 -- Binding to swtich to normal mode in terminal, press <Esc> two times
 vim.cmd(':tnoremap <Esc><Esc> <C-\\><C-n>')
