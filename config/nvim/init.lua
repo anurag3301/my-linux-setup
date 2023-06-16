@@ -30,6 +30,7 @@ require('plug_config.autosave')
 require('plug_config.dashboard')
 require('plug_config.nvim-tree')
 require('plug_config.telescope')
+require('plug_config.dap')
 
 
 require('general')

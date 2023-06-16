@@ -58,6 +58,8 @@ return require('packer').startup(function(use)
     use {'turbio/bracey.vim', run = 'cd app & npm install --prefix server'}
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
     use 'sbdchd/neoformat'
+    use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
     use {
         "ur4ltz/surround.nvim",
         config = function()
@@ -116,7 +118,5 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
     }
-
-    use_rocks {'lunajson'}
-
+    use_rocks "luasocket"
 end)
