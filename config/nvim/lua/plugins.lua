@@ -60,6 +60,7 @@ return require('packer').startup(function(use)
     use 'sbdchd/neoformat'
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
+    use 'mfussenegger/nvim-dap-python'
     use {
         "ur4ltz/surround.nvim",
         config = function()

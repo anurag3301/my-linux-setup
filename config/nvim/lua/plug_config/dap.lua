@@ -1,3 +1,8 @@
+local handel = io.popen("which python")
+local python_path = handel:read("*a") 
+python_path = string.gsub(python_path, "\n", "")
+require('dap-python').setup(python_path)
+
 require("dap").adapters.lldb = {
 	type = "executable",
 	command = "/sbin/lldb-vscode",
