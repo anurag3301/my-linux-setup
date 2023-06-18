@@ -10,6 +10,7 @@ require("dap").adapters.lldb = {
 }
 
 require("dapui").setup()
+require("nvim-dap-virtual-text").setup()
 
 dap_program = nil
 local lldb = {
@@ -42,6 +43,7 @@ local function dap_start()
     require('dap').continue()
     require('dapui').open()
     vim.opt['mouse'] = 'a'
+    require'nvim-dap-virtual-text'.enable()
     dap_running = true
 end
 
@@ -50,6 +52,7 @@ local function dap_exit()
     vim.opt['mouse'] = 'c'
     require('dap').close()
     require('dapui').close()
+    require'nvim-dap-virtual-text'.disable()
     dap_running = false
 end
 
