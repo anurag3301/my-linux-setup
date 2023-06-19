@@ -13,6 +13,7 @@ require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
 
 dap_program = nil
+dap_args = nil
 local lldb = {
 	name = "Launch lldb",
 	type = "lldb",
@@ -30,7 +31,17 @@ local lldb = {
 	end,
 	cwd = "${workspaceFolder}",
 	stopOnEntry = false,
-	args = {},
+	args = function()
+        if dap_args == nil then
+            arg_str = vim.fn.input("Enter the args for the program: ")
+            dap_args = {}
+            for arg in string.gmatch(arg_str, "[^ ]+") do
+                table.insert(dap_args, arg)
+            end
+
+            return dap_args
+        end
+    end,
 	runInTerminal = false,
 }
 
