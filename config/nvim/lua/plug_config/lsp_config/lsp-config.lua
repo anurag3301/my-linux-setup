@@ -12,7 +12,7 @@ local nvim_lsp = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local servers = {"clangd", 'pylsp', 'tsserver', 'hls', 'cmake', 'html', 'cssls', 'rust_analyzer', 'lua_ls', 'bashls', 'marksman', 'phpactor', 'asm_lsp'}
+local servers = {'pylsp', 'tsserver', 'hls', 'cmake', 'html', 'cssls', 'rust_analyzer', 'lua_ls', 'bashls', 'marksman', 'phpactor', 'asm_lsp'}
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
