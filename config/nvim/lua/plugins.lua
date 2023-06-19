@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
     }
 
     -- apperative plugins
+    use 'levouh/tint.nvim'
     use 'hrsh7th/vim-vsnip'
     use 'mattn/emmet-vim'
     use {
