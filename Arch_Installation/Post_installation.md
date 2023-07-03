@@ -73,6 +73,12 @@ for d in *; do
 done
 ```
 
+**Setup the printer**
+```sh
+sudo systemctl enable --now cups.service
+sudo systemctl enable --now cups.socket
+```
+
 **Install Nordic GTK theme**
 ```sh
 git clone https://github.com/EliverLara/Nordic.git
