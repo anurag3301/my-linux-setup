@@ -1,4 +1,21 @@
 # This is for Arch Base Installation with DWM and ST
+### **OPTIONAL:** connect to wifi
+```sh
+# Start iwctl
+iwctl
+
+# List the devices, it will contain device and adapter id
+device list
+
+# Power on
+device {wlan0} set-property Powered on
+adapter {phy0} set-property Powered on
+
+# Scan and list access points
+station {wlan0} scan
+station {wlan0} get-networks
+station {wlan0} connect {SSID}
+```
 #### **Lets start with checking internet connection**
 ```sh
 ping 8.8.8.8
@@ -54,7 +71,7 @@ df
 
 **Base Linux firmware installaion with vim**
 ```sh
-pacstrap /mnt base linux linux-firmware vim git
+pacstrap /mnt base linux linux-firmware vim base-devel linux-headers 
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # chcek the fstab
@@ -93,7 +110,7 @@ passwd
 ```sh
 # Havent added comment for the commands cuz I also barely know what they do 😅
 
-pacman -Sy grub efibootmgr os-prober base-devel linux-headers networkmanager
+pacman -Sy grub efibootmgr os-prober networkmanager sudo git
 os-prober
 grub-install --target=x86-64_efi --efi-directory=/boot/ --bootloader-id=GRUB
 mkdir /mnt2
@@ -114,9 +131,6 @@ reboot
 
 **Now add a new user and add to sudo group**
 ```sh
-# Install sudo
-pacman -S sudo
-
 # Add a new user and create home dir for him
 useradd -m anurag
 
@@ -124,7 +138,7 @@ useradd -m anurag
 passwd anurag
 
 # Add the new user to some group includeing sudo
-usermod -aG wheel,audio,video,storage,dialout anurag
+usermod -aG wheel,audio,video,storage anurag
 
 # Now make the sudo execute command with root previleges
 visudo # uncomment "%wheel ALL=(ALL) ALL" and "%sudo   ALL=(ALL) ALL"

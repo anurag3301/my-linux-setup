@@ -6,15 +6,13 @@
 sudo systemctl enable --now NetworkManager.service 
 ```
 
-**Install the required packages**
-```sh 
-sh my-linux-setup/scripts/package_install.sh
+**Use nmcli to connect to wifi**
+```sh
+nmcli radio wifi on
+nmcli d wifi list
+nmcli d wifi connect {SSID} password {password}
 ```
 
-**Start the pulse audio service**
-```sh
-systemctl --user enable pulseaudio
-```
 **Clone my-linux-setup repo, my build of dwm, paru**
 ```sh
 # Cloning my linux-setup.git
@@ -26,6 +24,12 @@ git clone https://github.com/anurag3301/my-dwm.git
 # Cloning paru
 git clone https://aur.archlinux.org/paru.git
 ```
+
+**Install the required packages**
+```sh 
+sh my-linux-setup/scripts/package_install.sh
+```
+
 **Lets build and install dwm and paru**
 ```sh
 # Install dwm
@@ -36,9 +40,14 @@ sudo make clean install
 cd paru
 makepkg -si
 ```
+
+**Start the pulse audio service**
+```sh
+systemctl --user enable pulseaudio
+```
+
 **Install the aur packages**
 ```sh
-paru -S brave-bin ccrypt spofity visual-studio-code-bin gotop 
 ```
 
 **Install nerd fornt**
@@ -71,7 +80,7 @@ sudo cp -r Nordic /usr/share/themes/
 lxappearance
 ```
 
-**Setup autologin**
+**OPTIONAL: Setup autologin**
 ```sh
 sudo nvim /etc/systemd/system/getty.target.wants/getty@tty1.service
 ```
