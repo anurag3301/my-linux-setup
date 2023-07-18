@@ -10,6 +10,8 @@ end
 
 -- include plugins and their config
 require('plugins')
+
+
 require('plug_config.treesitter')
 require('plug_config.autopairs')
 require('plug_config.colour')

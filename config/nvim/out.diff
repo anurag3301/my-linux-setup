@@ -1,0 +1,181 @@
+commit aead747a713906bb8ecd26f1bf13bc146874be58
+Author: Anurag Kumar Singh <anurag3301.0x0@gmail.com>
+Date:   Tue Jul 18 06:55:57 2023 +0530
+
+    something
+
+diff --git a/config/nvim/init.lua b/config/nvim/init.lua
+index a86ae7b..cfafc56 100644
+--- a/config/nvim/init.lua
++++ b/config/nvim/init.lua
+@@ -10,6 +10,8 @@ end
+ 
+ -- include plugins and their config
+ require('plugins')
++
++
+ require('plug_config.treesitter')
+ require('plug_config.autopairs')
+ require('plug_config.colour')
+@@ -27,7 +29,8 @@ require('plug_config.bufferline')
+ require('plug_config.hop')
+ require('plug_config.gitsigns')
+ require('plug_config.autosave')
+-require('plug_config.dashboard')
++-- require('plug_config.dashboard')
++require('plug_config.startup')
+ require('plug_config.nvim-tree')
+ require('plug_config.telescope')
+ require('plug_config.tint')
+diff --git a/config/nvim/lua/plug_config/lsp_config/mason.lua b/config/nvim/lua/plug_config/lsp_config/mason.lua
+index 0a1755e..feb7615 100644
+--- a/config/nvim/lua/plug_config/lsp_config/mason.lua
++++ b/config/nvim/lua/plug_config/lsp_config/mason.lua
+@@ -1,4 +1,4 @@
+ require("mason").setup()
+ require("mason-lspconfig").setup {
+-    ensure_installed = { 'pylsp', 'tsserver', 'cmake', 'html', 'rust_analyzer', 'lua_ls', 'bashls', 'marksman', 'phpactor', 'asm_lsp'},
++    -- ensure_installed = { 'pylsp', 'tsserver', 'cmake', 'html', 'rust_analyzer', 'lua_ls', 'bashls', 'marksman', 'phpactor', 'asm_lsp'},
+ }
+diff --git a/config/nvim/lua/plug_config/nvim-tree.lua b/config/nvim/lua/plug_config/nvim-tree.lua
+index 14673e3..f77764d 100644
+--- a/config/nvim/lua/plug_config/nvim-tree.lua
++++ b/config/nvim/lua/plug_config/nvim-tree.lua
+@@ -1,8 +1,6 @@
+ require'nvim-tree'.setup {
+   disable_netrw       = true,
+   hijack_netrw        = true,
+-  open_on_setup       = false,
+-  ignore_ft_on_setup  = {},
+   open_on_tab         = false,
+   hijack_cursor       = false,
+   update_cwd          = false,
+diff --git a/config/nvim/lua/plug_config/startup.lua b/config/nvim/lua/plug_config/startup.lua
+new file mode 100644
+index 0000000..0627c5d
+--- /dev/null
++++ b/config/nvim/lua/plug_config/startup.lua
+@@ -0,0 +1,86 @@
++require("startup").setup({
++    header = {
++        type = "text",
++        oldfiles_directory = false,
++        align = "center",
++        fold_section = false,
++        title = "Header",
++        margin = 5,
++        content = {
++                '                                                              ',
++                '                                                              ',
++                '                                                              ',
++                '                                                              ',
++                '    ⢀⣀⣤⣤⣤⠤⢤⣤⣤⣤⣤⣄⣀⡀           ⢀⣠⣤⣄⡀            ⣀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀   ',
++                ' ⢀⣤⠚⠩⠁⡄ ⠠⣤⠒⠒⣂ ⢈⣨⣭⣿⠛⠶⣦⣤⣄⡀   ⢠⣾⡟⠉⠉⠝⠿⠇    ⢀⣠⡤⠔⠒⣻⠟⠋⠩⠉⢁⣀⡀  ⣶  ⠙⡛⠷  ',
++                ' ⠸⢟⡠⠒⢊⡤  ⠋⣠ ⠈⣉⣉⣉⣉⣀⣛⣿⡒⠭⡿⢿⣷⣤⣤⣀⣽⣇⣴⠆⣴⡃⢀⣠⣤⠴⣚⣫⡥ ⠒⠛⠁⣀⣉⣉⣙⢏⡉  ⢀⣼⣤⣜⠳⡦⠂  ',
++                '   ⠐⠚⠫⣤⠖⢣⣤⡕ ⠉⣩⣤⠔ ⠂⣋⣭⣥⣤⠴⠛⣛⠈⢩⣿⠿⠛⢉  ⡐⠞⠫⢍⠙⣓⠢⠴⣥⣍⣙⠛⢓⡢⢤⣬⠉⠅ ⣤⡜⢛⠻⠛⠉⠁   ',
++                '      ⠘⢔⢎⣡⡔⠂⣠⡿⠁⠒⢛⡻⢛⣩⠅  ⠉  ⠚⣯⣄⢠⣿⢀⣾⠇ ⠓ ⠁⠂⠈⠍⠐⠈⡉⣿⠛⣛⠛⠉⣤⣰⣿⣿⡟⠛⠁      ',
++                '        ⠙⠛⠐⠚⠋ ⠒⣲⡿⠇⣋        ⢺⡏⠈⣀ ⠉⠈        ⠙⢿⠟⢰⣖⡢ ⠂⠒⠚⠉         ',
++                '             ⣴⠛⠅⢀⣾⠟⢃       ⢹⠃⠠⠁⠈⠩         ⢠⣿ ⣀⢹⣿⡷             ',
++                '             ⢿⣤⢚⣫⠅         ⢸⠇ ⢚ ⢀         ⣸⡇ ⠉⣿⣿⠇             ',
++                '             ⠈⠛⢻⣥⡚⠔⣠⢣⣄⡀    ⢸⡇ ⢘ ⠈ ⠠⠈    ⣀⣰⡿⣧⣄⠾⠋⠁              ',
++                '                ⠈⠑⠁        ⠘⣿⡀⣈⣀    ⠈  ⠈⠙⠁                    ',
++                '                            ⠘⣷⠁                               ',
++                '                             ⠙⣤                               ',
++                '                              ⠛⠂                              ',
++                '                                                              '
++        },
++        highlight = "Statement",
++        default_color = "#FFFFFF",
++        oldfiles_amount = 0,
++    },
++    -- name which will be displayed and command
++    body = {
++        type = "mapping",
++        oldfiles_directory = false,
++        align = "center",
++        fold_section = false,
++        title = "Basic Commands",
++        margin = 5,
++        content = {
++            { " Find File", "Telescope find_files", "<leader>ff" },
++            { " Find Word", "Telescope live_grep", "<leader>lg" },
++            { " Recent Files", "Telescope oldfiles", "<leader>of" },
++            { " File Browser", "Telescope file_browser", "<leader>fb" },
++            { " Colorschemes", "Telescope colorscheme", "<leader>cs" },
++            { " New File", "lua require'startup'.new_file()", "<leader>nf" },
++        },
++        highlight = "String",
++        default_color = "",
++        oldfiles_amount = 0,
++    },
++    footer = {
++        type = "text",
++        oldfiles_directory = false,
++        align = "center",
++        fold_section = false,
++        title = "Footer",
++        margin = 5,
++        content = { "startup.nvim" },
++        highlight = "Number",
++        default_color = "",
++        oldfiles_amount = 0,
++    },
++
++    options = {
++        mapping_keys = true,
++        cursor_column = 0.5,
++        empty_lines_between_mappings = true,
++        disable_statuslines = true,
++        paddings = { 1, 3, 3, 0 },
++    },
++
++    mappings = {
++        execute_command = "<CR>",
++        open_file = "o",
++        open_file_split = "<c-o>",
++        open_section = "<TAB>",
++        open_help = "?",
++    },
++    colors = {
++        background = "#1f2227",
++        folded_section = "#56b6c2",
++    },
++    parts = { "header", "body", "footer" },
++})
+diff --git a/config/nvim/lua/plugins.lua b/config/nvim/lua/plugins.lua
+index 304e196..f384ee6 100644
+--- a/config/nvim/lua/plugins.lua
++++ b/config/nvim/lua/plugins.lua
+@@ -21,18 +21,22 @@ return require('packer').startup(function(use)
+     use 'levouh/tint.nvim'
+     use 'hrsh7th/vim-vsnip'
+     use 'mattn/emmet-vim'
+-    use {
+-      'glepnir/dashboard-nvim',
+-      event = 'VimEnter',
+-    config = function()
+-        require('dashboard').setup {
+-            theme = 'hyper',
+-        }
+-    end,
+-      requires = {'nvim-tree/nvim-web-devicons'}
+-    }
++    -- use {
++    --   'glepnir/dashboard-nvim',
++    --   event = 'VimEnter',
++    -- config = function()
++    --     require('dashboard').setup {
++    --         theme = 'hyper',
++    --     }
++    -- end,
++    --   requires = {'nvim-tree/nvim-web-devicons'}
++    -- }
+     use 'marko-cerovac/material.nvim'
+     use 'andweeb/presence.nvim'
++    use {
++      "startup-nvim/startup.nvim",
++      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
++    }
+     use 'RRethy/vim-illuminate'
+   
+     -- functional plugins
