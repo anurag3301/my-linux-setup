@@ -21,6 +21,9 @@ vim.opt['clipboard'] = 'unnamedplus'
 vim.opt['swapfile'] = false
 vim.opt['laststatus'] = 3
 vim.opt['mouse'] = 'c'
+vim.opt['foldmethod'] = 'expr'
+vim.opt['foldexpr'] = 'nvim_treesitter#foldexpr()'
+vim.opt['foldlevel'] = 99
 
 -- Persistent undo
 -- mkdir $HOME/.vim/undo

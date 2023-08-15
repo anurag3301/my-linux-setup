@@ -9,6 +9,12 @@ keymap('n', '<Leader>b',    '<cmd> Bracey <cr>')
 keymap('n', '<Leader>bb',   '<cmd> BraceyStop <cr>')
 keymap('n', '<Leader>bbb',  '<cmd> BraceyReload <cr>')
 
+-- Fold bindings
+keymap('n', 'zo',        'zO')
+keymap('n', 'zc',        'zC')
+keymap('n', '<leader>zz', '<cmd> set foldlevel=0 <cr>')
+keymap('n', '<leader>z','<cmd> set foldlevel=99 <cr>')
+
 -- Bufferline bindings
 keymap('n', 'f',        '<cmd> BufferLinePick <cr>')
 keymap('n', 'F',        '<cmd> BufferLinePickClose <cr>')

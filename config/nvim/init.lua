@@ -32,7 +32,7 @@ require('plug_config.nvim-tree')
 require('plug_config.telescope')
 require('plug_config.tint')
 require('plug_config.dap')
-
+require('pretty-fold').setup()
 
 require('general')
 require('functions')
@@ -52,3 +52,11 @@ vim.g.mapleader = ''
 vim.g.maplocalleader = ' '
 vim.g.user_emmet_leader_key=','
 
+-- Make fold persistent throught the sessions
+vim.cmd([[
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent loadview
+augroup END
+]])

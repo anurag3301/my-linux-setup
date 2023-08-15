@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
     }
 
     -- apperative plugins
+    use 'anuvyklack/pretty-fold.nvim'
     use 'levouh/tint.nvim'
     use 'hrsh7th/vim-vsnip'
     use 'mattn/emmet-vim'
