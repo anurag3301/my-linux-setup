@@ -2,7 +2,7 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-    monitor = 0
+    monitor = 1
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "400x20-15+35"
+    geometry = "500x20-15+35"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -86,7 +86,7 @@
 
     ### Text ###
 
-    font = Product Sans 13
+    font = Product Sans 12
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -165,9 +165,6 @@
 
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 64
-
-    # Paths to default icons.
-    icon_path = /home/grvxs/.icons/default
 
     ### History ###
 
