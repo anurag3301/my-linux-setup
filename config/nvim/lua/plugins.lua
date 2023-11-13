@@ -23,14 +23,8 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'mattn/emmet-vim'
     use {
-      'glepnir/dashboard-nvim',
-      event = 'VimEnter',
-    config = function()
-        require('dashboard').setup {
-            theme = 'hyper',
-        }
-    end,
-      requires = {'nvim-tree/nvim-web-devicons'}
+      "startup-nvim/startup.nvim",
+      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
     }
     use 'marko-cerovac/material.nvim'
     use 'andweeb/presence.nvim'
