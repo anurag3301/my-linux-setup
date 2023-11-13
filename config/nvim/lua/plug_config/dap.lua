@@ -14,43 +14,56 @@ require("nvim-dap-virtual-text").setup()
 
 dap_program = nil
 dap_args = nil
+
 local lldb = {
 	name = "Launch lldb",
 	type = "lldb",
 	request = "launch",
-	program = function()
-        if dap_program == nil then
-            dap_program = vim.fn.input(
-                "Path to executable: ",
-                vim.fn.getcwd() .. "/",
-                "file"
-            )
-        end
-        return dap_program
-
-	end,
-	cwd = "${workspaceFolder}",
+	program	= nil,
+    cwd = "${workspaceFolder}",
 	stopOnEntry = false,
-	args = function()
-        if dap_args == nil then
-            arg_str = vim.fn.input("Enter the args for the program: ")
-            dap_args = {}
-            for arg in string.gmatch(arg_str, "[^ ]+") do
-                table.insert(dap_args, arg)
-            end
-
-            return dap_args
-        end
-    end,
+	args = nil,
 	runInTerminal = false,
 }
 
-require('dap').configurations.cpp = {lldb}
-require('dap').configurations.c = {lldb}
-require('dap').configurations.rust = {lldb}
+
+function configure_lldb()
+    dap_program = vim.fn.input(
+        "Path to executable: ",
+        vim.fn.getcwd() .. "/",
+        "file"
+    )
+
+    arg_str = vim.fn.input("Enter the args for the program: ")
+    dap_args = {}
+    for arg in string.gmatch(arg_str, "[^ ]+") do
+        table.insert(dap_args, arg)
+    end
+
+    lldb['program'] = dap_program
+    lldb['args'] = dap_args
+
+    require('dap').configurations.cpp = {lldb}
+    require('dap').configurations.c = {lldb}
+    require('dap').configurations.rust = {lldb}
+end
+
 
 dap_running = false
 local function dap_start()
+    print(dap_args)
+    print(dap_program)
+    if vim.bo.filetype == 'cpp' or 
+        vim.bo.filetype == 'c' or
+        vim.bo.filetype == 'rust' and
+        dap_args == nil and
+        dap_program == nil 
+     then
+        configure_lldb()
+    end
+    print(dap_args)
+    print(dap_program)
+
     require('dap').continue()
     require('dapui').open()
     vim.opt['mouse'] = 'a'
