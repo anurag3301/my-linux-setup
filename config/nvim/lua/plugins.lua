@@ -1,16 +1,14 @@
 return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-    use({
-      "jackMort/ChatGPT.nvim",
-        config = function()
-          require("chatgpt").setup()
-        end,
+    use {
+        'anurag3301/nvim-platformio.lua',
+        rocks = {'luasec'},
         requires = {
-          "MunifTanjim/nui.nvim",
-          "nvim-lua/plenary.nvim",
-          "nvim-telescope/telescope.nvim"
+            {'akinsho/nvim-toggleterm.lua'},
+            {'nvim-telescope/telescope.nvim'},
+            {'nvim-lua/plenary.nvim'},
         }
-    })
+    }
+    use 'wbthomason/packer.nvim'
 
     use {
         "williamboman/mason.nvim",
