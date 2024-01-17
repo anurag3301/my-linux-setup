@@ -1,3 +1,6 @@
+-- Try installing the lsp servers using :Mason, if doesnt work do it manually
+
+
 -- Use following commadn to install language server in arch using pacman, paru(AUR) and npm
 
 -- sudo pacman -S pyright bash-language-server lua-language-server ccls haskell-language-server typescript-language-server 
