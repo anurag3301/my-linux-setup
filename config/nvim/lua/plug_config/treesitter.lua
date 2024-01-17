@@ -7,16 +7,6 @@ require('nvim-treesitter.configs').setup{
                       'make', 'json', 'vim'},
   highlight = {
     enable = true,
-    disable = {},
-  },
-
-  rainbow = {
-    enable = false,
-    -- disable = { 'jsx', 'cpp' },
-    extended_mode = true,
-    max_file_lines = nil,
-    -- colors = {},
-    -- termcolors = {}
   },
 
   autotag = {
@@ -28,16 +18,6 @@ require('nvim-treesitter.configs').setup{
       enable = true,
       keymaps = {
         smart_rename = 'grr',
-      },
-    },
-    navigation = {
-      enable = true,
-      keymaps = {
-        goto_definition = 'gnd',
-        list_definitions = 'gnD',
-        list_definitions_toc = 'gO',
-        goto_next_usage = '<A-]>',
-        goto_previous_usage = '<A-[>',
       },
     },
   },
