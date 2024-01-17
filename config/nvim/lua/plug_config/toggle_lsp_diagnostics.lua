@@ -1,3 +1,3 @@
 require'toggle_lsp_diagnostics'.init(
-{start_on = false}
+    {start_on = false}
 )
