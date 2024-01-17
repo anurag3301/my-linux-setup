@@ -27,3 +27,17 @@ function config_nvim()
     -- end
 end
 
+
+local Job = require "plenary.job"
+function createNeorgWorkspace(workspace_name)
+    local workspace_path = vim.g.neorg_root.."/"..workspace_name
+    local mkdir_job = Job:new {
+      command = "mkdir",
+      args = {"-p", workspace_path},
+      on_stderr = function(_, line)
+        print(line)
+      end,
+    }
+    mkdir_job:sync()
+    print("Successfully created Neorg workspace "..workspace_name.." at "..vim.g.neorg_root)
+end

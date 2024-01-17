@@ -43,3 +43,5 @@ vim.cmd('command! -nargs=* RunUpdate :lua update_command_table("run", \'<f-args>
 vim.cmd('command! -nargs=* DebugUpdate :lua update_command_table("debug", \'<f-args>\')')
 
 vim.cmd('command CD cd %:p:h')
+
+vim.cmd('command -nargs=1 CreateNeorgWorkspace :lua createNeorgWorkspace(<f-args>)')
