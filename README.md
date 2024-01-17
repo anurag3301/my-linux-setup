@@ -12,14 +12,15 @@ Here I store all the Linux setup and installation stuff.
 ![image](https://user-images.githubusercontent.com/52702259/152478435-2c68f4d0-eb15-468a-bab8-85b0711fea10.png)
 
 
-| Distro              | Arch Linux             |
-|---------------------|------------------------|
-| Window Manager      | Dynamic Window Manager |
-| Terminal Emulator   | Kitty                  |
-| Text Editor/IDE     | Neovim/VSCode          |
-| Display Server      | XOrg                   |
-| Audio Server        | Pulse Audio/ALSA       |
-| Init System         | SystemD                |
-| Notification Client | Dunst                  |
-| Screenshot Client   | Maim                   |
+| Distro              | Arch Linux              |
+|---------------------|-------------------------|
+| Window Manager      | Dynamic Window Manager  |
+| Terminal Emulator   | Kitty                   |
+| Text Editor/IDE     | Neovim/VSCode           |
+| Display Server      | XOrg                    |
+| Audio Server        | Pulse Audio/ALSA        |
+| Init System         | SystemD                 |
+| Notification Client | Dunst                   |
+| Screenshot Client   | Maim                    |
+| Font                | JetBrains Mono Nerd Font|
 
