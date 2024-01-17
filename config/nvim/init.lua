@@ -8,10 +8,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
+
+vim.g.neorg_root = os.getenv( 'HOME' ).."/notes"
+
 -- include plugins and their config
 require('plugins')
-
-
 require('plug_config.treesitter')
 require('plug_config.autopairs')
 require('plug_config.colour')
