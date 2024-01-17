@@ -32,7 +32,7 @@ require('plug_config.autosave')
 require('plug_config.startup')
 require('plug_config.nvim-tree')
 require('plug_config.telescope')
-require('plug_config.tint')
+require('plug_config.illuminate')
 require('plug_config.dap')
 require('pretty-fold').setup()
 
@@ -45,6 +45,7 @@ require('runner')
 
 -- CpHelper config
 vim.g["cph#dir"] = os.getenv( 'HOME' )..'/problems'
+vim.cmd("autocmd FileType Results setlocal foldlevel=5")
 -- Rooter config
 vim.g.rooter_pattern = { 'input1', 'output1' }
 
@@ -54,11 +55,3 @@ vim.g.mapleader = ''
 vim.g.maplocalleader = ' '
 vim.g.user_emmet_leader_key=','
 
--- Make fold persistent throught the sessions
-vim.cmd([[
-augroup AutoSaveFolds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent loadview
-augroup END
-]])
