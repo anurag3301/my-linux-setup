@@ -34,6 +34,7 @@ require('plug_config.nvim-tree')
 require('plug_config.telescope')
 require('plug_config.illuminate')
 require('plug_config.dap')
+require('plug_config.neorg')
 require('pretty-fold').setup()
 
 require('general')
