@@ -1,13 +1,12 @@
 # My NeoVim Config
-## Some Screenshots of nvim
+
+> TODO: Walkthrough video
 
 ## Installation
 
-Required neovim version `NVIM v0.5+`, if your distro's package repository doesn't provide then have a look at this [reddit comment](https://www.reddit.com/r/neovim/comments/f9661m/comment/fipokxi/?utm_source=share&utm_medium=web2x&context=3).
+Required neovim version `NVIM v0.9+`, if your distro's package repository doesn't provide then have a look at this [reddit comment](https://www.reddit.com/r/neovim/comments/f9661m/comment/fipokxi/?utm_source=share&utm_medium=web2x&context=3).
 
 After Installation check the version by running `nvim --version`
-
-Install a nerd font, [check this](https://www.nerdfonts.com/font-downloads). Install any of them.
 
 Create a repos dir in home dir and cd into it
 ```sh
@@ -26,7 +25,7 @@ ln -s $HOME/repos/my-linux-setup/config/nvim $HOME/.config/nvim
 
 Open neovim, you should get some errors, just press enter key and run `:PackerInstall` followed by `:PackerSync`. This will install all the plugins.
 
-Install the Required LSP servers
+Install the Required LSP servers using `:Mason`, if that doesnt work then install them manually as follow
 
 https://github.com/anurag3301/my-linux-setup/blob/4d9e1daf2fe8875517b3cadb874c237b55769d11/config/nvim/lua/plug_config/lsp_config/lsp-config.lua#L1-L7
 
