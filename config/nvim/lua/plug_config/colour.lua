@@ -28,21 +28,14 @@ require('material').setup({
     },
 
     plugins = {
-        -- "dap",
-        "dashboard",
+        "dap",
         "gitsigns",
         "hop",
-        -- "indent-blankline",
-        -- "lspsaga",
-        -- "mini",
-        -- "neogit",
+        "neorg",
         "nvim-cmp",
-        -- "nvim-navic",
         "nvim-tree",
-        -- "sneak",
         "telescope",
-        -- "trouble",
-        -- "which-key",
+        "nvim-web-devicons",
     },
 
     disable = {
