@@ -17,7 +17,6 @@ return require('packer').startup(function(use)
 
     -- apperative plugins
     use 'anuvyklack/pretty-fold.nvim'
-    use 'levouh/tint.nvim'
     use 'hrsh7th/vim-vsnip'
     use 'mattn/emmet-vim'
     use {
@@ -33,13 +32,12 @@ return require('packer').startup(function(use)
     use 'RRethy/vim-illuminate'
   
     -- functional plugins
-    use { 'rush-rs/tree-sitter-asm' }
+    use 'rush-rs/tree-sitter-asm'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/nvim-cmp'
-    use 'williamboman/nvim-lsp-installer'
     use 'mfussenegger/nvim-jdtls'
     use 'onsails/lspkind-nvim'
     use 'nvim-treesitter/nvim-treesitter'
@@ -119,4 +117,10 @@ return require('packer').startup(function(use)
         requires = 'kyazdani42/nvim-web-devicons',
     }
     use_rocks "luasocket"
+    use {
+        "nvim-neorg/neorg",
+        run = ":Neorg sync-parsers",
+        requires = "nvim-lua/plenary.nvim",
+    }
+
 end)
