@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/nvim-cmp'
+    use 'ray-x/lsp_signature.nvim'
     use 'mfussenegger/nvim-jdtls'
     use 'onsails/lspkind-nvim'
     use 'nvim-treesitter/nvim-treesitter'
