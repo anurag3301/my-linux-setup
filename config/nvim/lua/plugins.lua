@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
     use 'ray-x/lsp_signature.nvim'
     use 'mfussenegger/nvim-jdtls'
     use 'onsails/lspkind-nvim'
+    use 'rmagatti/goto-preview'
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'akinsho/nvim-toggleterm.lua'

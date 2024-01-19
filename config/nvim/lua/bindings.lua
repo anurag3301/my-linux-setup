@@ -59,18 +59,28 @@ keymap('n', '+',               '<cmd> resize +1 <cr>')
 keymap('n', '-',               '<cmd> resize -1 <cr>')
 keymap('n', '<Leader>nc',      config_nvim)
 
+
+-- goto-preview bindings
+keymap('n', 'gd', '<cmd>lua require("goto-preview").goto_preview_definition()<CR>')
+keymap('n', 'gt', '<cmd>lua require("goto-preview").goto_preview_type_definition()<CR>')
+keymap('n', 'gi', '<cmd>lua require("goto-preview").goto_preview_implementation()<CR>')
+keymap('n', 'gD', '<cmd>lua require("goto-preview").goto_preview_declaration()<CR>')
+keymap('n', 'q',  '<cmd>lua require("goto-preview").close_all_win()<CR>')
+keymap('n', 'gr', '<cmd>lua require("goto-preview").goto_preview_references()<CR>')
+
+
 -- LSP bindings
-keymap('n', 'gD',        '<cmd> lua vim.lsp.buf.declaration() <cr>')
-keymap('n', 'gd',        '<cmd> lua vim.lsp.buf.definition() <cr>')
+keymap('n', 'ggD',        '<cmd> lua vim.lsp.buf.declaration() <cr>')
+keymap('n', 'ggd',        '<cmd> lua vim.lsp.buf.definition() <cr>')
 keymap('n', 'K',         '<cmd> lua vim.lsp.buf.hover() <cr>')
-keymap('n', 'gi',        '<cmd> lua vim.lsp.buf.implementation() <cr>')
+keymap('n', 'ggi',        '<cmd> lua vim.lsp.buf.implementation() <cr>')
 keymap('n', '<space>wa', '<cmd> lua vim.lsp.buf.add_workspace_folder() <cr>')
 keymap('n', '<space>wr', '<cmd> lua vim.lsp.buf.remove_workspace_folder() <cr>')
 keymap('n', '<space>wl', '<cmd> lua print(vim.inspect(vim.lsp.buf.list_workspace_folders())) <cr>')
 keymap('n', '<space>D',  '<cmd> lua vim.lsp.buf.type_definition() <cr>')
 keymap('n', '<space>rn', '<cmd> lua vim.lsp.buf.rename() <cr>')
 keymap('n', '<space>ca', '<cmd> lua vim.lsp.buf.code_action() <cr>')
-keymap('n', 'gr',        '<cmd> lua vim.lsp.buf.references() <cr>')
+keymap('n', 'ggr',        '<cmd> lua vim.lsp.buf.references() <cr>')
 keymap('n', '<space>e',  '<cmd> lua vim.diagnostic.open_float() <cr>')
 keymap('n', '<space>q',  '<cmd> lua vim.diagnostic.setloclist() <cr>')
 keymap('n', '<space>f',  '<cmd> lua vim.lsp.buf.formatting() <cr>')
