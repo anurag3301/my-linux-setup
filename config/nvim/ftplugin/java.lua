@@ -21,6 +21,11 @@ local config = {
   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
   settings = {
     java = {
+        project = {
+            referencedLibraries = {
+              '/usr/share/java/gson-2.2.2.jar',
+            },
+      }
     }
   },
   init_options = {
@@ -28,4 +33,6 @@ local config = {
   },
   capabilities = capabilities
 }
+
+
 require('jdtls').start_or_attach(config)

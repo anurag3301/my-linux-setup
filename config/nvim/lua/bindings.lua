@@ -1,5 +1,6 @@
 keymap = vim.keymap.set
 
+-- Telescope
 keymap('n', '<Leader>f', _find_files)
 keymap('n', '<Leader>o', '<cmd> Telescope oldfiles <cr>')
 keymap('n', '<Leader>s', '<cmd> Telescope live_grep <cr>')
@@ -7,7 +8,6 @@ keymap('n', '<Leader>s', '<cmd> Telescope live_grep <cr>')
 -- Bracey bindings
 keymap('n', '<Leader>b',    '<cmd> Bracey <cr>')
 keymap('n', '<Leader>bb',   '<cmd> BraceyStop <cr>')
-keymap('n', '<Leader>bbb',  '<cmd> BraceyReload <cr>')
 
 -- Fold bindings
 keymap('n', 'zo',        'zO')
@@ -83,3 +83,7 @@ keymap('n', '<F3>', function() dap_toggle() end)
 
 -- Binding to swtich to normal mode in terminal, press <Esc> two times
 vim.cmd(':tnoremap <Esc><Esc> <C-\\><C-n>')
+
+
+-- Extras
+-- Check plug_config/gitsigns.lua
