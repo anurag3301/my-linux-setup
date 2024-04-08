@@ -2,3 +2,4 @@ packer_compiled.lua
 *.pyc
 state.yml
 **/.ccls-cache/**
+lazy-lock.json
