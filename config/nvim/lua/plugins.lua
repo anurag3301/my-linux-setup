@@ -1,125 +1,118 @@
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-
-    use {
+local plugins = {
+    {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-    }
+        "neovim/nvim-lspconfig",
+    },
 
-    -- apperative plugins
-    use 'anuvyklack/pretty-fold.nvim'
-    use 'hrsh7th/vim-vsnip'
-    use 'mattn/emmet-vim'
-    use 'marko-cerovac/material.nvim'
-    use 'andweeb/presence.nvim'
-    use {
-      "startup-nvim/startup.nvim",
-      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-    }
-    use 'RRethy/vim-illuminate'
-  
-    -- functional plugins
-    use 'rush-rs/tree-sitter-asm'
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/nvim-cmp'
-    use 'ray-x/lsp_signature.nvim'
-    use 'mfussenegger/nvim-jdtls'
-    use 'onsails/lspkind-nvim'
-    use 'rmagatti/goto-preview'
-    use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/nvim-treesitter-refactor'
-    use 'akinsho/nvim-toggleterm.lua'
-    use 'windwp/nvim-autopairs'
-    use 'windwp/nvim-ts-autotag'
-    use 'norcalli/nvim-colorizer.lua'
-    use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
-    use 'kdheepak/lazygit.nvim'
-    use 'terrortylor/nvim-comment'
-    use 'rafamadriz/friendly-snippets'
-    use 'Pocco81/auto-save.nvim'
-    use {'turbio/bracey.vim', run = 'cd app & npm install --prefix server'}
-    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
-    use 'sbdchd/neoformat'
-    use 'mfussenegger/nvim-dap'
-    use 'rcarriga/nvim-dap-ui'
-    use 'nvim-neotest/nvim-nio'
-    use 'mfussenegger/nvim-dap-python'
-    use 'theHamsta/nvim-dap-virtual-text'
-    use {
-        "ur4ltz/surround.nvim",
+    {
+        'anuvyklack/pretty-fold.nvim',
+        'hrsh7th/vim-vsnip',
+        'mattn/emmet-vim',
+        'marko-cerovac/material.nvim',
+        'andweeb/presence.nvim',
+        'RRethy/vim-illuminate',
+        'norcalli/nvim-colorizer.lua'
+    },
+    {
+        "startup-nvim/startup.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim", 
+            "nvim-lua/plenary.nvim"
+        }
+    },
+
+    {
+        'neovim/nvim-lspconfig',
+        'mfussenegger/nvim-jdtls',
+        'onsails/lspkind-nvim',
+        'ray-x/lsp_signature.nvim',
+        'rmagatti/goto-preview',
+        'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+    },
+
+    {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/nvim-cmp',
+        'rafamadriz/friendly-snippets'
+    },
+
+    {
+        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter-refactor',
+        'rush-rs/tree-sitter-asm',
+        'windwp/nvim-autopairs',
+        'windwp/nvim-ts-autotag',
+    },
+
+    {
+        'mfussenegger/nvim-dap',
+        'rcarriga/nvim-dap-ui',
+        'nvim-neotest/nvim-nio',
+        'mfussenegger/nvim-dap-python',
+        'theHamsta/nvim-dap-virtual-text',
+    },
+
+
+    {'akinsho/nvim-toggleterm.lua'},
+    {'kdheepak/lazygit.nvim'},
+    {'terrortylor/nvim-comment'},
+    {'Pocco81/auto-save.nvim'},
+    {'lewis6991/gitsigns.nvim'},
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    },
+
+    {
+        "kylechui/nvim-surround",
+        version = "*",
+        event = "VeryLazy",
         config = function()
-            require"surround".setup {mappings_style = "surround"}
+            require("nvim-surround").setup({})
         end
-    }
-  
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        }
-    }
-  
-    use {
-        'phaazon/hop.nvim',
-        as = 'hop'
-    }
-  
-    use {
-        'akinsho/nvim-bufferline.lua',
-        requires = 'kyazdani42/nvim-web-devicons'
-    }
-  
-    use {
-        'p00f/cphelper.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'ygm2/rooter.nvim',
-            opt = true
-        }
-    }
-  
-    use {
-        'hoob3rt/lualine.nvim',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-            opt = true
-        }
-    }
-  
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-lua/popup.nvim', 
-            'nvim-lua/plenary.nvim' 
-        }
-    }
+    },
 
-    use {
-        'nvim-telescope/telescope-fzf-native.nvim', 
-        run = 'make' 
-    }
+    {'smoka7/hop.nvim', version = "*", opts = {},},
+    {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+    {'p00f/cphelper.nvim', dependencies = {'nvim-lua/plenary.nvim', 'ygm2/rooter.nvim',}},
+    {'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' }},
 
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-    }
-
-    use {
-        'anurag3301/nvim-platformio.lua',
-        requires = {
-            {'akinsho/nvim-toggleterm.lua'},
-            {'nvim-telescope/telescope.nvim'},
-            {'nvim-lua/plenary.nvim'},
-        }
-    }
-
-    use {
+    {
+        "anurag3301/nvim-platformio.lua",
+        dependencies = {
+            { "akinsho/nvim-toggleterm.lua" },
+            { "nvim-telescope/telescope.nvim" },
+            { "nvim-lua/plenary.nvim" },
+        },
+    },
+    {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+    },
+    {
         "nvim-neorg/neorg",
-        rocks = { "lua-utils.nvim", "nvim-nio", "nui.nvim", "plenary.nvim", "pathlib.nvim" },
+        dependencies = { "luarocks.nvim" },
+        lazy = false,
+        version = "*",
+        config = true,
+    },
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
     }
+}
 
-
-end)
+require("lazy").setup(plugins, opts)
