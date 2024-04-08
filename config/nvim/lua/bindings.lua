@@ -5,10 +5,6 @@ keymap('n', '<Leader>f', _find_files)
 keymap('n', '<Leader>o', '<cmd> Telescope oldfiles <cr>')
 keymap('n', '<Leader>s', '<cmd> Telescope live_grep <cr>')
 
--- Bracey bindings
-keymap('n', '<Leader>b',    '<cmd> Bracey <cr>')
-keymap('n', '<Leader>bb',   '<cmd> BraceyStop <cr>')
-
 -- Fold bindings
 keymap('n', 'zo',        'zO')
 keymap('n', 'zc',        'zC')
@@ -53,8 +49,8 @@ keymap('n', '<Leader>cc',      '<cmd> ColorizerToggle <cr>')
 keymap('n', '<Leader>gg',      '<cmd> LazyGit <cr>')
 keymap('n', '<Leader>n',       '<cmd> enew <cr>')
 keymap('n', '<Leader><Space>', '<cmd> noh <cr>')
-keymap('n', '[[',       '<cmd> vertical resize +7 <cr>')
-keymap('n', ']]',       '<cmd> vertical resize -7 <cr>')
+keymap('n', '[[',              '<cmd> vertical resize +7 <cr>')
+keymap('n', ']]',              '<cmd> vertical resize -7 <cr>')
 keymap('n', '+',               '<cmd> resize +1 <cr>')
 keymap('n', '-',               '<cmd> resize -1 <cr>')
 keymap('n', '<Leader>nc',      config_nvim)
@@ -65,7 +61,7 @@ keymap('n', 'gd', '<cmd>lua require("goto-preview").goto_preview_definition()<CR
 keymap('n', 'gt', '<cmd>lua require("goto-preview").goto_preview_type_definition()<CR>')
 keymap('n', 'gi', '<cmd>lua require("goto-preview").goto_preview_implementation()<CR>')
 keymap('n', 'gD', '<cmd>lua require("goto-preview").goto_preview_declaration()<CR>')
-keymap('n', 'q',  '<cmd>lua require("goto-preview").close_all_win()<CR>')
+keymap('n', '`',  '<cmd>lua require("goto-preview").close_all_win()<CR>')
 keymap('n', 'gr', '<cmd>lua require("goto-preview").goto_preview_references()<CR>')
 
 
