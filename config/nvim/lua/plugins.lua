@@ -1,13 +1,4 @@
 return require('packer').startup(function(use)
-    use {
-        'anurag3301/nvim-platformio.lua',
-        rocks = {'luasec'},
-        requires = {
-            {'akinsho/nvim-toggleterm.lua'},
-            {'nvim-telescope/telescope.nvim'},
-            {'nvim-lua/plenary.nvim'},
-        }
-    }
     use 'wbthomason/packer.nvim'
 
     use {
@@ -19,10 +10,6 @@ return require('packer').startup(function(use)
     use 'anuvyklack/pretty-fold.nvim'
     use 'hrsh7th/vim-vsnip'
     use 'mattn/emmet-vim'
-    use {
-      "startup-nvim/startup.nvim",
-      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-    }
     use 'marko-cerovac/material.nvim'
     use 'andweeb/presence.nvim'
     use {
@@ -58,6 +45,7 @@ return require('packer').startup(function(use)
     use 'sbdchd/neoformat'
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
+    use 'nvim-neotest/nvim-nio'
     use 'mfussenegger/nvim-dap-python'
     use 'theHamsta/nvim-dap-virtual-text'
     use {
@@ -118,11 +106,20 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
     }
-    use_rocks "luasocket"
+
+    use {
+        'anurag3301/nvim-platformio.lua',
+        requires = {
+            {'akinsho/nvim-toggleterm.lua'},
+            {'nvim-telescope/telescope.nvim'},
+            {'nvim-lua/plenary.nvim'},
+        }
+    }
+
     use {
         "nvim-neorg/neorg",
-        run = ":Neorg sync-parsers",
-        requires = "nvim-lua/plenary.nvim",
+        rocks = { "lua-utils.nvim", "nvim-nio", "nui.nvim", "plenary.nvim", "pathlib.nvim" },
     }
+
 
 end)
