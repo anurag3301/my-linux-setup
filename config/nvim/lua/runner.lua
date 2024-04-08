@@ -13,7 +13,8 @@ local run_command_table = {
     ['rust'] = 'rustc % && ./%:r',
     ['go'] = 'go run %',
     ['javascript'] = 'node %',
-    ['r'] = 'Rscript %'
+    ['r'] = 'Rscript %',
+    ['kotlin'] = 'kotlinc % -include-runtime -d %:r.jar && java -jar %:r.jar'
 }
 
 local debug_command_table = {
