@@ -19,6 +19,9 @@ ssh-keygen -t rsa -b 4096 -C "anurag3301.0x0@gmail.com"
 
 #Activate SSH agent:
 eval $(ssh-agent -s)
+#For windows
+Get-Service ssh-agent | Set-Service -StartupType Automatic -PassThru | Start-Service
+start-ssh-agent.cmd
 
 #Add the new key:
 ssh-add ~/.ssh/id_rsa
