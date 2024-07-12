@@ -103,7 +103,6 @@ local plugins = {
         dependencies = { "luarocks.nvim" },
         lazy = false,
         version = "*",
-        config = true,
     },
     {
         "nvim-tree/nvim-tree.lua",
