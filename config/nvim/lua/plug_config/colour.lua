@@ -36,6 +36,7 @@ require('material').setup({
         "nvim-tree",
         "telescope",
         "nvim-web-devicons",
+        "illuminate",
     },
 
     disable = {
