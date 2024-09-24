@@ -1,8 +1,21 @@
 local plugins = {
     {
+        "neovim/nvim-lspconfig",
+        'mfussenegger/nvim-jdtls',
+        'onsails/lspkind-nvim',
+        'ray-x/lsp_signature.nvim',
+        'rmagatti/goto-preview',
+        'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
+    },
+
+    {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/nvim-cmp',
+        'rafamadriz/friendly-snippets'
     },
 
     {
@@ -20,23 +33,6 @@ local plugins = {
             "nvim-telescope/telescope.nvim", 
             "nvim-lua/plenary.nvim"
         }
-    },
-
-    {
-        'neovim/nvim-lspconfig',
-        'mfussenegger/nvim-jdtls',
-        'onsails/lspkind-nvim',
-        'ray-x/lsp_signature.nvim',
-        'rmagatti/goto-preview',
-        'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
-    },
-
-    {
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/nvim-cmp',
-        'rafamadriz/friendly-snippets'
     },
 
     {
