@@ -30,6 +30,23 @@ if [ "$(file --mime-type -b "$1")" = "application/pdf" ]; then
     exit 1
 fi
 
+# Video preview (extract frame at 10% of duration for specific video formats)
+case "$1" in
+    *.mp4 | *.mkv | *.avi | *.webm | *.mov | *.flv | *.wmv)
+        # Calculate 10% timestamp
+        duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$1")
+        if [ -n "$duration" ]; then
+            timestamp=$(echo "$duration * 0.1" | bc -l)
+            temp_image=$(mktemp --suffix=".png")
+            # Extract frame at calculated timestamp
+            ffmpeg -ss "$timestamp" -i "$1" -frames:v 1 "$temp_image" -y -loglevel quiet
+            kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$temp_image" >/dev/tty
+            rm "$temp_image"  # Clean up the temporary image
+            exit 1
+        fi
+        ;;
+esac
+
 # Archive preview (list contents based on file type)
 case "$1" in
     *.tar) tar -tf "$1"; exit 0;;
@@ -40,8 +57,8 @@ case "$1" in
     *.7z) 7z l "$1"; exit 0;;
 esac
 
-# Check for ASCII files and display content with chosen command
-if file "$1" | grep -q 'ASCII text'; then
+# Preview any text file (ASCII or Unicode) with `bat` or `cat`
+if file "$1" | grep -q 'text'; then
     $preview_cmd "$1"
     exit 0
 fi
