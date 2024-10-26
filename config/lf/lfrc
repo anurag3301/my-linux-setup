@@ -6,6 +6,7 @@ set cleaner ~/.config/lf/cleaner
 cmd on-cd ${{
     python3 ~/.config/lf/video_thumbnailer.py "$PWD" &
 }}
+
 # Optional: set preview ratios
 set ratios 1:2:3
 set icons
@@ -28,4 +29,31 @@ cmd create ${{
         # Otherwise, treat it as a file and create an empty file
         touch "$name" && echo "File created: $name"
     fi
+}}
+
+map x cut
+
+# Remap delete key to `d` to use `trash` command
+map d trash
+
+# Define the trash command to list files, confirm, and move them to /tmp/lf_trash
+cmd trash ${{
+  trash_dir="/tmp/lf_trash"
+  mkdir -p "$trash_dir"
+  
+  # Display the list of files to be moved
+  echo "Files to be deleted (moved to trash):"
+  echo "$fx" | tr '\n' '\0' | xargs -0 -I {} echo "{}"
+  
+  # Prompt for confirmation
+  printf "\nDo you want to delete these files? (y/n): "
+  read -r response
+  
+  if [ "$response" = "y" ]; then
+      # Move each selected file to the trash directory
+      echo "$fx" | tr '\n' '\0' | xargs -0 -I {} mv "{}" "$trash_dir/" && echo "Moved {} to $trash_dir"
+      echo "Files moved to $trash_dir"
+  else
+      echo "Deletion cancelled."
+  fi
 }}
