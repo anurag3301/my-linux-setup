@@ -3,6 +3,13 @@
 # Clear the last preview
 kitty +kitten icat --clear --stdin no --silent --transfer-mode file </dev/null >/dev/tty
 
+# Define preview command: use `bat` if available, otherwise `cat`
+if command -v bat >/dev/null 2>&1; then
+    preview_cmd="bat --style=plain --paging=never --color=always"  # `--style=plain` removes decorations, `--paging=never` prevents paging
+else
+    preview_cmd="cat"
+fi
+
 # Image preview
 if [ -f "$1" ] && [ -n "$KITTY_WINDOW_ID" ]; then
     case "$(file --mime-type -b "$1")" in
@@ -13,10 +20,15 @@ if [ -f "$1" ] && [ -n "$KITTY_WINDOW_ID" ]; then
     esac
 fi
 
+# Check for ASCII files and display content with chosen command
+if file "$1" | grep -q 'ASCII text'; then
+    $echo $preview_cmd "$1"
+    exit 0
+fi
+
 # Other file previews (add as needed)
 case "$1" in
-    *.txt) cat "$1";;
-    *.md) cat "$1";;
-    *.json) cat "$1";;
+    *.md) $preview_cmd "$1";;
+    *.json) $preview_cmd "$1";;
     *) file -b "$1";;
 esac
