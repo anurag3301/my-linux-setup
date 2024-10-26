@@ -20,6 +20,16 @@ if [ -f "$1" ] && [ -n "$KITTY_WINDOW_ID" ]; then
     esac
 fi
 
+# PDF preview (display the first page as an image)
+if [ "$(file --mime-type -b "$1")" = "application/pdf" ]; then
+    # Generate a temporary image from the first page of the PDF
+    temp_image=$(mktemp --suffix=".png")
+    pdftoppm -f 1 -l 1 -png "$1" > "$temp_image"
+    kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$temp_image" >/dev/tty
+    rm "$temp_image"  # Clean up the temporary image
+    exit 1
+fi
+
 # Archive preview (list contents based on file type)
 case "$1" in
     *.tar) tar -tf "$1"; exit 0;;
