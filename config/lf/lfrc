@@ -5,3 +5,23 @@ set cleaner ~/.config/lf/cleaner
 # Optional: set preview ratios
 set ratios 1:2:3
 set icons
+
+map a :create
+
+# Define the create command
+cmd create ${{
+    # Prompt for input (using a simple read for compatibility)
+    printf "Enter file or dir name: "
+    read name
+
+    # Check if input is empty and exit if so
+    [ -z "$name" ] && exit
+
+    # If the name ends with '/', treat it as a directory and create it
+    if [[ "$name" == */ ]]; then
+        mkdir -p "$name" && echo "Directory created: $name"
+    else
+        # Otherwise, treat it as a file and create an empty file
+        touch "$name" && echo "File created: $name"
+    fi
+}}
