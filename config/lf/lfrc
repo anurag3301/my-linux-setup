@@ -4,3 +4,4 @@ set cleaner ~/.config/lf/cleaner
 
 # Optional: set preview ratios
 set ratios 1:2:3
+set icons
