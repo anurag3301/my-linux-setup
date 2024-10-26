@@ -3,9 +3,9 @@
 # Clear the last preview
 kitty +kitten icat --clear --stdin no --silent --transfer-mode file </dev/null >/dev/tty
 
-# Define preview command: use `bat` if available, otherwise `cat`
+# Define preview command: use `bat` with color if available, otherwise `cat`
 if command -v bat >/dev/null 2>&1; then
-    preview_cmd="bat --style=plain --paging=never --color=always"  # `--style=plain` removes decorations, `--paging=never` prevents paging
+    preview_cmd="bat --style=plain --paging=never --color=always"  # Force color output with `--color=always`
 else
     preview_cmd="cat"
 fi
@@ -20,9 +20,19 @@ if [ -f "$1" ] && [ -n "$KITTY_WINDOW_ID" ]; then
     esac
 fi
 
+# Archive preview (list contents based on file type)
+case "$1" in
+    *.tar) tar -tf "$1"; exit 0;;
+    *.tar.gz | *.tgz) tar -tzf "$1"; exit 0;;
+    *.tar.bz2 | *.tbz) tar -tjf "$1"; exit 0;;
+    *.zip) unzip -l "$1"; exit 0;;
+    *.rar) unrar l "$1"; exit 0;;
+    *.7z) 7z l "$1"; exit 0;;
+esac
+
 # Check for ASCII files and display content with chosen command
 if file "$1" | grep -q 'ASCII text'; then
-    $echo $preview_cmd "$1"
+    $preview_cmd "$1"
     exit 0
 fi
 
