@@ -30,18 +30,25 @@ if [ "$(file --mime-type -b "$1")" = "application/pdf" ]; then
     exit 1
 fi
 
-# Video preview (extract frame at 10% of duration for specific video formats)
+# Video preview with caching
 case "$1" in
     *.mp4 | *.mkv | *.avi | *.webm | *.mov | *.flv | *.wmv)
-        # Calculate 10% timestamp
-        duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$1")
-        if [ -n "$duration" ]; then
-            timestamp=$(echo "$duration * 0.1" | bc -l)
-            temp_image=$(mktemp --suffix=".png")
-            # Extract frame at calculated timestamp
-            ffmpeg -ss "$timestamp" -i "$1" -frames:v 1 "$temp_image" -y -loglevel quiet
-            kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$temp_image" >/dev/tty
-            rm "$temp_image"  # Clean up the temporary image
+        # Calculate thumbnail path based on hash
+        thumb_hash=$(echo -n "$1" | md5sum | awk '{print $1}')
+        thumbnail_path="$HOME/.cache/video_thumbnails/${thumb_hash}.png"
+
+        # Check if thumbnail exists, if not, generate it
+        if [ ! -f "$thumbnail_path" ]; then
+            duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$1")
+            if [ -n "$duration" ]; then
+                timestamp=$(echo "$duration * 0.1" | bc -l)
+                ffmpeg -ss "$timestamp" -i "$1" -frames:v 1 "$thumbnail_path" -y -loglevel quiet
+            fi
+        fi
+
+        # Display cached thumbnail
+        if [ -f "$thumbnail_path" ]; then
+            kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$thumbnail_path" >/dev/tty
             exit 1
         fi
         ;;

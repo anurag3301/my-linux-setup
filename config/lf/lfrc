@@ -2,6 +2,10 @@
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
 
+# Trigger video thumbnail caching on directory enter
+cmd on-cd ${{
+    python3 ~/.config/lf/video_thumbnailer.py "$PWD" &
+}}
 # Optional: set preview ratios
 set ratios 1:2:3
 set icons
