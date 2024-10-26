@@ -20,9 +20,12 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+<<<<<<< Updated upstream
 alias zrc="nvim ~/.zshrc"
-alias rr=". ranger"
-alias sr="var=\$(pwd); sudo ranger \$var"
+=======
+alias lf="lfcd"
+alias zrc="nvim ~/.zshrc && source ~/.zshrc"
+>>>>>>> Stashed changes
 alias campow="v4l2-ctl -d /dev/video0 --set-ctrl=power_line_frequency=1"
 alias c="clear"
 alias q="exit"
@@ -62,3 +65,8 @@ kitty + complete setup zsh | source /dev/stdin
 [[ -s /home/anurag/.autojump/etc/profile.d/autojump.sh ]] && source /home/anurag/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
+
+LFCD="$HOME/.config/lf/lfcd.sh"
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi

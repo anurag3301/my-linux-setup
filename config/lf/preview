@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Clear the last preview
+kitty +kitten icat --clear --stdin no --silent --transfer-mode file </dev/null >/dev/tty
+
+# Image preview
+if [ -f "$1" ] && [ -n "$KITTY_WINDOW_ID" ]; then
+    case "$(file --mime-type -b "$1")" in
+        image/*)
+            kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$1" >/dev/tty
+            exit 1
+            ;;
+    esac
+fi
+
+# Other file previews (add as needed)
+case "$1" in
+    *.txt) cat "$1";;
+    *.md) cat "$1";;
+    *.json) cat "$1";;
+    *) file -b "$1";;
+esac
