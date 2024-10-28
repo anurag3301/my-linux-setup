@@ -15,20 +15,23 @@ map a :create
 
 # Define the create command
 cmd create ${{
-    # Prompt for input (using a simple read for compatibility)
+    # Prompt for input
     printf "Enter file or dir name: "
-    read name
+    read -r name
 
     # Check if input is empty and exit if so
     [ -z "$name" ] && exit
 
-    # If the name ends with '/', treat it as a directory and create it
-    if [[ "$name" == */ ]]; then
-        mkdir -p "$name" && echo "Directory created: $name"
-    else
-        # Otherwise, treat it as a file and create an empty file
-        touch "$name" && echo "File created: $name"
-    fi
+    # Use case statement to check if the name ends with a '/'
+    case "$name" in
+        */)
+            mkdir -p "$name" && echo "Directory created: $name"
+            ;;
+        *)
+            # Create an empty file otherwise
+            touch "$name" && echo "File created: $name"
+            ;;
+    esac
 }}
 
 map x cut
