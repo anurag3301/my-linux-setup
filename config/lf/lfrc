@@ -2,58 +2,45 @@
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
 
-# Trigger video thumbnail caching on directory enter
 cmd on-cd ${{
     python3 ~/.config/lf/video_thumbnailer.py "$PWD" &
 }}
 
-# Optional: set preview ratios
 set ratios 1:2:3
 set icons
 
 map a :create
 
-# Define the create command
 cmd create ${{
-    # Prompt for input
     printf "Enter file or dir name: "
     read -r name
 
-    # Check if input is empty and exit if so
     [ -z "$name" ] && exit
 
-    # Use case statement to check if the name ends with a '/'
     case "$name" in
         */)
             mkdir -p "$name" && echo "Directory created: $name"
             ;;
         *)
-            # Create an empty file otherwise
             touch "$name" && echo "File created: $name"
             ;;
     esac
 }}
 
 map x cut
-
-# Remap delete key to `d` to use `trash` command
 map d trash
 
-# Define the trash command to list files, confirm, and move them to /tmp/lf_trash
 cmd trash ${{
   trash_dir="/tmp/lf_trash"
   mkdir -p "$trash_dir"
   
-  # Display the list of files to be moved
   echo "Files to be deleted (moved to trash):"
   echo "$fx" | tr '\n' '\0' | xargs -0 -I {} echo "{}"
   
-  # Prompt for confirmation
   printf "\nDo you want to delete these files? (y/n): "
   read -r response
   
   if [ "$response" = "y" ]; then
-      # Move each selected file to the trash directory
       echo "$fx" | tr '\n' '\0' | xargs -0 -I {} mv -f "{}" "$trash_dir/"
       echo "Files moved to $trash_dir"
   else

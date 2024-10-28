@@ -1,16 +1,13 @@
 #!/bin/sh
 
-# Clear the last preview
 kitty +kitten icat --clear --stdin no --silent --transfer-mode file </dev/null >/dev/tty
 
-# Define preview command: use `bat` with color if available, otherwise `cat`
 if command -v bat >/dev/null 2>&1; then
-    preview_cmd="bat --style=plain --paging=never --color=always"  # Force color output with `--color=always`
+    preview_cmd="bat --style=plain --paging=never --color=always" 
 else
     preview_cmd="cat"
 fi
 
-# Image preview
 if [ -f "$1" ] && [ -n "$KITTY_WINDOW_ID" ]; then
     case "$(file --mime-type -b "$1")" in
         image/*)
@@ -22,22 +19,19 @@ fi
 
 # PDF preview (display the first page as an image)
 if [ "$(file --mime-type -b "$1")" = "application/pdf" ]; then
-    # Generate a temporary image from the first page of the PDF
     temp_image=$(mktemp --suffix=".png")
     pdftoppm -f 1 -l 1 -png "$1" > "$temp_image"
     kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$temp_image" >/dev/tty
-    rm "$temp_image"  # Clean up the temporary image
+    rm "$temp_image" 
     exit 1
 fi
 
 # Video preview with caching
 case "$1" in
     *.mp4 | *.mkv | *.avi | *.webm | *.mov | *.flv | *.wmv)
-        # Calculate thumbnail path based on hash
         thumb_hash=$(echo -n "$1" | md5sum | awk '{print $1}')
         thumbnail_path="$HOME/.cache/video_thumbnails/${thumb_hash}.png"
 
-        # Check if thumbnail exists, if not, generate it
         if [ ! -f "$thumbnail_path" ]; then
             duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$1")
             if [ -n "$duration" ]; then
@@ -46,7 +40,6 @@ case "$1" in
             fi
         fi
 
-        # Display cached thumbnail
         if [ -f "$thumbnail_path" ]; then
             kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$thumbnail_path" >/dev/tty
             exit 1
@@ -64,13 +57,11 @@ case "$1" in
     *.7z) 7z l "$1"; exit 0;;
 esac
 
-# Preview any text file (ASCII or Unicode) with `bat` or `cat`
 if file "$1" | grep -q 'text'; then
     $preview_cmd "$1"
     exit 0
 fi
 
-# Other file previews (add as needed)
 case "$1" in
     *.md) $preview_cmd "$1";;
     *.json) $preview_cmd "$1";;
