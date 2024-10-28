@@ -57,6 +57,23 @@ case "$1" in
     *.7z) 7z l "$1"; exit 0;;
 esac
 
+# Jupyter Notebook preview (convert to Markdown if jupyter-nbconvert is available)
+case "$1" in
+    *.ipynb)
+        echo "Detected .ipynb file: $1" >&2
+        if command -v jupyter-nbconvert >/dev/null 2>&1; then
+            echo "jupyter-nbconvert found, converting .ipynb to Markdown" >&2
+            jupyter-nbconvert --stdout --to markdown "$1" | $preview_cmd -l markdown
+            exit 0
+        else
+            echo "jupyter-nbconvert not found, displaying raw content" >&2
+            $preview_cmd "$1"
+            exit 0
+        fi
+        ;;
+esac
+
+# Text and specific file type preview
 if file "$1" | grep -q 'text'; then
     $preview_cmd "$1"
     exit 0
