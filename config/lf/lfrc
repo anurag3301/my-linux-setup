@@ -54,7 +54,7 @@ cmd trash ${{
   
   if [ "$response" = "y" ]; then
       # Move each selected file to the trash directory
-      echo "$fx" | tr '\n' '\0' | xargs -0 -I {} mv "{}" "$trash_dir/" && echo "Moved {} to $trash_dir"
+      echo "$fx" | tr '\n' '\0' | xargs -0 -I {} mv -f "{}" "$trash_dir/"
       echo "Files moved to $trash_dir"
   else
       echo "Deletion cancelled."
