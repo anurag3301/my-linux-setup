@@ -6,8 +6,8 @@ then
     then
         if [[ -f "$(pwd)/$2" ]]
         then
-            command="curl -s -F'file=@$(pwd)/$2' https://0x0.st"
-            echo "Executing: $command"
+            command="curl -s -F'file=@$(pwd)/$2' -H 'X-Upload-Key: $VPS_FILE_UPLOAD_KEY' https://anurag3301.com/upload"
+            echo "Uploading: $(pwd)/$2"
 
             url=$(eval $command)
             echo "URL: $url"
