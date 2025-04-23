@@ -16,10 +16,13 @@ export EDITOR="nvim"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 HIST_STAMPS="dd.mm.yyyy"
-
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
-
 source $ZSH/oh-my-zsh.sh
+
+LFCD="$HOME/.config/lf/lfcd.sh"
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi
 
 alias lf="lfcd"
 alias zrc="nvim ~/.zshrc && source ~/.zshrc"
@@ -29,14 +32,10 @@ alias q="exit"
 alias ls='exa --color=always --group-directories-first --icons'  # all files and dirs
 alias la='exa -al --color=always --group-directories-first --icons --git' # my preferred listing
 alias ll='exa -l --color=always --group-directories-first --icons --git'  # long format
-alias l.='exa -a | rg "^\."'
 alias icat='kitty +kitten icat'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
 alias du='/sbin/du -h'
-alias mtp='aft-mtp-mount ~/mnt'
-alias ssh='kitty +kitten ssh'
 alias mkdwm='rm -rf config.h && sudo make clean install'
-alias dc="docker-compose"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -58,8 +57,3 @@ kitty + complete setup zsh | source /dev/stdin
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
-
-LFCD="$HOME/.config/lf/lfcd.sh"
-if [ -f "$LFCD" ]; then
-    source "$LFCD"
-fi
