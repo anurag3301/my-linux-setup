@@ -29,20 +29,36 @@ cmd create ${{
 
 map x cut
 map d trash
-
 cmd trash ${{
   trash_dir="/tmp/lf_trash"
   mkdir -p "$trash_dir"
-  
+
   echo "Files to be deleted (moved to trash):"
   echo "$fx" | tr '\n' '\0' | xargs -0 -I {} echo "{}"
-  
+
   printf "\nDo you want to delete these files? (y/n): "
   read -r response
-  
+
   if [ "$response" = "y" ]; then
-      echo "$fx" | tr '\n' '\0' | xargs -0 -I {} mv -f "{}" "$trash_dir/"
+      echo "$fx" | tr '\n' '\0' | xargs -0 -I {} rsync -a --remove-source-files "{}" "$trash_dir/" && \
+      echo "$fx" | tr '\n' '\0' | xargs -0 -I {} find "{}" -type d -empty -delete 2>/dev/null
       echo "Files moved to $trash_dir"
+  else
+      echo "Deletion cancelled."
+  fi
+}}
+
+map D delete
+cmd delete ${{
+  echo "Files to be permanently deleted:"
+  echo "$fx" | tr '\n' '\0' | xargs -0 -I {} echo "{}"
+
+  printf "\nDo you want to delete these files? (y/n): "
+  read -r response
+
+  if [ "$response" = "y" ]; then
+      echo "$fx" | tr '\n' '\0' | xargs -0 -I {} rm -rf "{}" &&
+      echo "Files Deleted"
   else
       echo "Deletion cancelled."
   fi
