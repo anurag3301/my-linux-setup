@@ -41,7 +41,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH=$HOME/.npm-global/bin:$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:/var/lib/snapd/snap/bin:$HOME/.local/bin:$HOME.program:/opt/resolve/bin:$PATH
+export PATH=/opt/perl-5.40/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:/var/lib/snapd/snap/bin:$HOME/.local/bin:$HOME.program:/opt/resolve/bin:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -57,3 +57,8 @@ kitty + complete setup zsh | source /dev/stdin
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
+export PICO_SDK_PATH=~/pico/pico-sdk
+
+search() {
+  ddgr --json "$*" | jq '.[0:3][] | .abstract, ""'
+}
