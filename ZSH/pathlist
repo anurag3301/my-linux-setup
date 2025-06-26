@@ -1,0 +1,11 @@
+/opt/perl-5.40/bin
+$HOME/.npm-global/bin
+$HOME/.cargo/bin
+$HOME/bin
+/usr/local/bin
+/sbin
+/usr/sbin
+/var/lib/snapd/snap/bin
+$HOME/.local/bin
+$HOME.program
+/opt/resolve/bin

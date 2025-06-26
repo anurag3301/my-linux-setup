@@ -1,0 +1,15 @@
+# SDK path
+export PICO_SDK_PATH=~/pico/pico-sdk
+
+# lfcd (lf integration)
+LFCD="$HOME/.config/lf/lfcd.sh"
+[ -f "$LFCD" ] && source "$LFCD"
+
+# Completion setup (only need once)
+autoload -U compinit && compinit -u
+
+# Kitty shell completion
+kitty + complete setup zsh | source /dev/stdin
+
+# Autojump
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh

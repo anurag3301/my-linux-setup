@@ -1,0 +1,13 @@
+
+alias lf="lfcd"
+alias zrc="nvim ~/.zshrc && source ~/.zshrc"
+alias campow="v4l2-ctl -d /dev/video0 --set-ctrl=power_line_frequency=1"
+alias c="clear"
+alias q="exit"
+alias ls='exa --color=always --group-directories-first --icons'  # all files and dirs
+alias la='exa -al --color=always --group-directories-first --icons --git' # my preferred listing
+alias ll='exa -l --color=always --group-directories-first --icons --git'  # long format
+alias icat='kitty +kitten icat'
+alias clip='tr -d "\n" | xclip -selection clipbaord'
+alias du='/sbin/du -h'
+alias mkdwm='rm -rf config.h && sudo make clean install'
