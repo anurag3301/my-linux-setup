@@ -1,5 +1,4 @@
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR="nvim"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 HIST_STAMPS="dd.mm.yyyy"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
@@ -16,6 +15,14 @@ fi
 
 source $HOME/.aliases
 source $HOME/.base
+
+if [[ -f "$HOME/.enc" ]]; then
+    source $HOME/.env;
+fi
+
+export EDITOR="nvim"
+export PICO_SDK_PATH=~/pico/pico-sdk
+export GPG_TTY=$(tty)
 
 # Custom function
 search() {

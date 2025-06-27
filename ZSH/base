@@ -1,5 +1,13 @@
-# SDK path
-export PICO_SDK_PATH=~/pico/pico-sdk
+if [[ -f "$HOME/.pathlist" ]]; then
+  while IFS= read -r line; do
+    [[ -z "$line" || "$line" == \#* ]] && continue  # Skip empty lines and comments
+    expanded_path=$(eval echo "$line")
+    if [[ -d "$expanded_path" && ":$PATH:" != *":$expanded_path:"* ]]; then
+      export PATH="$expanded_path:$PATH"
+    fi
+  done < "$HOME/.pathlist"
+fi
+
 
 # lfcd (lf integration)
 LFCD="$HOME/.config/lf/lfcd.sh"
