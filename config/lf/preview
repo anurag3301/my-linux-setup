@@ -10,6 +10,7 @@ else
     preview_cmd="cat"
 fi
 
+
 if [ -f "$1" ] && [ -n "$KITTY_WINDOW_ID" ]; then
     case "$(file --mime-type -b "$1")" in
         image/*)
@@ -104,14 +105,14 @@ case "${1,,}" in
         ;;
 esac
 
-case "$1" in
-    *.md) $preview_cmd "$1";;
-    *.json) $preview_cmd "$1";;
-    *) file -b "$1";;
-esac
-
 # Text and specific file type preview
 if file "$1" | grep -q 'text'; then
     $preview_cmd "$1"
     exit 0
 fi
+
+case "$1" in
+    *.md) $preview_cmd "$1";;
+    *.json) $preview_cmd "$1";;
+    *) file -b "$1";;
+esac
