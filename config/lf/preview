@@ -17,14 +17,25 @@ if [ -f "$1" ] && [ -n "$KITTY_WINDOW_ID" ]; then
     esac
 fi
 
-# PDF preview (display the first page as an image)
+# PDF preview with caching (first page only)
 if [ "$(file --mime-type -b "$1")" = "application/pdf" ]; then
-    temp_image=$(mktemp --suffix=".png")
-    pdftoppm -f 1 -l 1 -png "$1" > "$temp_image"
-    kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$temp_image" >/dev/tty
-    rm "$temp_image" 
-    exit 1
+    thumb_hash=$(echo -n "$1" | md5sum | awk '{print $1}')
+    thumbnail_path="$HOME/.cache/pdf_thumbnails/${thumb_hash}.png"
+
+    mkdir -p "$(dirname "$thumbnail_path")"
+
+    if [ ! -f "$thumbnail_path" ]; then
+        temp_prefix=$(mktemp -u)
+        pdftoppm -f 1 -l 1 -png "$1" "$temp_prefix" 2>/dev/null
+        mv ${temp_prefix}-*1.png "$thumbnail_path" 2>/dev/null
+    fi
+
+    if [ -f "$thumbnail_path" ]; then
+        kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$thumbnail_path" >/dev/tty
+        exit 1
+    fi
 fi
+
 
 # Video preview with caching
 case "$1" in
