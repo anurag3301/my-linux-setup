@@ -73,14 +73,32 @@ case "$1" in
         ;;
 esac
 
-# Text and specific file type preview
-if file "$1" | grep -q 'text'; then
-    $preview_cmd "$1"
-    exit 0
-fi
+case "${1,,}" in
+    *.stl)
+        thumb_hash=$(echo -n "$1" | md5sum | awk '{print $1}')
+        thumbnail_path="$HOME/.cache/stl_thumbnails/${thumb_hash}.png"
+
+        mkdir -p "$(dirname "$thumbnail_path")"
+
+        if [ ! -f "$thumbnail_path" ]; then
+            stl-thumb "$1" "$thumbnail_path" >/dev/null 2>&1
+        fi
+
+        if [ -f "$thumbnail_path" ]; then
+            kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$thumbnail_path" >/dev/tty
+            exit 1
+        fi
+        ;;
+esac
 
 case "$1" in
     *.md) $preview_cmd "$1";;
     *.json) $preview_cmd "$1";;
     *) file -b "$1";;
 esac
+
+# Text and specific file type preview
+if file "$1" | grep -q 'text'; then
+    $preview_cmd "$1"
+    exit 0
+fi
