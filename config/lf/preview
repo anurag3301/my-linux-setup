@@ -22,7 +22,7 @@ fi
 
 # PDF preview with caching (first page only)
 if [ "$(file --mime-type -b "$1")" = "application/pdf" ]; then
-    thumb_hash=$(echo -n "$1" | md5sum | awk '{print $1}')
+    thumb_hash=$(printf "%s%s" "$1" "$(stat -c %Y "$1")" | md5sum | awk '{print $1}')
     thumbnail_path="${thumb_cache_path}/pdf/${thumb_hash}.png"
 
     mkdir -p "$(dirname "$thumbnail_path")"
@@ -43,7 +43,7 @@ fi
 # Video preview with caching
 case "$1" in
     *.mp4 | *.mkv | *.avi | *.webm | *.mov | *.flv | *.wmv)
-        thumb_hash=$(echo -n "$1" | md5sum | awk '{print $1}')
+        thumb_hash=$(printf "%s%s" "$1" "$(stat -c %Y "$1")" | md5sum | awk '{print $1}')
         thumbnail_path="${thumb_cache_path}/video/${thumb_hash}.png"
 
         if [ ! -f "$thumbnail_path" ]; then
@@ -89,13 +89,34 @@ esac
 
 case "${1,,}" in
     *.stl)
-        thumb_hash=$(echo -n "$1" | md5sum | awk '{print $1}')
-        thumbnail_path="${thumb_cache_path}/stl/${thumb_hash}.png"
+        thumb_hash=$(printf "%s%s" "$1" "$(stat -c %Y "$1")" | md5sum | awk '{print $1}')
+        thumbnail_path="${thumb_cache_path}/3d/${thumb_hash}.stl.png"
 
         mkdir -p "$(dirname "$thumbnail_path")"
 
         if [ ! -f "$thumbnail_path" ]; then
             stl-thumb "$1" "$thumbnail_path" >/dev/null 2>&1
+        fi
+
+        if [ -f "$thumbnail_path" ]; then
+            kitten icat --silent --stdin no --transfer-mode file --place "${2}x${3}@${4}x${5}" "$thumbnail_path" >/dev/tty
+            exit 1
+        fi
+        ;;
+esac
+
+case "${1,,}" in
+    *.fcstd | *.fcbak)
+        thumb_hash=$(printf "%s%s" "$1" "$(stat -c %Y "$1")" | md5sum | awk '{print $1}')
+        thumbnail_path="${thumb_cache_path}/3d/${thumb_hash}.FCStd.png"
+
+        mkdir -p "$(dirname "$thumbnail_path")"
+
+        if [ ! -f "$thumbnail_path" ]; then
+            tempdir=$(mktemp -d)
+            unzip "$1" -d "$tempdir" >/dev/null 2>&1
+            mv "$tempdir/thumbnails/Thumbnail.png" $thumbnail_path
+            rm -rf "$tempdir" 
         fi
 
         if [ -f "$thumbnail_path" ]; then
