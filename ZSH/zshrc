@@ -29,3 +29,8 @@ search() {
   ddgr --json "$*" | jq '.[0:3][] | .abstract, ""'
 }
 
+lfcd () {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")"
+}
+
