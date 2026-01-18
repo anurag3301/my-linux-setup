@@ -9,10 +9,6 @@ if [[ -f "$HOME/.pathlist" ]]; then
 fi
 
 
-# lfcd (lf integration)
-LFCD="$HOME/.config/lf/lfcd.sh"
-[ -f "$LFCD" ] && source "$LFCD"
-
 # Completion setup (only need once)
 autoload -U compinit && compinit -u
 
