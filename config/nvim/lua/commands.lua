@@ -45,3 +45,39 @@ vim.cmd('command! -nargs=* DebugUpdate :lua update_command_table("debug", \'<f-a
 vim.cmd('command CD cd %:p:h')
 
 vim.cmd('command -nargs=1 CreateNeorgWorkspace :lua createNeorgWorkspace(<f-args>)')
+
+local function lsp_info()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local filetype = vim.bo[bufnr].filetype
+    local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
+    local all_clients = vim.lsp.get_clients()
+
+    local lines = {
+        'LSP Status',
+        '---------',
+        'Buffer: ' .. vim.api.nvim_buf_get_name(bufnr),
+        'Filetype: ' .. filetype,
+        'Attached to current buffer: ' .. #buf_clients,
+    }
+
+    if #buf_clients > 0 then
+        for _, client in ipairs(buf_clients) do
+            table.insert(lines, ('  - %s (id=%d)'):format(client.name, client.id))
+        end
+    end
+
+    table.insert(lines, '')
+    table.insert(lines, 'All running clients: ' .. #all_clients)
+    if #all_clients > 0 then
+        for _, client in ipairs(all_clients) do
+            table.insert(lines, ('  - %s (id=%d)'):format(client.name, client.id))
+        end
+    end
+
+    vim.notify(table.concat(lines, '\n'), vim.log.levels.INFO, { title = 'LSPInfo' })
+end
+
+vim.api.nvim_create_user_command('LSPInfo', lsp_info, { desc = 'Show active LSP clients' })
+if vim.fn.exists(':LspInfo') == 0 then
+    vim.api.nvim_create_user_command('LspInfo', lsp_info, { desc = 'Show active LSP clients' })
+end

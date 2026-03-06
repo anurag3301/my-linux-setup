@@ -6,6 +6,12 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      end,
+    },
     formatting = {
         format = lspkind.cmp_format({
             with_text = true,
@@ -14,11 +20,6 @@ cmp.setup({
                 return vim_item
             end
         })
-    },
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end
     },
     mapping = {
         ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item()),
@@ -32,12 +33,12 @@ cmp.setup({
                 c = cmp.mapping.close()
             }
         ),
-        ["<CR>"] = cmp.mapping.confirm({select = false}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<CR>"] = cmp.mapping.confirm({select = false}) 
     },
     sources = cmp.config.sources(
         {
             {name = "nvim_lsp"},
-            {name = "vsnip"}
+            {name = "luasnip"},
         },
         {
             {name = "buffer"}
