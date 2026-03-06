@@ -39,8 +39,8 @@ require('plug_config.startup')
 require('plug_config.nvim-tree')
 require('plug_config.telescope')
 require('plug_config.illuminate')
-require('plug_config.dap')
-require('plug_config.neorg')
+-- require('plug_config.neorg')
+require('plug_config.luasnip')
 require('pretty-fold').setup()
 
 require('general')
@@ -56,9 +56,11 @@ vim.cmd("autocmd FileType Results setlocal foldlevel=5")
 -- Rooter config
 vim.g.rooter_pattern = { 'input1', 'output1' }
 
--- Emmet configuration
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
-vim.g.mapleader = ''
-vim.g.maplocalleader = ' '
-vim.g.user_emmet_leader_key=','
 
+vim.g.pioConfig ={
+    lsp = 'clangd',
+    menu_key = '<leader>\\', -- replace this menu key  to your convenience
+    clangd_source = 'compiledb'
+} 
+local pok, platformio = pcall(require, 'platformio')
+if pok then platformio.setup(vim.g.pioConfig) end

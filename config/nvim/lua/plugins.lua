@@ -8,6 +8,7 @@ local plugins = {
         'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "ckipp01/stylua-nvim"
     },
 
     {
@@ -37,8 +38,13 @@ local plugins = {
 
     {
         'nvim-treesitter/nvim-treesitter',
-        'nvim-treesitter/nvim-treesitter-refactor',
+        build = ':TSUpdate',
+        lazy = false,
+    },
+    {
         'rush-rs/tree-sitter-asm',
+    },
+    {
         'windwp/nvim-autopairs',
         'windwp/nvim-ts-autotag',
     },
@@ -81,24 +87,25 @@ local plugins = {
     {'p00f/cphelper.nvim', dependencies = {'nvim-lua/plenary.nvim', 'ygm2/rooter.nvim',}},
     {'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' }},
 
+
     {
-        "anurag3301/nvim-platformio.lua",
-        dependencies = {
-            { "akinsho/nvim-toggleterm.lua" },
-            { "nvim-telescope/telescope.nvim" },
-            { "nvim-lua/plenary.nvim" },
-        },
+      'anurag3301/nvim-platformio.lua',
+
+      -- dependencies are always lazy-loaded unless specified otherwise
+      dependencies = {
+        { 'akinsho/toggleterm.nvim' },
+        { 'nvim-telescope/telescope.nvim' },
+        { 'nvim-telescope/telescope-ui-select.nvim' },
+        { 'nvim-lua/plenary.nvim' },
+        { 'folke/which-key.nvim' },
+      },
     },
+
+
     {
         "vhyrro/luarocks.nvim",
         priority = 1000,
         config = true,
-    },
-    {
-        "nvim-neorg/neorg",
-        dependencies = { "luarocks.nvim" },
-        lazy = false,
-        version = "*",
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -107,7 +114,21 @@ local plugins = {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
-    }
+    },
+    {
+      "olrtg/nvim-emmet",
+      config = function()
+        vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+      end,
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp",
+        dependencies = {
+            'saadparwaiz1/cmp_luasnip'
+        }
+    },
 }
 
 require("lazy").setup(plugins, opts)

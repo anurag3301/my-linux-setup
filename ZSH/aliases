@@ -14,3 +14,5 @@ alias icat='kitty +kitten icat'
 alias clip='tr -d "\n" | xclip -selection clipbaord'
 alias du='/sbin/du -h'
 alias mkdwm='rm -rf config.h && sudo make clean install'
+alias fzfhis="history | awk '{\$1=\$2=\$3=\"\"; sub(/^ +/, \"\"); print}' | fzf | $SHELL"
+alias amake="make -j$(nproc) ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-"
