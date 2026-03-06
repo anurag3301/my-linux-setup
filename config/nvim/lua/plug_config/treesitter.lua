@@ -1,33 +1,51 @@
--- include treesitter and its config
-require('nvim-treesitter.configs').setup{
+local treesitter = require('nvim-treesitter')
+local parsers_config = require('nvim-treesitter.parsers')
 
-  ensure_installed = {'c', 'cpp', 'python', 'lua', 'typescript',
-                      'regex', 'bash', 'cmake', 'css', 'javascript',
-                      'html', 'comment', 'java', 'rust', 'go', 'markdown',
-                      'make', 'json', 'vim'},
-  highlight = {
-    enable = true,
-  },
+local parsers = {
+  'c',
+  'cpp',
+  'python',
+  'lua',
+  'typescript',
+  'regex',
+  'bash',
+  'cmake',
+  'css',
+  'javascript',
+  'html',
+  'comment',
+  'java',
+  'rust',
+  'go',
+  'markdown',
+  'make',
+  'json',
+  'vim',
+  'asm',
+}
 
-  autotag = {
-    enable = true,
-  },
+treesitter.setup({
+  install_dir = vim.fn.stdpath('data') .. '/site',
+})
 
-  refactor = {
-    smart_rename = {
-      enable = true,
-      keymaps = {
-        smart_rename = 'grr',
-      },
-    },
+parsers_config.asm = {
+  install_info = {
+    url = 'https://github.com/rush-rs/tree-sitter-asm.git',
+    files = { 'src/parser.c' },
+    branch = 'main',
   },
 }
 
+treesitter.install(parsers)
 
-require('nvim-treesitter.parsers').get_parser_configs().asm = {
-    install_info = {
-        url = 'https://github.com/rush-rs/tree-sitter-asm.git',
-        files = { 'src/parser.c' },
-        branch = 'main',
-    },
-}
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = parsers,
+  callback = function(args)
+    vim.treesitter.start(args.buf)
+    vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
+
+pcall(function()
+  require('nvim-ts-autotag').setup()
+end)
