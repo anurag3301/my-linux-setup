@@ -72,3 +72,6 @@ cmd pager ${{
         less -- "$f"
     fi
 }}
+
+map <backspace2> set hidden!
+

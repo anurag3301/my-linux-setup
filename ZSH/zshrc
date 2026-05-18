@@ -21,6 +21,7 @@ if [[ -f "$HOME/.env" ]]; then
 fi
 
 export EDITOR="nvim"
+export TERM=xterm-256color
 export PICO_SDK_PATH=~/pico/pico-sdk
 export GPG_TTY=$(tty)
 
@@ -69,3 +70,8 @@ rotate180() {
     # Remove original
     rm "$input"
 }
+
+fpath=(~/.zsh/completions $fpath)
+autoload -Uz compinit
+compinit
+

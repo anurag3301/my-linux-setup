@@ -41,10 +41,12 @@ fi
 
 
 # Video preview with caching
-case "$1" in
+case "${1,,}" in
     *.mp4 | *.mkv | *.avi | *.webm | *.mov | *.flv | *.wmv)
         thumb_hash=$(printf "%s%s" "$1" "$(stat -c %Y "$1")" | md5sum | awk '{print $1}')
         thumbnail_path="${thumb_cache_path}/video/${thumb_hash}.png"
+
+        mkdir -p "$(dirname "$thumbnail_path")"
 
         if [ ! -f "$thumbnail_path" ]; then
             duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$1")
