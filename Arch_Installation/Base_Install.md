@@ -106,17 +106,41 @@ vim /etc/hosts
 ```sh
 passwd
 ```
-**Install GRUB and dual boot and other stuff**
+**Install systemd-boot (UEFI only) and other stuff**
 ```sh
-# Havent added comment for the commands cuz I also barely know what they do 😅
+pacman -Sy networkmanager sudo git efibootmgr
+# Add amd-ucode or intel-ucode too if you want CPU microcode updates
 
-pacman -Sy grub efibootmgr os-prober networkmanager sudo git
-os-prober
-grub-install --target=x86-64_efi --efi-directory=/boot/ --bootloader-id=GRUB
-mkdir /mnt2
-mount /dev/{windows-efi-partation} /mnt2
-grub-mkconfig -o /boot/grub/grub.cfg
+# Install systemd-boot into the EFI partation (mounted at /boot)
+bootctl install
+
+# Loader config
+cat > /boot/loader/loader.conf << EOF
+default arch.conf
+timeout 3
+console-mode max
+editor no
+EOF
+
+# Find the UUID of the linux filesystem partation
+blkid -s UUID -o value /dev/{linux-filesystem-partation}
+
+# Boot entry for Arch, paste the UUID from above
+cat > /boot/loader/entries/arch.conf << EOF
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /initramfs-linux.img
+options root=UUID={uuid} rw
+EOF
+
+# Check the entries are valid
+bootctl list
 ```
+> **Dual boot:** systemd-boot lists Windows automatically only if Windows uses the *same* EFI partation.
+> If Windows has its own EFI partation (like on my PC), just pick it from the firmware boot menu, or copy
+> `EFI/Microsoft` from the Windows EFI partation into `/boot/EFI`.
+>
+> Systemd-boot works only on UEFI. For old BIOS/MBR machines use [this guide](./Base_Install_BIOS-MBR.md) (GRUB).
 ## Reboot
 ```sh
 # exit from arch-chroot
@@ -143,3 +167,55 @@ usermod -aG wheel,audio,video,storage anurag
 # Now make the sudo execute command with root previleges
 visudo # uncomment "%wheel ALL=(ALL) ALL" and "%sudo   ALL=(ALL) ALL"
 ```
+
+## Secure Boot with sbctl (optional, do it after first boot into the installed system)
+Works with systemd-boot and keeps Windows/Debian dual boot working (Microsoft keys are enrolled too).
+```sh
+sudo pacman -S sbctl
+sudo sbctl status        # Setup Mode will be Disabled for now
+
+# 1. Create your own keys (stored in /var/lib/sbctl)
+sudo sbctl create-keys
+
+# 2. Sign the kernel and bootloader, -s saves them in the sbctl database
+#    so the pacman hook re-signs them after every update
+sudo sbctl sign -s /boot/vmlinuz-linux
+sudo sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi
+sudo sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI
+
+# Make "bootctl update" install the signed bootloader instead of the stock one
+sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi
+sudo bootctl update
+
+# Everything should say signed
+sudo sbctl verify
+```
+Signed binaries still boot fine with Secure Boot off, so this is safe to do first.
+
+**3. Put the firmware in Setup Mode**
+```sh
+systemctl reboot --firmware-setup
+```
+In the BIOS (mine is AMI): Security -> Secure Boot -> set OS type to **Custom**, then
+clear/delete the Platform Key (or "Reset to Setup Mode"). Leave Secure Boot itself off for now and boot Arch.
+```sh
+sudo sbctl status        # Setup Mode: Enabled
+```
+
+**4. Enroll the keys**
+```sh
+# -m also enrolls Microsoft's keys, needed for Windows and GPU option ROMs, don't skip it on a dual boot
+sudo sbctl enroll-keys -m
+```
+
+**5. Reboot to BIOS, turn Secure Boot ON, then verify**
+```sh
+sudo sbctl status        # Secure Boot: Enabled, Setup Mode: Disabled
+bootctl status           # Secure Boot: enabled (user)
+```
+
+**Notes**
+- If something fails to boot, disable Secure Boot in the BIOS to get back in, everything is still bootable.
+- Kernel updates are signed automatically by the sbctl pacman hook. After a systemd update run `sudo bootctl update`.
+- Out-of-tree DKMS modules (VirtualBox etc.) still load, the kernel only logs a tainted/signature warning.
+- Only the kernel and bootloader are verified, the initramfs is not. For full coverage look at Unified Kernel Images (UKI).
